@@ -19,8 +19,7 @@ import { Feather } from '@expo/vector-icons';
 export default function Home() {
   return (
     <View style={globalStyles.container}>
- <Text style={globalStyles.h1}>Heading 1</Text>
-
+      <Text style={globalStyles.h1}>Heading 1</Text>
       <Text style={globalStyles.h2}>Heading 2</Text>
       <Text style={globalStyles.h3}>Heading 3</Text>
       <Text style={globalStyles.h4}>Heading 4</Text>

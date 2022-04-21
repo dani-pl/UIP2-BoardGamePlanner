@@ -1,4 +1,4 @@
-let players = [
+export let PLAYERS = [
   {
     "playerId": 8572,
     "name": "Germaine Ferreiro",

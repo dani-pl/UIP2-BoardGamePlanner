@@ -1,5 +1,6 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
+import {PLAYERS} from "../players";
 export default class PlayerModel {
 
   constructor(props) {
@@ -192,3 +193,4 @@ export default class PlayerModel {
     }
 
 }
+
