@@ -123,8 +123,8 @@ export default class PlayerModel {
      */
     updateFollowers(props){
         this.setState((state, props) => {
-            followers: [...state.followers, props.addFollower]
-        })
+            followers: [...state.followers, props.playerId]
+        }) 
     }
 
 
@@ -134,7 +134,7 @@ export default class PlayerModel {
      */
     updateFollowing(props){
         this.setState((state, props) => {
-            following: [...state.following, props.addFollowing]
+            following: [...state.following, props.playerId]
         })
     }
     
