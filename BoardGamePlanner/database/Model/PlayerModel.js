@@ -12,9 +12,9 @@ export default class PlayerModel {
         password: null,
         username: null,
         image: null,
-        library: [],
-        following: [],
-        followers: [],
+        library: [], // array of GameId <int>
+        following: [], // array of PlayerId <int>
+        followers: [],// array of PlayerId <int>
         language: null,
         location: null,
         description: null,
@@ -28,7 +28,16 @@ export default class PlayerModel {
     this.getLocation = this.getLocation.bind(this);
     this.updateLocation = this.updateLocation.bind(this);
     this.removeLocation = this.removeLocation.bind(this);
-    // TODO: add the other functions
+    this.updateBGGname = this.updateBGGname.bind(this);
+    this.removeBGGname = this.removeBGGname.bind(this)
+    this.updateFollowers = this.updateFollowers.bind(this)
+    this.updateFollowing = this.updateFollowing.bind(this)
+    this.addGame2Library = this.addGame2Library.bind(this)
+    this.removeGameFromLibary = this.removeGameFromLibary.bind(this)
+    this.updateProfileImage = this.updateProfileImage.bind(this)
+    this.updatePassword = this.updatePassword.bind(this)
+    this.login = this.login.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
     
@@ -148,10 +157,15 @@ export default class PlayerModel {
         })
     }
 
-
-
+    /**
+     * This function removes a game from the player's profile using the game id 
+     * @param {number} game id 
+     */
     removeGameFromLibary(gameId){
-        // TODO
+        this.setState({library: this.state.library.filter(function(game) { 
+            // return each game that doesn't equal the provided game id 
+            return game !== gameId
+        })});
     }
 
     /**
