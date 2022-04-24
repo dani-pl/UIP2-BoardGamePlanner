@@ -9,13 +9,12 @@ import {
   Text, View, NativeAppEventEmitter} from 'react-native';
 import {globalStyles} from "./styles";
 import * as Font from 'expo-font';
-import Events from './screens/Events';
-import Tools from './screens/Tools';
-import Profile from './screens/Profile';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {ProfileNavigator,EventsNavigator, ToolsNavigator} from './Navigation'
+
 
 const Tab = createBottomTabNavigator()
 
@@ -36,10 +35,14 @@ export default function App() {
 
 return (
   <NavigationContainer>
-    <Tab.Navigator>
-      <Tab.Screen name="Events" component={Events} />
-      <Tab.Screen name="Profile" component={Profile} />
-      <Tab.Screen name="Tools" component={Tools} />
+    <Tab.Navigator
+    tabBarOptions={{
+      labelStyle:{fontSize:18},
+      activeTintColor: '#1EA596'
+    }}>
+      <Tab.Screen name="Events." component={EventsNavigator}  options={{ headerShown: false }}/>
+      <Tab.Screen name="Profile." component={ProfileNavigator}  options={{ headerShown: false }}/>
+      <Tab.Screen name="Tools." component={ToolsNavigator}  options={{ headerShown: false }}/>
       
     </Tab.Navigator>
   </NavigationContainer>

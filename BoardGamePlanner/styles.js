@@ -108,19 +108,33 @@ export const globalStyles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
         color: secondary
       },
-    btnText: {
+    btnTextWhite: {
         fontSize: 16,
         textAlign: "center",
-        margin: 10,
-        fontFamily: "Montserrat-Regular",
-        color: '#fff'
+        padding: 10,
+        fontFamily: "Montserrat-Semibold",
+        color: '#fff',
     },
+    btnTextNeutral: {
+      fontSize: 16,
+      textAlign: "center",
+      padding: 10,
+      fontFamily: "Montserrat-Semibold",
+      color: neutral60,
+  },
     btnPrimary: {
         backgroundColor: primary,
         borderRadius: 10,
         paddingRight:8,
-        paddingLeft:8,
+        paddingLeft:8,     
     },
+    btnSecondary: {
+      backgroundColor: neutral10,
+      color: neutral60,
+      borderRadius: 10,
+      paddingRight:8,
+      paddingLeft:8,
+  },
     btnIconPrimary:{
       fontSize:16,
       padding:16,

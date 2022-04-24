@@ -11,16 +11,12 @@ import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
 
 
-const Tools = ({navigation}) => {
+
+
+export default function EventsResults() {
   return (
     <View style={globalStyles.container}>
- <Text style={globalStyles.h1}>Tools</Text>
- <Pressable style={globalStyles.btnSecondary} onPress={()=>navigation.navigate("CoinFlip", {msg: "I came from Tools"})}>
- <Text style={globalStyles.btnTextNeutral}>Coin Flip</Text>
-      </Pressable>
- 
+ <Text style={globalStyles.h1}>Event Results</Text>
     </View>
-  );
-
+  )
 }
-export default Tools

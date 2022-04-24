@@ -30,7 +30,7 @@ export default function Events() {
       <Text style={globalStyles.allCaps}>All Caps Small</Text>
       <StatusBar style="auto" />
       <Pressable style={globalStyles.btnPrimary}>
-        <Text style={globalStyles.btnText}>Click me</Text>
+        <Text style={globalStyles.btnTextWhite}>Click me</Text>
       </Pressable>
       <Pressable style={globalStyles.btnIconPrimary}>
       <FontAwesome name={'map'} color='#fff'/>
