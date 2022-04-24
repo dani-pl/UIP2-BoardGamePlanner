@@ -125,6 +125,7 @@ export const globalStyles = StyleSheet.create({
       fontSize:16,
       padding:16,
       textAlign: "center",
+      color:"white",
       margin: 10,
       backgroundColor:primary,
       borderRadius:10

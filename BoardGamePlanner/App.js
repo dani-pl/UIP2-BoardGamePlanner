@@ -1,19 +1,23 @@
 import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import axios from 'axios';
 import { 
   StyleSheet,
   Button,
   Alert,
   SafeAreaView,
   Pressable,
-  Text, View} from 'react-native';
+  Text, View, NativeAppEventEmitter} from 'react-native';
 import {globalStyles} from "./styles";
 import * as Font from 'expo-font';
-import Home from './Home';
+import Events from './screens/Events';
+import Tools from './screens/Tools';
+import Profile from './screens/Profile';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
+import {NavigationContainer} from '@react-navigation/native'
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 
+const Tab = createBottomTabNavigator()
 
 
 export default function App() {
@@ -30,5 +34,14 @@ export default function App() {
   return <AppLoading />;
 }
 
-return <Home />;
+return (
+  <NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen name="Events" component={Events} />
+      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Tools" component={Tools} />
+      
+    </Tab.Navigator>
+  </NavigationContainer>
+);
 }
