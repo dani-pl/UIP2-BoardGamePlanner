@@ -73,7 +73,7 @@ export const globalStyles = StyleSheet.create({
         color: neutral70
       },
       h6: {
-        fontSize: 16,
+        fontSize: 14,
         lineHeight:24,
         margin: 4,
         fontFamily: "Montserrat-Semibold",

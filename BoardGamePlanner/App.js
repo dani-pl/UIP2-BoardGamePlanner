@@ -14,13 +14,15 @@ import Home from './Home';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import {getBGGLibrary} from './database/Model/GameModel'
+// import GameListItem from './components/GameListItem';
+import {GameLibrary} from './components/GameLibrary';
 
 
 
 export default function App() {
 
-  var games = getBGGLibrary('trisroyal');
-  console.log(games[0])
+  // var games = getBGGLibrary('trisroyal');
+  // console.log(games[0])
   // games.forEach(game => {
   //   console.log(game)
   // });
@@ -38,5 +40,5 @@ export default function App() {
   return <AppLoading />;
 }
 
-return <Home />;
+return <GameLibrary />;
 }

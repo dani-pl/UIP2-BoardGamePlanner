@@ -58,7 +58,7 @@ var gameLibrary = [];
  * @returns {list} gameLibrary
  */
 export const getBGGLibrary = (BGGid) => {
-    
+    var gameLibrary = [];
     // axios setup
     const source = axios.CancelToken.source();
     const BGGURL = `https://bgg-json.azurewebsites.net/collection/${BGGid}?grouped=true`;
@@ -77,9 +77,13 @@ export const getBGGLibrary = (BGGid) => {
                 for (let index = 0; index < BGG_Library.length; index++) {
                     const game = BGG_Library[index];
                     // console.log(game.name)
-                    gameLibrary.push(game.name)
+                    gameLibrary.push({
+                        "gameId": game.gameId,
+                        "name": game.name,
+                        "image": game.image,
+                        "thumbnail":game.thumbnail})
                 }
-                // console.log(gameLibrary)
+                console.log(gameLibrary)
                 return gameLibrary;
             } 
             else {
