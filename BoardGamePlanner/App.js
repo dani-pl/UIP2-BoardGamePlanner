@@ -16,12 +16,22 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import {ProfileNavigator,EventsNavigator, ToolsNavigator} from './Navigation'
+import {getBGGLibrary} from './database/Model/GameModel'
+// import GameListItem from './components/GameListItem';
+import {GameLibrary} from './components/GameLibrary';
 
 
 const Tab = createBottomTabNavigator()
 
 
 export default function App() {
+
+  // var games = getBGGLibrary('trisroyal');
+  // console.log(games[0])
+  // games.forEach(game => {
+  //   console.log(game)
+  // });
+
   let [fontsLoaded] = useFonts({
         'Montserrat-Semibold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
         'Montserrat-Italic': require('./assets/fonts/Montserrat-Italic.ttf'),

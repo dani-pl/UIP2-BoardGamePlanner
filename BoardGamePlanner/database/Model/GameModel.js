@@ -50,6 +50,8 @@ export const getGameImageById = (gameId) => {
 }
 
 
+var gameLibrary = [];
+
 /**
  * This function loads the games that a user has in Board Game Geek using their BGG user name
  * @param {string} BGGid 
@@ -62,10 +64,10 @@ export const getBGGLibrary = (BGGid) => {
     const BGGURL = `https://bgg-json.azurewebsites.net/collection/${BGGid}?grouped=true`;
     
     /**
-     * this function calls BGG API and fetches the users library
+     * this function calls BGG API and fetches the user's library from BGG
      * @returns 
      */
-    const fetchGames = async () => {
+    async function fetchGames() {
         try {
             const response = await axios.get(BGGURL, {cancelToken: source.token});
             // if the status is OK
@@ -74,10 +76,17 @@ export const getBGGLibrary = (BGGid) => {
                 const BGG_Library = response.data;
                 for (let index = 0; index < BGG_Library.length; index++) {
                     const game = BGG_Library[index];
-                    gameLibrary.push(game.gameId)
+                    // console.log(game.name)
+                    gameLibrary.push({
+                        "gameId": game.gameId,
+                        "name": game.name,
+                        "image": game.image,
+                        "thumbnail":game.thumbnail})
                 }
-                return;
-            } else {
+                console.log(gameLibrary)
+                return gameLibrary;
+            } 
+            else {
                 // in all other cases throw an error
                 throw new Error("Failed to fetch games from BGG: ");
             }
@@ -91,7 +100,7 @@ export const getBGGLibrary = (BGGid) => {
     }
 
     // fetch the game library from Board Game Geek
-    fetchGames();
-
-    return gameLibrary;
+    
+    console.log(`here: ${fetchGames()}`) 
+    return fetchGames();
 }
