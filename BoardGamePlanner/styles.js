@@ -123,7 +123,7 @@ export const globalStyles = StyleSheet.create({
       color: neutral60,
   },
     btnPrimary: {
-        backgroundColor: primary,
+        backgroundColor: neutral30,
         borderRadius: 10,
         paddingRight:8,
         paddingLeft:8,     

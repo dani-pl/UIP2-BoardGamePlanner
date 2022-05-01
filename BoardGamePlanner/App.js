@@ -13,6 +13,8 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import {ProfileNavigator,EventsNavigator, ToolsNavigator} from './Navigation'
 
 
@@ -33,16 +35,29 @@ export default function App() {
   return <AppLoading />;
 }
 
+
+
 return (
   <NavigationContainer>
-    <Tab.Navigator
+    <Tab.Navigator screenOptions={{ headerShown: false }}
     tabBarOptions={{
-      labelStyle:{fontSize:18},
-      activeTintColor: '#1EA596'
-    }}>
-      <Tab.Screen name="Events." component={EventsNavigator}  options={{ headerShown: false }}/>
-      <Tab.Screen name="Profile." component={ProfileNavigator}  options={{ headerShown: false }}/>
-      <Tab.Screen name="Tools." component={ToolsNavigator}  options={{ headerShown: false }}/>
+      labelStyle:{fontSize:14},
+      activeTintColor: '#1EA596',
+      inactiveTintColor: '#5A6867',
+    }}
+    >
+      <Tab.Screen name="Events." component={EventsNavigator}   options={{
+                    tabBarIcon: ({size, color, focused}) => (<FontAwesome  focused={focused} name={"map"} color={color} size={20}/>)
+                }}
+            />
+      <Tab.Screen name="Profile." component={ProfileNavigator}  options={{
+          tabBarIcon: ({size, color, focused}) => (<FontAwesome focused={focused} name={"user"} color={color} size={20} />)
+      }}
+            />
+      <Tab.Screen name="Tools." component={ToolsNavigator}  options={{
+        tabBarIcon: ({size, color, focused}) => (<FontAwesome5 focused={focused} name={"dice-four"} color={color} size={20} />)
+    }}
+            />
       
     </Tab.Navigator>
   </NavigationContainer>

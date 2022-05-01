@@ -39,6 +39,7 @@ const ToolsNavigator = () => {
     name ="CoinFlip"
     component ={CoinFlip}
     />
+    
 
 </Stack.Navigator>
     );
