@@ -16,6 +16,7 @@ import { useFonts } from 'expo-font';
 import {getBGGLibrary} from './database/Model/GameModel'
 // import GameListItem from './components/GameListItem';
 import {GameLibrary} from './components/GameLibrary';
+import FirsPlayerView from './components/Tools/FirsPlayerView';
 
 
 
@@ -40,5 +41,5 @@ export default function App() {
   return <AppLoading />;
 }
 
-return <GameLibrary />;
+return <FirsPlayerView />;
 }
