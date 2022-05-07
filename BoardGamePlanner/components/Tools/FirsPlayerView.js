@@ -1,9 +1,9 @@
 import React , {useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { View, Animated, TouchableOpacity, Text, PanResponder, Dimensions} from 'react-native'
+import { View, Animated, Vibration, Text, PanResponder, Dimensions, Easing} from 'react-native'
 import { globalStyles } from '../../styles'
 
 
-const gameDuration = 5000;
+const gameDuration = 3000;
 let timerInterval;
 
 
@@ -22,13 +22,49 @@ const FirsPlayerView = () => {
     const [winner, setWinner] = useState(null);
     const [timer, setTimer] = useState(0);
     const prevPlayers = usePrevPlayers(players);
+    const pulseAnim = new Animated.Value(1);
+    const winnerScale = new Animated.Value(pulseAnim);
+    const [background, setBackground] = useState('white');
 
+
+    useEffect(()=>{
+        Animated.loop(
+            Animated.sequence([
+                Animated.timing(pulseAnim, {
+                    toValue: 1.1,
+                    duration: 300,
+                    easing: Easing.linear,
+                    useNativeDriver: false
+                }),
+                Animated.timing(pulseAnim, {
+                    toValue: 1.2,
+                    duration: 300,
+                    easing: Easing.linear,
+                    useNativeDriver: false
+                }),
+                Animated.timing(pulseAnim, {
+                    toValue: 1.1,
+                    duration: 300,
+                    easing: Easing.linear,
+                    useNativeDriver: false
+                }),
+                Animated.timing(pulseAnim, {
+                    toValue: 1.2,
+                    duration: 300,
+                    easing: Easing.linear,
+                    useNativeDriver: false
+                }),
+            ])
+        ).start()
+    },[players, timer])
 
     useEffect(() => {
         if(players.length > 1 && (prevPlayers.length !== players.length)){
             start();
+            
         }else if(players.length < 2){
             stop()
+          
         }
     }, [players])
     
@@ -37,6 +73,13 @@ const FirsPlayerView = () => {
             clearInterval(timerInterval);
             var tempWinner = players[Math.floor(Math.random()*players.length)];
             setWinner(tempWinner);
+            setBackground(colors[tempWinner.identifier-1]);
+            Animated.timing(winnerScale, {
+                toValue:2.5,
+                duration: 200,
+                useNativeDriver:false
+            })
+
             // console.log("WINNNNERERERE!!!! ",tempWinner)
             // alert("WINNNNERERERE!!!! " + tempWinner.identifier)
         }
@@ -56,6 +99,8 @@ const FirsPlayerView = () => {
         timerInterval = setInterval(()=>{
             // for each 100ms add 100 to the timer
             setTimer(prevTime => prevTime + 1000);
+            Vibration.vibrate(1,1000);
+        
             console.log(timer)
         },1000)
     }
@@ -70,7 +115,8 @@ const FirsPlayerView = () => {
         // reset the values 
         console.log(winner)
         setTimer(0);
-        setWinner(0);
+        setWinner(null);
+        setBackground('white')
     }
 
     const colors = [
@@ -117,6 +163,7 @@ const FirsPlayerView = () => {
             */
             onPanResponderGrant: () => {
                 console.log("Access granted")
+                // pulseAnim.setOffset(pulseAnim._value)
                 // it copies the value after the touch and store it so we don't lose the value when the user starts moving
                 // pan.setOffset({
                 // x: pan.x._value,
@@ -131,6 +178,7 @@ const FirsPlayerView = () => {
             },
             onPanResponderStart:(event,gesture) => {
                 getPlayers(event,gesture)
+                pulseAnim.setOffset(pulseAnim._value)
             },
             /* fires whichever function is passed every single time a move is detected on the screen.
                 ignore the event and just get the gesture
@@ -142,7 +190,8 @@ const FirsPlayerView = () => {
             // },
             onPanResponderMove: (_,gesture) => {
                 // console.log("here",_.nativeEvent)
-                getPlayers(_,gesture)},
+                getPlayers(_,gesture)
+            },    
             onPanResponderEnd: (event,gesture) => getPlayers(event,gesture),
 
             /* fires when the finger is released from the screen, used for clean up */
@@ -151,6 +200,7 @@ const FirsPlayerView = () => {
             //         makes sure that the object is doesn't snap to another position when the user touches the screen again */
             //     // pan.flattenOffset();
                 // players.flattenOffset()
+                pulseAnim.flattenOffset();
             }
         }),[]
     );
@@ -172,54 +222,39 @@ const FirsPlayerView = () => {
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'center',
+                backgroundColor: background
             }
             // ,pan.getLayout()
             ]} {...panResponder.panHandlers}>
+                
+                {/* <Text style={globalStyles.h1}> {timer == 0 && players.length > 1 ? "Ready?": players.length < 1 ? "":(gameDuration - timer)/1000}</Text> */}
 
-                <Text style={globalStyles.h1}> {timer==0 && players.length >1 ? "Ready?": players.length < 1 ? "":(gameDuration - timer)/1000}</Text>
                 {players.map((player) => {
-                    var isWinner = (winner.identifier == player.identifier)
+                    var isWinner = winner !== null && (winner.identifier == player.identifier)
                     console.log(isWinner)
                     return (
+                        (winner == null || isWinner) &&
                         <Animated.View
                             key={player.identifier}
                             style={{
-                                width: isWinner ? Dimensions.get('window').width :110,
-                                height: isWinner ? Dimensions.get('window').height :110,
-                                backgroundColor:isWinner ? colors[player.identifier-1] : 'transparent',
-                                borderRadius: !isWinner && (110 / 2),
-                                borderWidth: 8,
-                                borderColor: colors[player.identifier-1],
-                                alignItems:'center',
-                                justifyContent:'center',
-                                position:'absolute',
-                                top: !isWinner && (player.y - (110/2)),
-                                left: !isWinner && (player.x - (110/2)),
+                                width: isWinner ? 225 : 130,
+                                height: isWinner ? 225 : 130,
+                                backgroundColor: isWinner ? "white" :'transparent',
+                                borderRadius: (isWinner ? 225 : 130) / 2,
+                                borderWidth: 20,
+                                borderColor:  isWinner ? "white" : colors[player.identifier-1],
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                position: 'absolute',
+                                top: player.y - ((isWinner ? 225 : 130)/2),
+                                left: player.x - ((isWinner ? 225 : 130)/2),
+                                transform: [{scale: isWinner ? pulseAnim : 1}]
                             }}
-                        ><Text style={[globalStyles.h1,{color:colors[player.identifier-1]}]}>{player.identifier}</Text></Animated.View>
-                        
+                        >
+                            {/* <Text style={[globalStyles.h1,{color:colors[player.identifier-1]}]}>{player.identifier}</Text> */}
+                        </Animated.View>
                     )
                 })}
-                    {/* <Animated.View
-                        style={[{
-                            width: 110,
-                            height: 110,
-                            borderRadius: 110 / 2,
-                            borderWidth: 8,
-                            borderColor: '#1EA596',
-                            backgroundColor: 'transparent',
-                        },
-                        // returns an object that has the left and top value of the (new) position
-                        // pan.getLayout()
-                    ]}
-                    //   {...panResponder.panHandlers}
-                    />  */}
-                        {/* <View style={{
-                            backgroundColor:'black',
-                            width: 20, 
-                            height: 20, 
-                            borderRadius: 20/2
-                        }}/> */}
             </View>
         // </View>
     )
