@@ -2598,6 +2598,13 @@ expo-asset@~8.4.6:
     path-browserify "^1.0.0"
     url-parse "^1.4.4"
 
+expo-av@~10.2.0:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/expo-av/-/expo-av-10.2.1.tgz#c08bce464d673d0e90c68cac082bfb75a9437f25"
+  integrity sha512-thrkHVg4HVn8L+jHKVnXYd4TLkJQblFE8QXd3d1hwrYG63gehQT2nK4DM0Frl50EcdV8YN9XjhwHobtK5oMc9A==
+  dependencies:
+    "@expo/config-plugins" "^4.0.2"
+
 expo-constants@~13.0.2:
   version "13.0.2"
   resolved "https://registry.npmjs.org/expo-constants/-/expo-constants-13.0.2.tgz"
@@ -2625,6 +2632,11 @@ expo-font@^10.0.5, expo-font@~10.0.5:
   integrity sha512-x9YwM0xLkDdSvFjeNbyuh33Q1Hk3uc2jbMuuAN5W2ZVcUZqG0M8GCX/KV/D/7rYqdXKbliQA5r44MyDwZe/XRw==
   dependencies:
     fontfaceobserver "^2.1.0"
+
+expo-haptics@~11.1.0:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-11.1.1.tgz#fdaf253d35433e07415424e4792b1db5cc9b0961"
+  integrity sha512-Z1qRr9/lPInLhTtyjFyLqPC4edg1G/qlWCShFXNz5eJHOnotOv8qpIKDOvPYPrG3XsJc8UO8ds2Z3qmBUApEUA==
 
 expo-keep-awake@~10.0.2:
   version "10.0.2"
