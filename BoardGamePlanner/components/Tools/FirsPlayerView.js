@@ -1,9 +1,9 @@
 import React , {useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { View, Animated, Vibration, Text, PanResponder, Dimensions, Easing} from 'react-native'
-import { globalStyles } from '../../styles';
+import { View, Animated, Vibration, PanResponder, Dimensions, Easing} from 'react-native'
+import { backgroundColor, firstPlayerColors, globalStyles } from '../../styles';
 import { Audio } from 'expo-av';
 import * as Haptics from 'expo-haptics';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import FirstPlayerStartView from './FPstart';
 
 
 const gameDuration = 3000;
@@ -27,7 +27,7 @@ const FirsPlayerView = () => {
     const prevPlayers = usePrevPlayers(players);
     const pulseAnim = new Animated.Value(1);
     const winnerScale = new Animated.Value(1);
-    const [background, setBackground] = useState('#FCFDFC');
+    const [background, setBackground] = useState(backgroundColor);
     // Sound effects
     const [touchSound, setTouchSound] = useState();
     const [releaseSound, setReleaseSound] = useState();
@@ -146,7 +146,7 @@ const FirsPlayerView = () => {
             clearInterval(timerInterval);
             var tempWinner = players[Math.floor(Math.random()*players.length)];
             setWinner(tempWinner);
-            setBackground(colors[tempWinner.identifier-1]);
+            setBackground(firstPlayerColors[tempWinner.identifier-1]);
             playWinnerSound()
             Animated.timing(winnerScale, {
                 toValue: 2.5,
@@ -191,16 +191,8 @@ const FirsPlayerView = () => {
         console.log(winner)
         setTimer(0);
         setWinner(null);
-        setBackground('#FCFDFC')
+        setBackground(backgroundColor)
     }
-
-    const colors = [
-        '#25B4A4',
-        '#ffb100',
-        '#F194B4',
-        '#DC3030',
-        '#6359E8',
-      ];
 
     // you need a value, which should transform into another value
     // Animated.Value makes changes to the screen without rerendering the component
@@ -209,6 +201,10 @@ const FirsPlayerView = () => {
 
     const pan = useState(new Animated.ValueXY())[0]
 
+    /**
+     * callback function that is run when changes in gesture is detected. 
+     * It identifies each finger (player) on the screen and updates the coordinates and identifier of the current players
+     */
     const getPlayers = useCallback((event, gesture) => {
         const {nativeEvent: {touches}} = event;
         const coords = touches.map(touch => ({
@@ -216,7 +212,6 @@ const FirsPlayerView = () => {
             x: touch.locationX,
             y: touch.locationY 
         }));
-        // console.log({touches},Dimensions.get('window').height)
         setPlayers(coords)
       },[],
     );
@@ -237,65 +232,47 @@ const FirsPlayerView = () => {
             */
             onPanResponderGrant: () => {
                 console.log("Access granted")
-                console.log('touch detected')
-                // pulseAnim.setOffset(pulseAnim._value)
                 // it copies the value after the touch and store it so we don't lose the value when the user starts moving
                 // pan.setOffset({
                 // x: pan.x._value,
                 // y: pan.y._value
                 // });
-                // players.setOffset(players.map(player => {
-                //     return {
-                //         x: player.x._value,
-                //         y:player.y._value
-                //     }
-                // }));
             },
             onPanResponderStart:(event,gesture) => {
+                // Touch detected
+                // give haptic feedback
                 Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)
+                // play the start sound
                 playTouchSound();
+                // get and update the players on the screen
                 getPlayers(event,gesture)
+                // make sure the we store the initial value of the pulse animation so we ddon't lose it when a player starts moving
                 pulseAnim.setOffset(pulseAnim._value)
             },
             /* fires whichever function is passed every single time a move is detected on the screen.
                 ignore the event and just get the gesture
             */
-            // onPanResponderMove: (_, gesture) => {
-            //     // console.log("ARGGA", args[1])
-            //     pan.x.setValue(gesture.dx)
-            //     pan.y.setValue(gesture.dy)
-            // },
-            onPanResponderMove: (_,gesture) => {
-                // console.log("here",_.nativeEvent)
-                getPlayers(_,gesture)
-            },    
+            onPanResponderMove: (event,gesture) => {
+                // get and update the players on the screen
+                getPlayers(event,gesture)
+            },  
+            /* fires which ever function at the end of the gesture */
             onPanResponderEnd: (event,gesture) => 
                 {   
+                    // play release sound
                     playReleaseSound()
+                    // get and update the players on the screen
                     getPlayers(event,gesture);
                 },
 
             /* fires when the finger is released from the screen, used for clean up */
             onPanResponderRelease: () => {
-            //     /* flattendOffset => it adds the offset to the main value 
-            //         makes sure that the object is doesn't snap to another position when the user touches the screen again */
-            //     // pan.flattenOffset();
-                // players.flattenOffset()
+                /* flattendOffset => it adds the offset to the main value 
+                    makes sure that the object is doesn't snap to another position when the user touches the screen again */
                 pulseAnim.flattenOffset();
             }
         }),[]
     );
-
-    /**
-     * 
-     */
-    function moveBall (){
-        Animated.timing(leftValue, {
-            toValue: 100, // new value
-            duration: 5000,
-            useNativeDriver: true
-        }).start()
-    }
 
     return (
         // <View style={{flex:1}}>
@@ -308,21 +285,8 @@ const FirsPlayerView = () => {
             // ,pan.getLayout()
             ]} {...panResponder.panHandlers}>
                 
-                {/* <Text style={globalStyles.h1}> {timer == 0 && players.length > 1 ? "Ready?": players.length < 1 ? "":(gameDuration - timer)/1000}</Text> */}
                 { players.length < 1 ? 
-                    <View style={globalStyles.container}>
-                        <Text style={[globalStyles.h4,{width:300, textAlign:'center'}]}>All players place and hold 1 finger on the screen</Text>
-                        <Text>(2 to 5 players)</Text>
-                        <View style={{
-                            display: "flex",
-                            backgroundColor:"#AFE4DE",
-                            borderRadius: 100 / 2,
-                            margin: 10
-                        }}>
-                            <MaterialCommunityIcons name="gesture-tap-hold" size={60} color='#1EA596' style={{padding: 20, alignItems: 'center',
-                            justifyContent: 'center',}}/>
-                        </View>
-                    </View> 
+                    <FirstPlayerStartView/>
                 : 
                 players.map((player) => {
                     var isWinner = winner !== null && (winner.identifier == player.identifier)
@@ -334,10 +298,10 @@ const FirsPlayerView = () => {
                             style={{
                                 width: isWinner ? 225 : 130,
                                 height: isWinner ? 225 : 130,
-                                backgroundColor: isWinner ? "white" :'transparent',
+                                backgroundColor: isWinner ? backgroundColor :'transparent',
                                 borderRadius: (isWinner ? 225 : 130) / 2,
                                 borderWidth: 20,
-                                borderColor:  isWinner ? "white" : colors[player.identifier-1],
+                                borderColor:  isWinner ? backgroundColor : firstPlayerColors[player.identifier-1],
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 position: 'absolute',
@@ -345,13 +309,10 @@ const FirsPlayerView = () => {
                                 left: player.x - ((isWinner ? 225 : 130) /2),
                                 transform: [{scale: isWinner ? pulseAnim : 1}]
                             }}
-                        >
-                            {/* <Text style={[globalStyles.h1,{color:colors[player.identifier-1]}]}>{player.identifier}</Text> */}
-                        </Animated.View>
+                        />
                     )
                 })}
             </View>
-        // </View>
     )
 }
 

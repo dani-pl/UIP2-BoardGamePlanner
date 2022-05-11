@@ -2,33 +2,34 @@ import React from 'react'
 import { StyleSheet } from 'react-native';
 
 
-var green70 = '#077064';
-var green60 = '#118C7E';
-var green50 = '#1EA596';
-var green40 = '#25B4A4';
-var green30 = '#6ECEC3';
-var green20 = '#AFE4DE';
-var green10 = '#E8F7F6';
-var primary = green50;
+export var green70 = '#077064';
+export var green60 = '#118C7E';
+export var green50 = '#1EA596';
+export var green40 = '#25B4A4';
+export var green30 = '#6ECEC3';
+export var green20 = '#AFE4DE';
+export var green10 = '#E8F7F6';
+export var primary = green50;
 
-var purple70 = '#0E0770';
-var purple60 = '#2F25B4';
-var purple50 = '#4A3FDD';
-var purple40 = '#6359E8';
-var purple30 = '#7069D3';
-var purple20 = '#B0ACE7';
-var purple10 = '#E8E7F8';
-var secondary = purple50;
+export var purple70 = '#0E0770';
+export var purple60 = '#2F25B4';
+export var purple50 = '#4A3FDD';
+export var purple40 = '#6359E8';
+export var purple30 = '#7069D3';
+export var purple20 = '#B0ACE7';
+export var purple10 = '#E8E7F8';
+export var secondary = purple50;
 
-var neutral70 = '#11201F';
-var neutral60 = '#2F3C3B';
-var neutral50 = '#5A6867';
-var neutral40 = '#869392';
-var neutral30 = '#C7CCCC';
-var neutral20 = '#E7E9E9';
-var neutral10 = '#F4F5F5';
+export var neutral70 = '#11201F';
+export var neutral60 = '#2F3C3B';
+export var neutral50 = '#5A6867';
+export var neutral40 = '#869392';
+export var neutral30 = '#C7CCCC';
+export var neutral20 = '#E7E9E9';
+export var neutral10 = '#F4F5F5';
 
-var backgroundColor = '#FCFDFC';
+export const backgroundColor = '#FCFDFC';
+export const firstPlayerColors = ['#25B4A4','#ffb100','#F194B4','#DC3030','#6359E8']
 
 export const globalStyles = StyleSheet.create({
     container: {
