@@ -14,45 +14,57 @@ import { Feather } from '@expo/vector-icons';
 import MapView from 'react-native-maps';
 import { Marker } from "react-native-maps";
 import Geolocation from "react-native-geolocation-service";
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
 
 
 
 
 
-export default function Events() {
-  const tokyoRegion = {
-    latitude: 35.6762,
-    longitude: 139.6503,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  };
-  return (
-    <View style={globalStyles.container}>
-     <MapView style={globalStyles.map} initialRegion={tokyoRegion}>
-     <Marker coordinate={tokyoRegion} image={require("../assets/event_img.png")}/>
-     </MapView>
-{/*  <Text style={globalStyles.h1}>Heading 1</Text>
-      <Text style={globalStyles.h2}>Heading 2</Text>
-      <Text style={globalStyles.h3}>Heading 3</Text>
-      <Text style={globalStyles.h4}>Heading 4</Text>
-      <Text style={globalStyles.h5}>Heading 5</Text>
-      <Text style={globalStyles.h6}>Heading 6</Text>
-      <Text style={globalStyles.subtitle1}>Subtitle1</Text>
-      <Text style={globalStyles.subtitle2}>Subtitle2</Text>
-      <Text style={globalStyles.subtitle3}>Subtitle3</Text>
-      <Text style={globalStyles.allCaps}>All Caps Small</Text>
-      <StatusBar style="auto" />
-      <Pressable style={globalStyles.btnPrimary}>
-        <Text style={globalStyles.btnTextWhite}>Click me</Text>
-      </Pressable>
-      <Pressable style={globalStyles.btnIconPrimary}>
-      <FontAwesome name={'map'} color='#fff'/>
-      </Pressable>
-      <Pressable style={globalStyles.btnIconSecondary}>
-      <FontAwesome name={'map'} color='#2F3C3B'/>
-      </Pressable> */}
-    </View>
-  )
+
+export default class Events extends React.Component {
+
+  state = {
+    location:{},
+    errorMessage:''
+  }
+
+  componentWillMount() {
+    this._getLocation();
+  }
+
+  _getLocation = async() =>{
+    const {status} = await Permissions.askAsync(Permissions.LOCATION);
+
+    if(status !== 'granted'){
+      console.log('PERMISSION NOT GRANTED!')
+
+      this.setState({
+        errorMessage: 'PERMISSION NOT GRANTED'
+      })
+    }
+    const location = await Location.getCurrentPositionAsync();
+
+    this.setState({
+      location
+    })
+    const currentLocation = {
+      latitude: this.state.location,
+      longitude: this.state.location,
+      latitudeDelta: 0.01,
+      longitudeDelta: 0.01,
+    };
+  }
+  render(){
+    return (
+      <View style={globalStyles.container}>
+      {/* <MapView style={globalStyles.map} initialRegion={tokyoRegion}>
+      <Marker coordinate={tokyoRegion} image={require("../assets/event_img.png")}/>
+      </MapView> */}
+        <Text>{JSON.stringify(this.state.location)}</Text>
+      </View>
+    )
+    }
 }
 
 
