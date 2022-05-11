@@ -7,6 +7,8 @@ import CoinFlip from './screens/CoinFlip'
 import Events from './screens/Events'
 import EventsResults from './screens/EventsResults'
 
+
+
 const Stack = createStackNavigator();
 
 const ProfileNavigator = () => {
@@ -15,6 +17,16 @@ const ProfileNavigator = () => {
     <Stack.Screen
     name ="Profile"
     component ={Profile}
+    options={{
+        title: 'Profile',
+        headerStyle: {
+          backgroundColor: '#1EA596',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontSize: 20,
+        },
+      }}
     />
        <Stack.Screen
     name ="Settings"
@@ -34,10 +46,30 @@ const ToolsNavigator = () => {
     <Stack.Screen
     name ="Tools"
     component ={Tools}
+    options={{
+        title: 'Tools',
+        headerStyle: {
+          backgroundColor: '#1EA596',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontSize: 20,
+        },
+      }}
     />
        <Stack.Screen
     name ="CoinFlip"
     component ={CoinFlip}
+    options={{
+        title: 'Coin Flip',
+        headerStyle: {
+          backgroundColor: '#1EA596',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontSize: 20,
+        },
+      }}
     />
     
 
@@ -54,6 +86,16 @@ const EventsNavigator = () => {
     <Stack.Screen
     name ="Events"
     component ={Events}
+    options={{
+        title: 'Events',
+        headerStyle: {
+          backgroundColor: '#1EA596',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontSize: 20,
+        },
+      }}
     />
        <Stack.Screen
     name ="EventsResults"

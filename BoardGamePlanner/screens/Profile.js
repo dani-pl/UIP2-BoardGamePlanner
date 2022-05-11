@@ -9,14 +9,13 @@ import {
   Text, View} from 'react-native';
 import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
-
+import GameListItem from '../components/GameListItem';
 
 
 
 const Profile = ({navigation}) => {
   return (
     <View style={globalStyles.container}>
- <Text style={globalStyles.h1}>Profile</Text>
  
  <Pressable style={globalStyles.btnSecondary}>
         <Text style={globalStyles.btnTextNeutral}>Edit</Text>
@@ -25,6 +24,8 @@ const Profile = ({navigation}) => {
       <FontAwesome name={'cog'} color='#2F3C3B'/>
       </Pressable>
 
+      <Text style={globalStyles.h4}>Library</Text>
+ <GameListItem/>
     </View>
   )
 }

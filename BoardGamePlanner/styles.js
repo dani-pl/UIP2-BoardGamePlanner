@@ -28,14 +28,17 @@ var neutral30 = '#C7CCCC';
 var neutral20 = '#E7E9E9';
 var neutral10 = '#F4F5F5';
 
-var backgroundColor = '#FCFDFC';
+var backgroundColor = '#f2f2f2';
 
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
        backgroundColor: backgroundColor,
-       alignItems: 'center',
-       justifyContent: 'center',
+      //  justifyContent: 'center',
+       marginTop:20,
+       marginLeft:20,
+       marginRight:20,
+
     },
     h1: {
       fontSize: 32,
@@ -123,10 +126,11 @@ export const globalStyles = StyleSheet.create({
       color: neutral60,
   },
     btnPrimary: {
-        backgroundColor: neutral30,
+        backgroundColor: primary,
         borderRadius: 10,
         paddingRight:8,
-        paddingLeft:8,     
+        paddingLeft:8, 
+        alignSelf:"flex-start",  
     },
     btnSecondary: {
       backgroundColor: neutral10,
@@ -134,6 +138,7 @@ export const globalStyles = StyleSheet.create({
       borderRadius: 10,
       paddingRight:8,
       paddingLeft:8,
+      alignSelf:"flex-start",
   },
     btnIconPrimary:{
       fontSize:16,
@@ -141,6 +146,7 @@ export const globalStyles = StyleSheet.create({
       textAlign: "center",
       color:"white",
       margin: 10,
+      alignSelf:"flex-start",
       backgroundColor:primary,
       borderRadius:10
     },
@@ -152,6 +158,7 @@ export const globalStyles = StyleSheet.create({
       padding:16,
       textAlign: "center",
       margin: 10,
+      alignSelf:"flex-start",
       backgroundColor:neutral10,
       borderRadius:10,
       color:purple10
@@ -159,4 +166,38 @@ export const globalStyles = StyleSheet.create({
     iconStyleSecondary:{
       color:neutral60
     },
-  });
+    mainCardView: {
+      height: 80,
+      // width: "90%",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      borderRadius: 16,
+      backgroundColor: '#ffffff',
+      shadowColor: "#F4F5F5",
+      shadowOffset: {width: 10, height: 10},
+      shadowOpacity: 1,
+      shadowRadius: 10,
+      elevation: 8,
+      paddingTop: 8,
+      paddingBottom: 8,
+      paddingRight: 16,
+      paddingLeft: 16,
+   marginTop: 6,
+  marginBottom: 6,
+      // marginLeft: 16,
+      // marginRight: 16,
+  },
+  subCardView: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent:'flex-start',
+      alignItems: "center",
+      
+  },
+  textStyle: {
+      marginLeft: 20,
+      width:'57%',
+      flexShrink: 1,
+  }});
