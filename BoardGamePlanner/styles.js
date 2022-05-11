@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 
 var green70 = '#077064';
@@ -158,5 +158,9 @@ export const globalStyles = StyleSheet.create({
     },
     iconStyleSecondary:{
       color:neutral60
+    },
+    map: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
     },
   });
