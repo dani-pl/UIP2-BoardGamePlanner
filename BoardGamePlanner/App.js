@@ -33,7 +33,7 @@ export default function App() {
 }
 
 
-
+<script src="http://localhost:8097"></script>
 return (
   <NavigationContainer>
     <Tab.Navigator screenOptions={{ headerShown: false }}

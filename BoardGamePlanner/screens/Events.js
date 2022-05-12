@@ -26,6 +26,8 @@ export default class Events extends React.Component {
 
   state = {
     location:{},
+    latitude:0,
+    longitude:0,
     errorMessage:''
   }
 
@@ -45,23 +47,34 @@ export default class Events extends React.Component {
     }
     const location = await Location.getCurrentPositionAsync();
 
+    if(location.coords.latitude!=null){
+      this.setState({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+      })
+    }
+
     this.setState({
       location
     })
+
+    
+    
+  }
+  render(){
     const currentLocation = {
-      latitude: this.state.location,
-      longitude: this.state.location,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     };
-  }
-  render(){
     return (
       <View style={globalStyles.container}>
-      {/* <MapView style={globalStyles.map} initialRegion={tokyoRegion}>
-      <Marker coordinate={tokyoRegion} image={require("../assets/event_img.png")}/>
-      </MapView> */}
-        <Text>{JSON.stringify(this.state.location)}</Text>
+      <MapView style={globalStyles.map} initialRegion={currentLocation}>
+      <Marker coordinate={currentLocation} image={require("../assets/event_img.png")}/>
+      </MapView>
+        {/* <Text>{JSON.stringify(this.state.latitude)}</Text> */}
+        
       </View>
     )
     }
