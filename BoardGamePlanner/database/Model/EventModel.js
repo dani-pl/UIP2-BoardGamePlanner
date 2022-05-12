@@ -35,10 +35,10 @@ export default class EventModel {
       this.updateGamesOfEvent = this.updateGamesOfEvent.bind(this);
       this.getPrivacy = this.getPrivacy.bind(this);
       this.updatePrivacy = this.updatePrivacy.bind(this);
-      this.getHostIdOfEvent = this.getHostIdOfEvent.bind(this);
-      this.updateHostIdOfEvent = this.updateHostIdOfEvent.bind(this);
-      this.getCoHostIdOfEvent = this.getCoHostIdOfEvent.bind(this);
-      this.updateCoHostIdOfEvent = this.updateCoHostIdOfEvent.bind(this);
+      this.getHostId = this.getHostId.bind(this);
+      this.updateHostId = this.updateHostId.bind(this);
+      this.getCoHostId = this.getCoHostId.bind(this);
+      this.updateCoHostId = this.updateCoHostId.bind(this);
       this.getListOfAttendees = this.getListOfAttendees.bind(this);
       this.updateListOfAteendees = this.updateListOfAteendees.bind(this);
       this.getListOfInvetedPeople = this.getListOfInvetedPeople.bind(this);
@@ -252,6 +252,124 @@ export default class EventModel {
         });
     }
 
+
+
+    /**
+     * This function returns the listOfAtendees from an Event
+     * @returns {list} listOfAtendees
+     */
+     getListOfAttendees(){
+        return this.state.listOfAtendees;
+    }
+
+    /**
+     * This function updates the listOfAtendees from an Event
+     * @param {list} listOfAtendees
+     */
+     updateListOfAteendees(newListOfAtendees){
+        this.setListOfAtendees({
+            listOfAtendees: newListOfAtendees
+        });
+    }
+
+
+    /**
+     * This function returns the listOfInvetedPeople from an Event
+     * @returns {list} listOfInvetedPeople
+     */
+     getListOfInvetedPeople(){
+        return this.state.listOfInvetedPeople;
+    }
+
+    /**
+     * This function updates the listOfInvetedPeople from an Event
+     * @param {list} listOfInvetedPeople
+     */
+     updateListOfInvetedPeople(newListOfInvetedPeople){
+        this.setListOfInvetedPeople({
+            listOfInvetedPeople: newListOfInvetedPeople
+        });
+    }
+
+
+    /**
+     * This function returns the location from an Event
+     * @returns {object} location
+     */
+     getLocation(){
+        return this.state.location;
+    }
+
+    /**
+     * this function updates the Event location
+     * @param {string} general 
+     * @param {number} lat 
+     * @param {number} lng 
+     */
+     updateLocation(general, lat, lng) {
+        this.setState({
+            location: {
+                "general": general,
+                "latitude": lat,
+                "longitude": lng
+              },
+        })
+    }
+
+
+    /**
+     * This function returns the playerLimit from an Event
+     * @returns {int}
+     */
+     getPlayerLimit(){
+        return this.state.playerLimit;
+    }
+
+    /**
+     * this function updates the Event location
+     * @param {int} newPlayerLimit 
+     */
+     updatePlayerLimit(newPlayerLimit) {
+        this.setPlayerLimit({
+            playerLimit: newPlayerLimit
+        });
+    }
+
+    /**
+     * This function returns the Joined status from an Event
+     * @returns {boolean} joined
+     */
+     getJoined(){
+        return this.state.joined;
+    }
+
+    /**
+     * this function updates the Joined status
+     * @param {boolean} newJoined 
+     */
+     updateJoined(newJoined) {
+        this.setJoined({
+            joined: newJoined
+        });
+    }
+
+    /**
+     * This function returns the Comments from an Event
+     * @returns {object} comments
+     */
+     getComments(){
+        return this.state.comments;
+    }
+
+    /**
+     * this function updates the Comments
+     * @param {object} newComments 
+     */
+     updateComments(newComments) {
+        this.setComments({
+            comments: newComments
+        });
+    }
     
 
 }
