@@ -6,7 +6,7 @@ import Tools from './screens/Tools'
 import CoinFlip from './screens/CoinFlip'
 import Events from './screens/Events'
 import EventsResults from './screens/EventsResults'
-
+import Splash from './screens/Splash';
 
 
 const Stack = createStackNavigator();
@@ -15,7 +15,7 @@ const ProfileNavigator = () => {
     return (
 <Stack.Navigator >
     <Stack.Screen
-    name ="Profile"
+    name ="Profile_"
     component ={Profile}
     options={{
         title: 'Profile',
@@ -42,9 +42,9 @@ export {ProfileNavigator}
 
 const ToolsNavigator = () => {
     return (
-<Stack.Navigator   initialRouteName={Tools}>
+<Stack.Navigator initialRouteName={Tools}>
     <Stack.Screen
-    name ="Tools"
+    name ="Tools_"
     component ={Tools}
     options={{
         title: 'Tools',
@@ -84,7 +84,7 @@ const EventsNavigator = () => {
     return (
 <Stack.Navigator>
     <Stack.Screen
-    name ="Events"
+    name ="Events_"
     component ={Events}
     options={{
         title: 'Events',
@@ -107,3 +107,33 @@ const EventsNavigator = () => {
 }
 
 export {EventsNavigator}
+
+const SplashNavigator = () => {
+    return (
+      <Stack.Navigator initialRouteName='Splash'>
+          <Stack.Screen
+          name ="Splash"
+          component ={Splash}
+          options={{
+              title: 'Splash',
+              headerStyle: {
+                backgroundColor: '#1EA596',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontSize: 20,
+              },
+            }}
+          />
+            <Stack.Screen
+          name ="Splash-screen"
+          component ={Splash}
+          />
+
+</Stack.Navigator>
+    );
+}
+
+export {SplashNavigator}
+
+

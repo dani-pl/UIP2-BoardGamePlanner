@@ -34,7 +34,8 @@
     "react-native-web": "0.17.1",
     "react-navigation-stack": "^2.10.4",
     "react-router-dom": "^0.0.0-experimental-compat.6",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "rn-sprite-sheet": "^1.1.12"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
