@@ -28,16 +28,16 @@ var neutral30 = '#C7CCCC';
 var neutral20 = '#E7E9E9';
 var neutral10 = '#F4F5F5';
 
-var backgroundColor = '#f2f2f2';
+var backgroundColor = '#FCFDFC';
 
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
        backgroundColor: backgroundColor,
       //  justifyContent: 'center',
-       marginTop:20,
-       marginLeft:20,
-       marginRight:20,
+       paddingTop:20,
+       paddingLeft:20,
+       paddingRight:20,
 
     },
     h1: {
@@ -128,18 +128,35 @@ export const globalStyles = StyleSheet.create({
     btnPrimary: {
         backgroundColor: primary,
         borderRadius: 10,
-        paddingRight:8,
-        paddingLeft:8, 
-        alignSelf:"flex-start",  
+        paddingRight:12,
+        paddingLeft:12,
+        paddingTop:2,
+        paddingBottom:2,
+        alignSelf:"flex-start",
+        margin:8,
     },
     btnSecondary: {
       backgroundColor: neutral10,
       color: neutral60,
       borderRadius: 10,
-      paddingRight:8,
-      paddingLeft:8,
+      paddingRight:12,
+      paddingLeft:12,
+      paddingTop:2,
+      paddingBottom:2,
       alignSelf:"flex-start",
+      margin:8,
   },
+  btnSecondarySelected: {
+    backgroundColor: purple20,
+    color: "white",
+    borderRadius: 10,
+    paddingRight:12,
+    paddingLeft:12,
+    paddingTop:2,
+    paddingBottom:2,
+    alignSelf:"flex-start",
+    margin:8,
+},
     btnIconPrimary:{
       fontSize:16,
       padding:16,
@@ -148,7 +165,8 @@ export const globalStyles = StyleSheet.create({
       margin: 10,
       alignSelf:"flex-start",
       backgroundColor:primary,
-      borderRadius:10
+      borderRadius:10,
+      margin:8,
     },
     iconStylePrimary:{
       color:"white"
@@ -157,25 +175,22 @@ export const globalStyles = StyleSheet.create({
       fontSize:16,
       padding:16,
       textAlign: "center",
-      margin: 10,
-      alignSelf:"flex-start",
       backgroundColor:neutral10,
       borderRadius:10,
-      color:purple10
+      margin:8,
     },
+    
     iconStyleSecondary:{
       color:neutral60
     },
     mainCardView: {
       height: 80,
-      // width: "90%",
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
       borderRadius: 16,
       backgroundColor: '#ffffff',
-      shadowColor: "#F4F5F5",
       shadowOffset: {width: 10, height: 10},
       shadowOpacity: 1,
       shadowRadius: 10,
@@ -196,8 +211,47 @@ export const globalStyles = StyleSheet.create({
       alignItems: "center",
       
   },
+  flexRow:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  flexColumn:{
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingRight:4,
+    paddingLeft:4,
+
+  },
+  flexRowEnd:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  avatar:{
+width:62,
+height:62,
+borderRadius:100,
+  },
   textStyle: {
       marginLeft: 20,
       width:'57%',
       flexShrink: 1,
-  }});
+  },
+    input: {
+      height: 54,
+      backgroundColor:neutral10,
+      padding: 12,
+      borderRadius:12,
+      marginTop:4,
+      marginBottom:4,
+    },
+    spacing:{
+      height:24
+    }
+
+});
