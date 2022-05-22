@@ -32,6 +32,16 @@ const ProfileNavigator = () => {
        <Stack.Screen
     name ="Settings"
     component ={Settings}
+    options={{
+      title: 'Settings',
+      headerStyle: {
+        backgroundColor: '#1EA596',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontSize: 20,
+      },
+    }}
     />
 
 </Stack.Navigator>
