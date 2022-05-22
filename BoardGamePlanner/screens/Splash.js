@@ -29,7 +29,7 @@ export default class Splash extends Component {
         // after 4.9 sec stop the rolling dice animation
         setTimeout(()=>{
             this.stop()
-        },4900)
+        },5100)
     }
 
     componentWillUnmount() {

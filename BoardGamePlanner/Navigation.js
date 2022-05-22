@@ -7,6 +7,7 @@ import CoinFlip from './screens/CoinFlip'
 import Events from './screens/Events'
 import EventsResults from './screens/EventsResults'
 import Splash from './screens/Splash';
+import FirsPlayerView from './components/Tools/FirsPlayerView'
 
 
 const Stack = createStackNavigator();
@@ -44,35 +45,47 @@ const ToolsNavigator = () => {
     return (
 <Stack.Navigator initialRouteName={Tools}>
     <Stack.Screen
-    name ="Tools_"
-    component ={Tools}
-    options={{
-        title: 'Tools',
-        headerStyle: {
-          backgroundColor: '#1EA596',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontSize: 20,
-        },
-      }}
+      name ="Tools_"
+      component ={Tools}
+      options={{
+          title: 'Tools',
+          headerStyle: {
+            backgroundColor: '#1EA596',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontSize: 20,
+          },
+        }}
     />
        <Stack.Screen
-    name ="CoinFlip"
-    component ={CoinFlip}
-    options={{
-        title: 'Coin Flip',
-        headerStyle: {
-          backgroundColor: '#1EA596',
-        },
-        headerTintColor: '#fff',
-        headerTitleStyle: {
-          fontSize: 20,
-        },
-      }}
-    />
-    
-
+        name ="CoinFlip"
+        component ={CoinFlip}
+        options={{
+            title: 'Coin Flip',
+            headerStyle: {
+              backgroundColor: '#1EA596',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }}
+        />
+       <Stack.Screen
+        name ="FirsPlayerView"
+        component ={FirsPlayerView}
+        options={{
+            title: 'First Player',
+            headerStyle: {
+              backgroundColor: '#1EA596',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontSize: 20,
+            },
+          }}
+      />
 </Stack.Navigator>
     );
 }

@@ -20,16 +20,16 @@ const Tools = ({navigation}) => {
   return (
     <View style={globalStyles.container}>
 
-<TouchableOpacity>
-<ToolItem icon={"users"} tool={"First Player"} ></ToolItem>
+      <TouchableOpacity onPress={()=>navigation.navigate("FirsPlayerView")}>
+        <ToolItem icon={"users"} tool={"First Player"} ></ToolItem>
       </TouchableOpacity>
 
       <TouchableOpacity  onPress={()=>navigation.navigate("CoinFlip", {msg: "I came from Profile"})}>
-      <ToolItem icon={"coins"} tool={"Coin Flip"}></ToolItem>
+        <ToolItem icon={"coins"} tool={"Coin Flip"}></ToolItem>
       </TouchableOpacity >
 
       <TouchableOpacity >
-      <ToolItem icon={"dice"} tool={"Dice roll"}></ToolItem>
+        <ToolItem icon={"dice"} tool={"Dice roll"}></ToolItem>
       </TouchableOpacity >
 
     </View>

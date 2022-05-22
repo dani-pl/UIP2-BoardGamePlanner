@@ -52,7 +52,7 @@ export default function App() {
   useEffect(() => {
     splash && setTimeout(()=>{
       setSplash(false);
-    },5000)
+    },5200)
   },[])
   
   
