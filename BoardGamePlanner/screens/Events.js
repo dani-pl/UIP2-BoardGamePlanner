@@ -15,6 +15,8 @@ import MapView from 'react-native-maps';
 import { Marker } from "react-native-maps";
 import Geolocation from "react-native-geolocation-service";
 import * as Location from 'expo-location';
+import {EventDB} from "../database/events";
+import {BarDB} from "../database/bars";
 
 
 
@@ -31,17 +33,6 @@ export default class Events extends React.Component {
       longitudeDelta: 0.01,
     }}
   }
-
-/*   state = {
-    location:{},
-    latitude:0,
-    longitude:0,
-    errorMessage:''
-  } */
-
-/*   componentDidMount() {
-    this._getLocation();
-  } */
 
   componentDidMount(){
     this._getLocation();
@@ -66,16 +57,36 @@ export default class Events extends React.Component {
           }
         })
     }
-    });
-
-
-    /* this.setState({
-      location
-    }) */
-
-    
-    
+    });    
   }
+
+  _eventsMarkers = () => {
+    let result= EventDB.map((element)=>{
+      return <Marker coordinate ={{latitude: element.location.latitude,
+                            longitude: element.location.longitude,
+                            latitudeDelta: 0.01,
+                            longitudeDelta: 0.01}}
+                     image={require("../assets/event_img.png")}>
+      </Marker>
+    }
+    )
+    return result
+  }
+
+
+  _barsMarkers = () => {
+    let result= BarDB.map((element)=>{
+      return <Marker coordinate ={{latitude: element.location.latitude,
+                            longitude: element.location.longitude,
+                            latitudeDelta: 0.01,
+                            longitudeDelta: 0.01}}
+                     image={require("../assets/bar_img.png")}>
+      </Marker>
+    }
+    )
+    return result
+  }
+
   render(){
     const currentLocation = {
       latitude: this.state.latitude,
@@ -85,11 +96,10 @@ export default class Events extends React.Component {
     };
     return (
       <View style={globalStyles.container}>
-      <MapView style={globalStyles.map} initialRegion={this.state.location} region={this.state.location}>
-      <Marker coordinate={this.state.location} image={require("../assets/event_img.png")}/>
-      </MapView>
-        {/* <Text>{JSON.stringify(this.state.latitude)}</Text> */}
-        
+        <MapView style={globalStyles.map} initialRegion={this.state.location} region={this.state.location}>
+          {this._eventsMarkers()}
+          {this._barsMarkers()}
+        </MapView>
       </View>
     )
     }
