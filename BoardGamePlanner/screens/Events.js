@@ -18,7 +18,8 @@ import * as Location from 'expo-location';
 import {EventDB} from "../database/events";
 import {BarDB} from "../database/bars";
 
-
+const markerEvent = require("../assets/event_img.png");
+const selectedEventMarker = require("../assets/eventSelected_img.png")
 
 
 
@@ -60,13 +61,20 @@ export default class Events extends React.Component {
     });    
   }
 
+  onPressMarker(e,index){
+    this.setState({selectedMarkerEventIndex: index});
+    this.setState({location: e.Location})
+  }
+
   _eventsMarkers = () => {
-    let result= EventDB.map((element)=>{
+    let result= EventDB.map((element,i)=>{
       return <Marker coordinate ={{latitude: element.location.latitude,
                             longitude: element.location.longitude,
                             latitudeDelta: 0.01,
                             longitudeDelta: 0.01}}
-                     image={require("../assets/event_img.png")}>
+                     key = {i}
+                     onPress={(e)=>{this.onPressMarker(e,i)}}
+                     image={this.state.selectedMarkerEventIndex === i ? selectedEventMarker : markerEvent}>
       </Marker>
     }
     )
@@ -88,12 +96,6 @@ export default class Events extends React.Component {
   }
 
   render(){
-    const currentLocation = {
-      latitude: this.state.latitude,
-      longitude: this.state.longitude,
-      latitudeDelta: 0.01,
-      longitudeDelta: 0.01,
-    };
     return (
       <View style={globalStyles.container}>
         <MapView style={globalStyles.map} initialRegion={this.state.location} region={this.state.location}>
