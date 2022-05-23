@@ -11,35 +11,28 @@ import {
   Text, View} from 'react-native';
 import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
+import LanguageSelect from '../components/LanguageSelect';
 
+import { useTranslation } from 'react-i18next';
 
 const Settings = ({route}) => {
-    return(  <View style={globalStyles.container}>
-       <Text style={globalStyles.h5}>Language</Text>
-       <View style={globalStyles.flexRow}>
-             <Pressable style={globalStyles.btnSecondarySelected}>
-        <Text style={globalStyles.btnTextNeutral}>EN</Text>
-      </Pressable>
+	// get the translation instance
+    const { t } = useTranslation();
 
-      <Pressable style={globalStyles.btnSecondary}>
-        <Text style={globalStyles.btnTextNeutral}>BG</Text>
-      </Pressable>
-
-      <Pressable style={globalStyles.btnSecondary}>
-        <Text style={globalStyles.btnTextNeutral}>SE</Text>
-      </Pressable>
+    return (  
+		<View style={globalStyles.container}>
+       		
+			{/* add the language select component to the view*/}
+            <LanguageSelect />
+    
+			<Text style={globalStyles.h5}>{t('common:locationSelectLabel')}</Text>
+			
+			<TextInput
+				style={globalStyles.input}
+				// onChangeText='Location'
+				value='Sofia, Bulgaria'
+			/>
         </View>
-
-        <View style={globalStyles.spacing}>  
-</View>
-
-       <Text style={globalStyles.h5}>Location</Text>
-       <TextInput
-        style={globalStyles.input}
-        onChangeText='Location'
-        value='Sofia, Bulgaria'
-      />
-           </View>
 
     )
 }

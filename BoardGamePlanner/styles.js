@@ -192,7 +192,8 @@ export const globalStyles = StyleSheet.create({
       alignItems: "center",
       borderRadius: 16,
       backgroundColor: '#ffffff',
-      shadowOffset: {width: 10, height: 10},
+      shadowColor: "#F4F5F5",
+      shadowOffset: { width: 10, height: 10 },
       shadowOpacity: 1,
       shadowRadius: 10,
       elevation: 8,
@@ -200,8 +201,8 @@ export const globalStyles = StyleSheet.create({
       paddingBottom: 8,
       paddingRight: 16,
       paddingLeft: 16,
-   marginTop: 6,
-  marginBottom: 6,
+      marginTop: 6,
+      marginBottom: 6,
       // marginLeft: 16,
       // marginRight: 16,
   },
@@ -234,25 +235,36 @@ export const globalStyles = StyleSheet.create({
     alignItems: "center",
   },
   avatar:{
-width:62,
-height:62,
-borderRadius:100,
+    width:62,
+    height:62,
+    borderRadius:100,
   },
   textStyle: {
       marginLeft: 20,
       width:'57%',
       flexShrink: 1,
   },
-    input: {
-      height: 54,
-      backgroundColor:neutral10,
-      padding: 12,
-      borderRadius:12,
-      marginTop:4,
-      marginBottom:4,
-    },
-    spacing:{
-      height:24
-    }
+  input: {
+    height: 54,
+    backgroundColor:neutral10,
+    padding: 12,
+    borderRadius:12,
+    marginTop:4,
+    marginBottom:4,
+  },
+  spacing:{
+    height:24
+  },
+  justifyCenter: {
+    justifyContent: 'center'
+  },
+  alignCenter: {
+    alignItems: 'center'
+  },
+  justifyAndAlignCenter: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+
 
 });

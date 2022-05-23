@@ -3,15 +3,22 @@ import { View , Text} from 'react-native';
 import { globalStyles, green20, green50 } from '../../styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import { useTranslation } from 'react-i18next';
+
 const FirstPlayerStartView = () => {
 
+     // get the translation instance
+     const { t } = useTranslation();
+
     return (
-        <View style={globalStyles.container}>
-            <Text style={[globalStyles.h4,{width:300, textAlign:'center'}]}>All players place and hold 1 finger on the screen</Text>
-            <Text>(2 to 5 players)</Text>
+        <View style={[globalStyles.container, globalStyles.justifyAndAlignCenter]}>
+            <Text style={[globalStyles.h4,{width:300, textAlign:'center'}]}>{t('tools:FPinstruction')}</Text>
+            <Text>{t('tools:playerMax')}</Text>
             <View style={{
                 display: "flex",
                 backgroundColor: green20,
+                width: 100,
+                height: 100,
                 borderRadius: 100 / 2,
                 margin: 10
             }}>

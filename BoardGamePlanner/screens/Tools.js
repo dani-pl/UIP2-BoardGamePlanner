@@ -12,27 +12,31 @@ import {globalStyles} from "../styles";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import ToolItem from '../components/ToolItem';
-
+import { useTranslation } from 'react-i18next';
 
 
 
 const Tools = ({navigation}) => {
-  return (
-    <View style={globalStyles.container}>
 
-      <TouchableOpacity onPress={()=>navigation.navigate("FirsPlayerView")}>
-        <ToolItem icon={"users"} tool={"First Player"} ></ToolItem>
-      </TouchableOpacity>
+	// get the translation instance
+	const { t } = useTranslation();
+  	
+	return (
+		<View style={globalStyles.container}>
 
-      <TouchableOpacity  onPress={()=>navigation.navigate("CoinFlip", {msg: "I came from Profile"})}>
-        <ToolItem icon={"coins"} tool={"Coin Flip"}></ToolItem>
-      </TouchableOpacity >
+		<TouchableOpacity onPress={()=>navigation.navigate("FirsPlayerView")}>
+			<ToolItem icon={"users"} tool={t('tools:firstPlayer')} ></ToolItem>
+		</TouchableOpacity>
 
-      <TouchableOpacity >
-        <ToolItem icon={"dice"} tool={"Dice roll"}></ToolItem>
-      </TouchableOpacity >
+		<TouchableOpacity  onPress={()=>navigation.navigate("CoinFlip", {msg: "I came from Tools"})}>
+			<ToolItem icon={"coins"} tool={t('tools:coinFlip')}></ToolItem>
+		</TouchableOpacity >
 
-    </View>
+		<TouchableOpacity  onPress={()=>navigation.navigate("DiceRoll", {msg: "I came from Tools"})}>
+			<ToolItem icon={"dice"} tool={t('tools:diceRoll')}></ToolItem>
+		</TouchableOpacity >
+
+		</View>
   );
 
 }

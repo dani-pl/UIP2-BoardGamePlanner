@@ -23,6 +23,8 @@ import FirsPlayerView from './components/Tools/FirsPlayerView';
 import { createStackNavigator } from '@react-navigation/stack';
 import Splash from './screens/Splash';
 
+import Localize from './Constants/Localize'
+
 
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()

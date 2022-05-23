@@ -16,7 +16,7 @@ const GameListItem = ({game}) =>  {
                         width: 50,
                         height: 50,
                         backgroundColor:'#ddd',
-                        borderRadius:10}}
+                        borderRadius: 10}}
                     resizeMode="cover"
                 />
                 <Text 

@@ -12,12 +12,12 @@ const ProfileComponent = ({navigation})  =>  {
   return (
         <View >
             <View style={globalStyles.flexRow }>
-            <Image
-          style={globalStyles.avatar}
-          source={require('../assets/person.jpeg')}
-        />
-        <Text  style={globalStyles.h6} >@lilycole</Text>
-        <Followers></Followers>
+              <Image
+                style={globalStyles.avatar}
+                source={require('../assets/person.jpeg')}
+              />
+              <Text  style={globalStyles.h6} >@lilycole</Text>
+              <Followers></Followers>
             </View>
 
             <Text  style={globalStyles.subtitle2} >I like playing social games with a larger group of friednly people. 

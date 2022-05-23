@@ -19,7 +19,7 @@ const usePrevPlayers = (update) => {
     return players.current || update
 }
 
-const FirsPlayerView = () => {
+const FirsPlayerView = ({navigation}) => {
     
     const [players, setPlayers] = useState([]);
     const [winner, setWinner] = useState(null);
@@ -133,8 +133,9 @@ const FirsPlayerView = () => {
     useEffect(() => {
         if(players.length > 1 && (prevPlayers.length !== players.length)){
             start();
-            
+            // navigation.setOptions({headerShown: false})
         }else if(players.length < 2){
+            // navigation.setOptions({headerShown: true})
             stop()
           
         }
@@ -232,6 +233,8 @@ const FirsPlayerView = () => {
             */
             onPanResponderGrant: () => {
                 console.log("Access granted")
+                // navigation.setOptions({headerShown: false})
+                // navigation.setOptions({tabBarVisible: false})
                 // it copies the value after the touch and store it so we don't lose the value when the user starts moving
                 // pan.setOffset({
                 // x: pan.x._value,
@@ -270,6 +273,8 @@ const FirsPlayerView = () => {
                 /* flattendOffset => it adds the offset to the main value 
                     makes sure that the object is doesn't snap to another position when the user touches the screen again */
                 pulseAnim.flattenOffset();
+                // navigation.setOptions({headerShown: true})
+                // navigation.setOptions({tabBarVisible: true})
             }
         }),[]
     );
