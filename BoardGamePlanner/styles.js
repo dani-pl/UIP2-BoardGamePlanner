@@ -163,4 +163,13 @@ export const globalStyles = StyleSheet.create({
       width: Dimensions.get('window').width,
       height: Dimensions.get('window').height,
     },
+    searchBox: {
+      position: "absolute",
+      width: 246,
+      height: 42,
+      left: 20,
+      top: 54,
+      backgroundColor: green40,
+      borderRadius: 12,
+    }, 
   });

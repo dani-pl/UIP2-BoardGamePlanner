@@ -6,7 +6,7 @@ import {
   Alert,
   SafeAreaView,
   Pressable,
-  Text, View} from 'react-native';
+  Text, View, Dimensions} from 'react-native';
 import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -17,9 +17,12 @@ import Geolocation from "react-native-geolocation-service";
 import * as Location from 'expo-location';
 import {EventDB} from "../database/events";
 import {BarDB} from "../database/bars";
+import CardEvent from "../components/EventCard"
+import Animated from 'react-native-reanimated';
 
 const markerEvent = require("../assets/event_img.png");
 const selectedEventMarker = require("../assets/eventSelected_img.png")
+
 
 
 
@@ -33,6 +36,7 @@ export default class Events extends React.Component {
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     }}
+    this.state= {currentCard: <View></View>}
   }
 
   componentDidMount(){
@@ -64,6 +68,7 @@ export default class Events extends React.Component {
   onPressMarker(e,index){
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
+    this.state.currentCard =  <CardEvent></CardEvent>
   }
 
   _eventsMarkers = () => {
@@ -75,7 +80,7 @@ export default class Events extends React.Component {
                      key = {i}
                      onPress={(e)=>{this.onPressMarker(e,i)}}
                      image={this.state.selectedMarkerEventIndex === i ? selectedEventMarker : markerEvent}>
-      </Marker>
+      </Marker> 
     }
     )
     return result
@@ -96,12 +101,16 @@ export default class Events extends React.Component {
   }
 
   render(){
+    const { width, height } = Dimensions.get("window");
+    const CARD_HEIGHT = height / 4;
+    const CARD_WIDTH = CARD_HEIGHT - 50;
     return (
       <View style={globalStyles.container}>
         <MapView style={globalStyles.map} initialRegion={this.state.location} region={this.state.location}>
           {this._eventsMarkers()}
           {this._barsMarkers()}
         </MapView>
+        {this.state.currentCard}
       </View>
     )
     }
