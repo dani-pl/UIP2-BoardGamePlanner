@@ -8,7 +8,8 @@ import Events from './screens/Events'
 import EventsResults from './screens/EventsResults'
 import Splash from './screens/Splash';
 import FirsPlayerView from './components/Tools/FirsPlayerView'
-import DiceRoll from './screens/DiceRoll'
+import DiceRoll from './components/Tools/DiceRoll'
+import RollDice from './screens/RollDice';
 
 const Stack = createStackNavigator();
 import { useTranslation } from 'react-i18next';
@@ -106,6 +107,20 @@ const ToolsNavigator = () => {
 			<Stack.Screen
 				name ="DiceRoll"
 				component ={DiceRoll}
+				options={{
+					title: t('tools:diceRoll'),
+					headerStyle: {
+					backgroundColor: '#1EA596',
+					},
+					headerTintColor: '#fff',
+					headerTitleStyle: {
+					fontSize: 20,
+					},
+				}}
+			/>
+			<Stack.Screen
+				name ="RollDice"
+				component ={RollDice}
 				options={{
 					title: t('tools:diceRoll'),
 					headerStyle: {

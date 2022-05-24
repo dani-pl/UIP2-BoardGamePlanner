@@ -29,7 +29,5 @@ i18n.use(initReactI18next).init({
     // default language namespace
     defaultNS: 'common'
 })
-console.log(Localization.locale.split('-')[0])
 
-// Set the locale once at the beginning of your app.
-i18n.locale = Localization.locale.split('-')[0]
+// console.log(Localization.locale.split('-')[0])

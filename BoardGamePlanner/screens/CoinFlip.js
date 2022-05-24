@@ -13,11 +13,10 @@ import { FontAwesome } from '@expo/vector-icons';
 
 
 const CoinFlip = ({route}) => {
-    return(  <View style={globalStyles.container}>
-        <Text style={globalStyles.h1}>{route.params.msg}</Text>
-        
-           </View>
-
+    return (  
+      <View style={globalStyles.container}>
+        <Text style={globalStyles.h1}>{route.params.msg}</Text>      
+      </View>
     )
 }
 

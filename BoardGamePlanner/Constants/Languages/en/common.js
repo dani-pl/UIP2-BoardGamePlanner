@@ -1,4 +1,14 @@
 export default {
+    // splash screen
+    loadingText: [
+        {text:'Fetching nearby events...'}, 
+        {text:'Fetching boardgames...'}, 
+        {text:'Fetching tools...'}
+    ],
+    // navigation - tab bar
+    eventTabLabel: "Events",
+    profileTabLabel: "Profile",
+    toolsTabLabel: "Tools", 
     // profile
     editBtn: 'Edit',
     libraryLabel: 'Library',

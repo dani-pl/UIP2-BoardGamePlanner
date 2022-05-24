@@ -7,4 +7,5 @@ export default {
     coinFlip: 'Coin Flip in BG',
     // Dice roll
     diceRoll: 'Dice Roll BG',
+    chooseDice: 'Choose your Dice BG'
 }

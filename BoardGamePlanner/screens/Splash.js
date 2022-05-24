@@ -3,16 +3,19 @@ import { View, Text, SafeAreaView, Animated} from 'react-native';
 import SpriteSheet from 'rn-sprite-sheet';
 import { backgroundColor, globalStyles, } from '../styles';
 import Images from '../assets/Images';
+import { withTranslation } from 'react-i18next';
 
-export default class Splash extends Component {
+class Splash extends Component {
+    
 
     constructor(){
         super()
+        
         this.state = {
             loop: false,
             resetAfterFinish: false,
             fps: 10,
-            loadingText: ['Fetching nearby events...', 'Fetching boardgames...', 'Fetching tools...'],
+            // loadingText: [t('common:loadingText1'),t('common:loadingText2'),t('common:loadingText3')],
             animation: new Animated.Value(0),
             textIdx:-1
         }
@@ -26,7 +29,7 @@ export default class Splash extends Component {
         // start the rolling dice animation
         this.roll('roll4to3')
 
-        // after 4.9 sec stop the rolling dice animation
+        // after 5.1 sec stop the rolling dice animation
         setTimeout(()=>{
             this.stop()
         },5100)
@@ -105,10 +108,14 @@ export default class Splash extends Component {
     }
 
     render(){
-        // get the current text
-        // since we start with -1 we +1 for the first text 
-        let changingText = this.state.loadingText[(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % this.state.loadingText.length]
+        // initialize the translation 
+        const { t } = this.props;
 
+        // get the current textArray based on the user's locale
+        // since we start with -1 we +1 for the first text 
+        let changingText = t(`common:loadingText.${(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % 3}.text`)
+        // console.log(t(`common:loadingText.${(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % 3}.text`))
+        // let changingText = this.state.loadingText[(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % this.state.loadingText.length]
         return (
             <SafeAreaView style={{backgroundColor: backgroundColor,flex:1}}>
                 <View style={[globalStyles.container,{justifyContent:'center',alignItems:'center'}]}>
@@ -132,3 +139,5 @@ export default class Splash extends Component {
         )
     }
 }
+// since we deal with class component we need to export it with translation in order to get the loading text in the language of the user's locale
+export default withTranslation('common')(Splash);

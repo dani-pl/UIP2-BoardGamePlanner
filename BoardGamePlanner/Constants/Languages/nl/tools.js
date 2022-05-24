@@ -7,4 +7,5 @@ export default {
     coinFlip: 'Kop of Munt',
     // Dice roll
     diceRoll: 'Dobbelstenen',
+    chooseDice: 'Kies je dobbelsteen'
 }
