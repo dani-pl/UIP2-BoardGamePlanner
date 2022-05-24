@@ -1,5 +1,6 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import * as Localization from 'expo-localization';
 
 // import the languages
 import en from './Languages/en'
@@ -17,9 +18,10 @@ i18n.use(initReactI18next).init({
     react: {
         useSuspense: false
     },
-    // default is english
-    lng: 'en',
-    // fallback is english (e.g., when a key doesn't exist in another language)
+    // we set the default language to the user's locale setting 
+    // (we split by - since some locales are in following format nl-NL or en-US and we only require the first
+    lng: Localization.locale.split('-')[0],
+    // fallback is english (e.g., when users local is not available or when a key doesn't exist in another language)
     fallbackLng: 'en',
     interpolation: {
         escapeValue: false
@@ -27,3 +29,7 @@ i18n.use(initReactI18next).init({
     // default language namespace
     defaultNS: 'common'
 })
+console.log(Localization.locale.split('-')[0])
+
+// Set the locale once at the beginning of your app.
+i18n.locale = Localization.locale.split('-')[0]
