@@ -18,5 +18,8 @@ export default {
     langSelectLabel : 'Taal',
     locationSelectLabel: 'Locatie',
     profileLabel: 'Profiel',
-    settingsLabel: 'Instellingen'
+    settingsLabel: 'Instellingen',
+    creditsLabel: "Credits",
+    creditsBtnLabel: "Bekijk Credits",
+    soundLabel: "Geluidseffecten"
 }

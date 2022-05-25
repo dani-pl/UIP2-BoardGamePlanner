@@ -7,5 +7,11 @@ export default {
     coinFlip: 'Coin Flip in BG',
     // Dice roll
     diceRoll: 'Dice Roll BG',
-    chooseDice: 'Choose your Dice BG'
+    dice: "DiceBG",
+    rollDice: 'Roll Dice',
+    chooseDice: 'Choose your Dice BG',
+    rollBtnLabel: "RollBG",
+    addDiceLabel: "AddBG",
+    removeDiceLabel: "RemoveBG",
+    backBtn: "Choose Dice or choose if its too big"
 }

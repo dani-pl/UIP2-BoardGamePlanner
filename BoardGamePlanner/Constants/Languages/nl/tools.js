@@ -7,5 +7,11 @@ export default {
     coinFlip: 'Kop of Munt',
     // Dice roll
     diceRoll: 'Dobbelstenen',
-    chooseDice: 'Kies je dobbelsteen'
+    dice: "Dobbelstenen",
+    rollDice: 'Gooi Dobbelstenen',
+    chooseDice: 'Kies je dobbelsteen',
+    rollBtnLabel: "Gooien",
+    addDiceLabel: "Voeg toe",
+    removeDiceLabel: "Verwijder",
+    backBtn: "Kies"
 }

@@ -10,6 +10,7 @@ import Splash from './screens/Splash';
 import FirsPlayerView from './components/Tools/FirsPlayerView'
 import DiceRoll from './components/Tools/DiceRoll'
 import RollDice from './screens/RollDice';
+import Credits from './screens/Credits';
 
 const Stack = createStackNavigator();
 import { useTranslation } from 'react-i18next';
@@ -35,18 +36,32 @@ const ProfileNavigator = () => {
 			}}
 			/>
 			<Stack.Screen
-			name = "Settings"
-			component ={Settings}
-			options={{
-			title: t('common:settingsLabel'),
-			headerStyle: {
-				backgroundColor: '#1EA596',
-			},
-			headerTintColor: '#fff',
-			headerTitleStyle: {
-				fontSize: 20,
-			},
-			}}
+				name = "Settings"
+				component ={Settings}
+				options={{
+					title: t('common:settingsLabel'),
+					headerStyle: {
+						backgroundColor: '#1EA596',
+					},
+					headerTintColor: '#fff',
+					headerTitleStyle: {
+						fontSize: 20,
+					},
+				}}
+			/>
+			<Stack.Screen
+				name = "Credits"
+				component ={Credits}
+				options={{
+					title: t('common:creditsLabel'),
+					headerStyle: {
+						backgroundColor: '#1EA596',
+					},
+					headerTintColor: '#fff',
+					headerTitleStyle: {
+						fontSize: 20,
+					},
+				}}
 			/>
 
 		</Stack.Navigator>
@@ -96,11 +111,11 @@ const ToolsNavigator = () => {
 				options={{
 					title: t('tools:firstPlayer'),
 					headerStyle: {
-					backgroundColor: '#1EA596',
+						backgroundColor: '#1EA596',
 					},
 					headerTintColor: '#fff',
 					headerTitleStyle: {
-					fontSize: 20,
+						fontSize: 20,
 					},
 				}}
 			/>
@@ -108,13 +123,13 @@ const ToolsNavigator = () => {
 				name ="DiceRoll"
 				component ={DiceRoll}
 				options={{
-					title: t('tools:diceRoll'),
+					title: t('tools:dice'),
 					headerStyle: {
-					backgroundColor: '#1EA596',
+						backgroundColor: '#1EA596',
 					},
 					headerTintColor: '#fff',
 					headerTitleStyle: {
-					fontSize: 20,
+						fontSize: 20,
 					},
 				}}
 			/>
@@ -122,15 +137,18 @@ const ToolsNavigator = () => {
 				name ="RollDice"
 				component ={RollDice}
 				options={{
-					title: t('tools:diceRoll'),
+					title: t('tools:rollDice'),
 					headerStyle: {
-					backgroundColor: '#1EA596',
+						backgroundColor: '#1EA596',
 					},
 					headerTintColor: '#fff',
 					headerTitleStyle: {
-					fontSize: 20,
+						fontSize: 20,
 					},
+					headerBackTitle: t('tools:backBtn')
+
 				}}
+				
 			/>
 		</Stack.Navigator>
 			);

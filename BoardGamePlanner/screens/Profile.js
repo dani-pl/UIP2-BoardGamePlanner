@@ -27,7 +27,7 @@ const Profile = ({navigation}) => {
 					<Pressable style={globalStyles.btnSecondary}>
 						<Text style={globalStyles.btnTextNeutral}>{t('common:editBtn')}</Text>
 					</Pressable>
-					<Pressable style={globalStyles.btnIconSecondary} onPress={()=>navigation.navigate("Settings", {msg: "I came from Profile"})}>
+					<Pressable style={globalStyles.btnIconSecondary} onPress={()=>navigation.navigate("Settings")}>
 						<FontAwesome name={'cog'} color='#2F3C3B'/>
 					</Pressable>
 				</View>

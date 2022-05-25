@@ -18,5 +18,8 @@ export default {
     langSelectLabel : 'Language',
     locationSelectLabel: 'Location',
     profileLabel: 'Profile',
-    settingsLabel: 'Settings'
+    settingsLabel: 'Settings',
+    creditsLabel: "Credits",
+    creditsBtnLabel: "View Credits",
+    soundLabel: "Sound Effects"
 }

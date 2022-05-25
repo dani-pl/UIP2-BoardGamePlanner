@@ -9,8 +9,6 @@ import {
   TouchableOpacity,
   Text, View} from 'react-native';
 import {globalStyles} from "../styles";
-import { FontAwesome5 } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
 import ToolItem from '../components/ToolItem';
 import { useTranslation } from 'react-i18next';
 

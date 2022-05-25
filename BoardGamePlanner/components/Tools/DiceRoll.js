@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   Pressable,
   Text, View} from 'react-native';
-import {globalStyles} from "../../styles";
+import {globalStyles, purple30} from "../../styles";
 import { FontAwesome } from '@expo/vector-icons';
 import Svg, {Polygon, Rect, Path} from 'react-native-svg'
 import { Dice4, Dice6, Dice8 , Dice10, Dice12, Dice20} from './DiceBase';
@@ -30,27 +30,27 @@ const DiceRoll = ({navigation}) => {
                 flexDirection: 'row'}} 
             >
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice6,sides:6})}>
-                    <Dice6 number={6}/>
+                    <Dice6 number={6} color={purple30}/>
                 </Pressable>
 
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice8,sides:8})}>
-                    <Dice8 number={8}/>
+                    <Dice8 number={8} color={purple30}/>
                 </Pressable>
                 
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice12,sides:12})}>
-                    <Dice12 number={12}/>
+                    <Dice12 number={12} color={purple30}/>
                 </Pressable>
                 
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice20,sides:20})}>
-                    <Dice20 number={20}/>
+                    <Dice20 number={20} color={purple30}/>
                 </Pressable>
                 
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice10,sides:10})}>
-                    <Dice10 number={10}/>
+                    <Dice10 number={10} color={purple30}/>
                 </Pressable>
                 
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice4,sides:4})}>
-                    <Dice4 number={4}/>
+                    <Dice4 number={4} color={purple30}/>
                 </Pressable>
                    
             </View>

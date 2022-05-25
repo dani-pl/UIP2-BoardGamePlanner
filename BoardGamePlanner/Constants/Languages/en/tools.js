@@ -7,5 +7,11 @@ export default {
     coinFlip: 'Coin Flip',
     // Dice roll
     diceRoll: 'Dice Roll',
-    chooseDice: 'Choose your dice'
-}
+    dice: "Dice",
+    rollDice: 'Roll Dice',
+    chooseDice: 'Choose your dice',
+    rollBtnLabel: "Roll",
+    addDiceLabel: "Add",
+    removeDiceLabel: "Remove",
+    backBtn: "Choose"
+} 

@@ -264,7 +264,9 @@ export const globalStyles = StyleSheet.create({
   justifyAndAlignCenter: {
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  link: {
+    color:"#2080B8", 
+    textDecorationLine:"underline"
   }
-
-
 });

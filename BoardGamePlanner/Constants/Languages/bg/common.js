@@ -18,5 +18,8 @@ export default {
     langSelectLabel : 'LanguageBG',
     locationSelectLabel: 'LocationBG',
     profileLabel: 'ProfileBG',
-    settingsLabel: 'settingsBG'
+    settingsLabel: 'settingsBG',
+    creditsLabel: "CreditsBG",
+    creditsBtnLabel: "View CreditsBG",
+    soundLabel: "SoundBG"
 }
