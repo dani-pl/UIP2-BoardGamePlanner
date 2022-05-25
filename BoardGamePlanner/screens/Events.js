@@ -6,7 +6,7 @@ import {
   Alert,
   SafeAreaView,
   Pressable,
-  Text, View, Dimensions} from 'react-native';
+  Text, View, Dimensions,ScrollView} from 'react-native';
 import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -23,7 +23,9 @@ import Animated from 'react-native-reanimated';
 const markerEvent = require("../assets/event_img.png");
 const selectedEventMarker = require("../assets/eventSelected_img.png")
 
-
+const { width, height } = Dimensions.get("window");
+    const CARD_HEIGHT = height / 4;
+    const CARD_WIDTH = CARD_HEIGHT - 50;
 
 
 

@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
@@ -9,7 +10,8 @@ var green40 = '#25B4A4';
 var green30 = '#6ECEC3';
 var green20 = '#AFE4DE';
 var green10 = '#E8F7F6';
-var primary = green50;
+export const primary = green50;
+export const unselected = green40;
 
 var purple70 = '#0E0770';
 var purple60 = '#2F25B4';
@@ -27,8 +29,13 @@ var neutral40 = '#869392';
 var neutral30 = '#C7CCCC';
 var neutral20 = '#E7E9E9';
 var neutral10 = '#F4F5F5';
+export const selected=neutral10;
 
 var backgroundColor = '#FCFDFC';
+
+const { width, height } = Dimensions.get("window");
+    const CARD_HEIGHT = height / 4;
+    const CARD_WIDTH = CARD_HEIGHT - 50;
 
 export const globalStyles = StyleSheet.create({
     container: {
@@ -171,5 +178,5 @@ export const globalStyles = StyleSheet.create({
       top: 54,
       backgroundColor: green40,
       borderRadius: 12,
-    }, 
+    },
   });
