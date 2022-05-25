@@ -21,5 +21,6 @@ export default {
     settingsLabel: 'Settings',
     creditsLabel: "Credits",
     creditsBtnLabel: "View Credits",
-    soundLabel: "Sound Effects"
+    soundLabel: "Sound Effects",
+    animationLable: "Animations"
 }

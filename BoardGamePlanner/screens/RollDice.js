@@ -5,7 +5,7 @@ import {
   View,
   Vibration
 } from 'react-native';
-import {globalStyles, neutral60, purple30} from "../styles";
+import {globalStyles, neutral30,neutral60, purple30} from "../styles";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
 import * as Haptics from 'expo-haptics';
@@ -156,8 +156,8 @@ const RollDice = ({route}) => {
             {
                 [...Array(nrDice)].map((dice, index) => 
                     <Dice key={index} number={rolledSide[index]} color={
-                        // rolledSide.every((val, i, arr) => val === arr[0]) && rolledSide[index] === sides ? "#E3C763" : purple30
-                        purple30
+                        // rolledSide.every((val, i, arr) => val === arr[0]) && rolledSide[index] === sides ? "#E3C763" : 
+                        neutral30
                     }/>    
                 )
                 

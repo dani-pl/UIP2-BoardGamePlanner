@@ -2,7 +2,7 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { Text, View} from 'react-native';
 import Svg, {Polygon, Rect, Path} from 'react-native-svg'
-import { green50, purple30, globalStyles, backgroundColor } from '../../styles';
+import { green50, purple30, neutral30,neutral70, neutral60, globalStyles, backgroundColor } from '../../styles';
 
 // 4 DICE
 /**
@@ -43,7 +43,7 @@ export const Dice4 = ({number, color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice4Shape color={color}/>
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>
@@ -94,7 +94,7 @@ export const Dice6Shape = ({color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice6Shape color={color}/>
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>
@@ -135,7 +135,7 @@ export const Dice8Shape = ({color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice8Shape color={color} />
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>
@@ -176,7 +176,7 @@ export const Dice10Shape = ({color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice10Shape color={color} />
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>
@@ -220,7 +220,7 @@ export const Dice12Shape = ({color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice12Shape color={color}/>
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>
@@ -264,7 +264,7 @@ export const Dice20Shape = ({color}) => {
         }}>
             <View style={globalStyles.justifyAndAlignCenter}>
                 <Dice20Shape color={color} />
-                <Text style={[globalStyles.h1, {position:'absolute', color:backgroundColor}]}>
+                <Text style={[globalStyles.h1, {position:'absolute', color:neutral60}]}>
                     {side}
                 </Text>
             </View>

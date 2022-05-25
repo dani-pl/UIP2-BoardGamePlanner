@@ -21,5 +21,6 @@ export default {
     settingsLabel: 'Instellingen',
     creditsLabel: "Credits",
     creditsBtnLabel: "Bekijk Credits",
-    soundLabel: "Geluidseffecten"
+    soundLabel: "Geluidseffecten",
+    animationLable: "Animaties"
 }

@@ -19,6 +19,21 @@ const Credits = ({navigation}) => {
 
     return (  
 		<View style={globalStyles.container}>
+            {/* ANIMATIONS */}
+            <Text style={globalStyles.h5}>{t('common:animationLable')}</Text>
+            <Text style={globalStyles.h6}>Rolling Dice Sprite Sheet</Text>
+            <Text> Adapted from <Text 
+                    style={globalStyles.link}
+                    onPress={()=>handleLinkPress("http://riniblog.egloos.com/1078975")}
+                >
+                     "dice"
+                </Text> by Rini 
+
+            </Text>
+
+            <View style={globalStyles.spacing} />
+
+            {/* SOUNDS */}
 			<Text style={globalStyles.h5}>{t('common:soundLabel')}</Text>
             <Text style={globalStyles.h6}>Rolling Dice</Text>
             <Text> 

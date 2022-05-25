@@ -21,5 +21,6 @@ export default {
     settingsLabel: 'settingsBG',
     creditsLabel: "CreditsBG",
     creditsBtnLabel: "View CreditsBG",
-    soundLabel: "SoundBG"
+    soundLabel: "SoundBG",
+    animationLable: "AnimationsBG"
 }
