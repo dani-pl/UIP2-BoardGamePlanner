@@ -8,19 +8,26 @@ import DropShadow from "react-native-drop-shadow";
 
 
 
-const Followers = ({tool, icon}) =>  {
+export class Followers extends React.Component {
+
+render(){
+  // console.log(this.props);
   return (
     <View style={globalStyles.flexRow }>
             <View style={globalStyles.flexColumn }>
-                <Text style={globalStyles.h6 } >350</Text>
-                <Text style={globalStyles.subtitle2 } >Following</Text>
-            </View>
-            <View style={globalStyles.flexColumn }>
-                <Text style={globalStyles.h6 } >345</Text>
+                <Text style={globalStyles.h6 } >{this.props.followers.length}</Text>
                 <Text style={globalStyles.subtitle2 } >Followers</Text>
             </View>
+            <View style={globalStyles.flexColumn }>
+                <Text style={globalStyles.h6 } >{this.props.following.length}</Text>
+                <Text style={globalStyles.subtitle2 } >Following</Text>
+            </View>
         </View>
-  )
+  );
+
+
 }
 
-export default Followers;
+
+ 
+}

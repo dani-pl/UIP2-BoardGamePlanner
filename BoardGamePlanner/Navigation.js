@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import Settings from './screens/Settings'
 import Profile from './screens/Profile'
+import Login from './screens/Login'
 import Tools from './screens/Tools'
 import CoinFlip from './screens/CoinFlip'
 import Events from './screens/Events'
@@ -14,7 +15,21 @@ const Stack = createStackNavigator();
 const ProfileNavigator = () => {
     return (
 <Stack.Navigator >
-    <Stack.Screen
+<Stack.Screen
+    name ="Login"
+    component ={Login}
+    options={{
+        title: 'Login',
+        headerStyle: {
+          backgroundColor: '#1EA596',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontSize: 20,
+        },
+      }}
+    />
+      <Stack.Screen
     name ="Profile"
     component ={Profile}
     options={{
@@ -72,6 +87,7 @@ const ToolsNavigator = () => {
     component ={CoinFlip}
     options={{
         title: 'Coin Flip',
+        headerShown: false,
         headerStyle: {
           backgroundColor: '#1EA596',
         },
