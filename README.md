@@ -15,4 +15,4 @@ TODO:
 - fix layout search bar: Lauren
 - fix selected event: Lauren
 - add detailed event page: Lauren
-- add Bulgarian translations
+- add Bulgarian translations: Eliz
