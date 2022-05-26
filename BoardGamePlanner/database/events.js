@@ -1,4 +1,4 @@
-let EVENTS = [
+export const EventDB = [
     {
         "eventId": 1234,
         "title": "Come and have fun",
@@ -11,7 +11,11 @@ let EVENTS = [
         "coHostId": 7,
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
-        "location": "Stockholm, Sweden",
+        "location": {
+            "general": "Nobel Prize Museum, Gamla Stan, Stockholm",
+            "latitude": 59.325396581361616,
+            "longitude": 18.07060992328456
+          },
         "playerLimit": 1,
         "joined": false,
         "comments": [{
@@ -37,7 +41,11 @@ let EVENTS = [
         "coHostId": 2,
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
-        "location": "Stockholm, Sweden",
+        "location": {
+            "general": "Riksdag ",
+            "latitude": 59.32797994756276,
+            "longitude": 18.067863341326916
+          },
         "playerLimit": 2,
         "joined": true,
         "comments": [{
@@ -64,9 +72,9 @@ let EVENTS = [
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
         "location": {
-            "general": "Sofia, Bulgaria",
-            "latitude": 42.698334,
-            "longitude": 23.319941
+            "general": "Stockholm City",
+            "latitude": 59.33037989515945,
+            "longitude":  18.05819096848653
         },
         "playerLimit": 3,
         "joined": false,
@@ -93,7 +101,11 @@ let EVENTS = [
         "coHostId": 4,
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
-        "location": "Stockholm, Sweden",
+        "location": {
+            "general": "Odenplan",
+            "latitude": 59.34347705800618,
+            "longitude": 18.049534437273767
+        },
         "playerLimit": 4,
         "joined": true,
         "comments": [{
@@ -119,7 +131,11 @@ let EVENTS = [
         "coHostId": 5,
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
-        "location": "Stockholm, Sweden",
+        "location": {
+            "general": "Solna",
+            "latitude": 59.36922371858374,
+            "longitude":  18.008469435819887
+        },
         "playerLimit": 5,
         "joined": true,
         "comments": [{

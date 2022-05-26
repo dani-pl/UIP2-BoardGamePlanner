@@ -1,5 +1,6 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 
 export var green70 = '#077064';
@@ -9,7 +10,8 @@ export var green40 = '#25B4A4';
 export var green30 = '#6ECEC3';
 export var green20 = '#AFE4DE';
 export var green10 = '#E8F7F6';
-export var primary = green50;
+export const primary = green50;
+export const unselected = green40;
 
 export var purple70 = '#0E0770';
 export var purple60 = '#2F25B4';
@@ -27,9 +29,14 @@ export var neutral40 = '#869392';
 export var neutral30 = '#C7CCCC';
 export var neutral20 = '#E7E9E9';
 export var neutral10 = '#F4F5F5';
+export const selected=neutral10;
 
 export const backgroundColor = '#FCFDFC';
 export const firstPlayerColors = ['#25B4A4','#ffb100','#F194B4','#DC3030','#6359E8']
+
+const { width, height } = Dimensions.get("window");
+    const CARD_HEIGHT = height / 4;
+    const CARD_WIDTH = CARD_HEIGHT - 50;
 
 export const globalStyles = StyleSheet.create({
     container: {
@@ -268,5 +275,18 @@ export const globalStyles = StyleSheet.create({
   link: {
     color:"#2080B8", 
     textDecorationLine:"underline"
-  }
+  },
+  map: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  },
+  searchBox: {
+    position: "absolute",
+    width: 246,
+    height: 42,
+    left: 20,
+    top: 54,
+    backgroundColor: green40,
+    borderRadius: 12,
+  },
 });

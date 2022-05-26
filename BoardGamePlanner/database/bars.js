@@ -1,4 +1,4 @@
-let bars = 
+export const BarDB = 
         [{
         "barId": "0",
         "name": "Abordage",
@@ -50,7 +50,11 @@ let bars =
                 "name": "The Other Castle",
                 "image": "https://lh3.googleusercontent.com/-1E0zrwAu3vw/AAAAAAAAAAI/AAAAAAAAAAA/gidRcCs-878/s96-p-k-no-ns-nd/photo.jpg",
                 "gameLibrary":[223, 822, 13, 354768, 328871,296912,317985,312251,316554,312484,237182,256997,266192,230802,172386,1927],
-                "location":  "Poligona, ap. 43, 1784 Sofia",
+                "location": {
+                  "general": "zh.k. Hipodruma 24, 1612 Hipodruma, Sofia",
+                  "latitude": 42.681940,
+                  "longitude": 23.298590
+                },
                 "openingHours": 
                     {
                         "Monday": "11:30AM-8:30PM",
