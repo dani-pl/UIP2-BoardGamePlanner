@@ -40,13 +40,12 @@ const { width, height } = Dimensions.get("window");
 
 export const globalStyles = StyleSheet.create({
     container: {
-        flex: 1,
+       flex: 1,
        backgroundColor: backgroundColor,
       //  justifyContent: 'center',
        paddingTop:20,
        paddingLeft:20,
        paddingRight:20,
-
     },
     h1: {
       fontSize: 32,
@@ -276,9 +275,21 @@ export const globalStyles = StyleSheet.create({
     color:"#2080B8", 
     textDecorationLine:"underline"
   },
+  mapContainer: {
+
+    paddingTop:0,
+    paddingRight:0, 
+    paddingLeft:0,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    // width: Dimensions.get('window').width,
+    // height: Dimensions.get('window').height,
+    width: '100%',
+    height: '100%',
+    position: 'absolute'
   },
   searchBox: {
     position: "absolute",
@@ -289,4 +300,11 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: green40,
     borderRadius: 12,
   },
+  shadowOffset:{
+      shadowColor: "#F4F5F5",
+      shadowOffset: { width: 10, height: 10 },
+      shadowOpacity: 1,
+      shadowRadius: 10,
+      elevation: 8,
+  }
 });

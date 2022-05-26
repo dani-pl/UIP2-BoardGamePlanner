@@ -1,5 +1,7 @@
 import React from "react"
 import { StyleSheet, Image, Text, View, ImageBackground, Dimensions } from "react-native"
+import { FontAwesome, Feather, Ionicons} from '@expo/vector-icons';
+import { backgroundColor, globalStyles, neutral40, neutral60 } from "../styles";
 
 const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
@@ -10,18 +12,20 @@ export default function CardEvent() {
     <View style={styles.CardEvent}>
       <View style={styles.Frame33661}>
         <View style={styles.Group33684}>
-          <Text style={styles.Txt561}>1st May- Sat -2:00 PM</Text>
+          <Text style={globalStyles.allCaps}>1st May- Sat -2:00 PM</Text>
           <View style={styles.Group33660}>
-            <Image style={styles.Txt677} source={require("../assets/person.png")} ></Image>
+            {/* <Image style={styles.Txt677} source={require("../assets/person.png")} ></Image> */}
+            <FontAwesome name={"user"} size={24} color={neutral60} />
             <View style={styles.Group18131}>
-              <Text style={styles.Txt757}>2 Open</Text>
+              <Text style={globalStyles.btnTextNeutral}>2 Open</Text>
             </View>
           </View>
           <View style={styles.Group33659}>
             <View style={styles.Group33683}>
-              <Image style={styles.Txt5109} source={require("../assets/home.png")}></Image>
+              <Ionicons name={"ios-home-outline"} size={24} color={neutral60}/>
+              {/* <Image style={styles.Txt5109} source={require("../assets/home.png")}></Image> */}
               <View style={styles.Group18130}>
-                <Text style={styles.Txt1109}>Balkan 7-9, Sofia</Text>
+                <Text style={globalStyles.subtitle3}>Balkan 7-9, Sofia</Text>
               </View>
             </View>
           </View>
@@ -52,20 +56,30 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     borderRadius: 16,
-    backgroundColor: "rgb(255, 255, 255)",
-    shadowColor: "rgb(134,147,146)",
-    elevation: 2,
+    backgroundColor: backgroundColor,
+    shadowColor: neutral40,
     shadowOffset: { width: 0, height: 4 },
-    width: 373.91,
-    height: 98,
-    position:"absolute", left: 5, width:350, bottom:10
+    shadowOpacity: 0.6,
+    shadowRadius: 10,
+    elevation: 2,
+    // margin: 20,
+    marginBottom:30,
+    // shadowColor: "rgb(134,147,146)",
+    // elevation: 2,
+    // shadowOffset: { width: 0, height: 4 },
+    // width: 373.91,
+    width: '90%',
+    // height: 98,
+    position:"relative", 
+    // left: 5, 
+    // width:350, 
+    // bottom:10
   },
   Frame33661: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "flex-start",
-    marginRight: 24,
   },
   Group33684: {
     display: "flex",

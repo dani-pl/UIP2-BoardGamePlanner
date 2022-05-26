@@ -14,8 +14,8 @@ import { Feather } from '@expo/vector-icons';
 import MapView from 'react-native-maps';
 import { Marker } from "react-native-maps";
 import * as Location from 'expo-location';
-import {EventDB} from "../database/events";
-import {BarDB} from "../database/bars";
+import { EventDB } from "../database/events";
+import { BarDB } from "../database/bars";
 import CardEvent from "../components/EventCard"
 import Animated from 'react-native-reanimated';
 
@@ -74,13 +74,15 @@ export default class Events extends React.Component {
 
   _eventsMarkers = () => {
     let result= EventDB.map((element,i)=>{
-      return <Marker coordinate ={{latitude: element.location.latitude,
-                            longitude: element.location.longitude,
-                            latitudeDelta: 0.01,
-                            longitudeDelta: 0.01}}
-                     key = {i}
-                     onPress={(e)=>{this.onPressMarker(e,i)}}
-                     image={this.state.selectedMarkerEventIndex === i ? selectedEventMarker : markerEvent}>
+      return <Marker 
+	  			coordinate ={{
+					latitude: element.location.latitude,
+					longitude: element.location.longitude,
+					latitudeDelta: 0.01,
+					longitudeDelta: 0.01}}
+				key = {i}
+				onPress={(e)=>{this.onPressMarker(e,i)}}
+				image={this.state.selectedMarkerEventIndex === i ? selectedEventMarker : markerEvent}>
       </Marker> 
     }
     )
@@ -89,12 +91,15 @@ export default class Events extends React.Component {
 
 
   _barsMarkers = () => {
-    let result= BarDB.map((element)=>{
-      return <Marker coordinate ={{latitude: element.location.latitude,
-                            longitude: element.location.longitude,
-                            latitudeDelta: 0.01,
-                            longitudeDelta: 0.01}}
-                     image={require("../assets/bar_img.png")}>
+    let result= BarDB.map((element, i)=>{
+      return <Marker 
+	  			coordinate = {{
+					latitude: element.location.latitude,
+					longitude: element.location.longitude,
+					latitudeDelta: 0.01,
+					longitudeDelta: 0.01}}
+				key={i}
+				image={require("../assets/bar_img.png")}>
       </Marker>
     }
     )
@@ -106,10 +111,15 @@ export default class Events extends React.Component {
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
     return (
-      <View style={globalStyles.container}>
-        <MapView style={globalStyles.map} initialRegion={this.state.location} region={this.state.location}>
-          {this._eventsMarkers()}
-          {this._barsMarkers()}
+      <View style={[globalStyles.container, globalStyles.mapContainer]}>
+        <MapView 
+            style={globalStyles.map} 
+            initialRegion={this.state.location} 
+            region={this.state.location}
+			showsUserLocation={true}
+        >
+			{this._eventsMarkers()}
+			{this._barsMarkers()}
         </MapView>
         {this.state.currentCard}
       </View>
