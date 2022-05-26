@@ -23,6 +23,8 @@ export default class PlayerModel {
         events: {},
     }
 
+ 
+
     this.getPlayerById = this.getPlayerById.bind(this);
     this.getLanguage = this.getLanguage.bind(this);
     this.updateLanguage = this.updateLanguage.bind(this);
@@ -193,4 +195,3 @@ export default class PlayerModel {
     }
 
 }
-

@@ -47,6 +47,13 @@ export const globalStyles = StyleSheet.create({
        paddingLeft:20,
        paddingRight:20,
     },
+    centered:{
+    justifyContent:'center',
+    alignItems: 'center',
+    marginTop:40,
+    alignItems: 'center',
+    }
+,
     h1: {
       fontSize: 32,
       lineHeight:40,
@@ -139,7 +146,6 @@ export const globalStyles = StyleSheet.create({
         paddingLeft:12,
         paddingTop:2,
         paddingBottom:2,
-        alignSelf:"flex-start",
         margin:8,
     },
     btnSecondary: {
@@ -150,7 +156,6 @@ export const globalStyles = StyleSheet.create({
       paddingLeft:12,
       paddingTop:2,
       paddingBottom:2,
-      alignSelf:"flex-start",
       margin:8,
   },
   btnSecondarySelected: {

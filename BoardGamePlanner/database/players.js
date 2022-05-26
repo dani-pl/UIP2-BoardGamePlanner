@@ -1,6 +1,6 @@
 export let PLAYERS = [
   {
-    "playerId": 8572,
+    "playerId": 'GopQnj6C8MZTTpi7RIbMAserUKa2',
     "name": "Germaine Ferreiro",
     "username": "gferreiro0",
     "email": "gferreiro0@cbc.ca",
@@ -30,7 +30,7 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 8,
+    "playerId": 'Cvv7g1vxVnOwPBh0LKstfjecnoL2',
     "name": "Felisha O'Hogertie",
     "username": "fohogertie1",
     "email": "fohogertie1@artisteer.com",
@@ -56,11 +56,11 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 7,
+    "playerId": "tFzAIoqOIXMu1uVXpLGvYXRrs8w2",
     "name": "Danica Beekman",
-    "username": "dbeekman2",
-    "email": "dbeekman2@pbs.org",
-    "password": "q46GRgP",
+    "username": "dbeekman",
+    "email": "dbeekman@abv.bg",
+    "password": "123456",
     "image": null,
     "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "bggUserName": "dbeekman2",
@@ -86,7 +86,7 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 8474,
+    "playerId": "B292NWZFZ6NE2ihcOcEfiJE4SwE3",
     "name": "Waite Blain",
     "username": "wblain3",
     "email": "wblain3@qq.com",
@@ -108,7 +108,7 @@ export let PLAYERS = [
         "joining" : []
     }
   }, {
-    "playerId": 5820,
+    "playerId": "ziQxpw6pbSc7p3FvqKEdwDMw6nJ3",
     "name": "Flinn MacCoveney",
     "username": "fmaccoveney4",
     "email": "fmaccoveney4@comsenz.com",
@@ -151,7 +151,7 @@ export let PLAYERS = [
         "joining" : []
     }
   }, {
-    "playerId": 524,
+    "playerId": "Em7V8LUNsITJUwy6Vyx4fJYtyuf1",
     "name": "Vicki Glawsop",
     "username": "vglawsop5",
     "email": "vglawsop5@altervista.org",
@@ -173,7 +173,7 @@ export let PLAYERS = [
         "joining" : []
     }
   }, {
-    "playerId": 809,
+    "playerId": "PCPmEKWGyqbx2eOT81YMeFXZh583",
     "name": "Oralla Clutten",
     "username": "oclutten6",
     "email": "oclutten6@free.fr",
@@ -212,7 +212,7 @@ export let PLAYERS = [
     ]
     }
   }, {
-    "playerId": 301,
+    "playerId": "VgSKyUoAfGTnBiUxL2V5cFWQUP02",
     "name": "Northrop Gorvette",
     "username": "ngorvette7",
     "email": "ngorvette7@cbsnews.com",
@@ -242,7 +242,7 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 61671,
+    "playerId": "fQruBbCyamfgyU3zGWi8GrOPVdz2",
     "name": "Fionna Berks",
     "username": "fberks8",
     "email": "fberks8@mediafire.com",
@@ -272,7 +272,7 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 29029,
+    "playerId": "cd93XVQiTGUyAwSetVDnydtciZw2",
     "name": "Afton Buckie",
     "username": "abuckie9",
     "email": "abuckie9@cmu.edu",
@@ -294,7 +294,7 @@ export let PLAYERS = [
         "joining" : []
     }
   }, {
-    "playerId": 0651,
+    "playerId": "k3rJ4gvu9rMlAls11rvLLDTcUf82",
     "name": "Cynthia Gladbach",
     "username": "cgladbacha",
     "email": "cgladbacha@istockphoto.com",
@@ -324,7 +324,7 @@ export let PLAYERS = [
         }]
     }
   }, {
-    "playerId": 37,
+    "playerId": "GU09X7QwcBWesICnBvMJfNNeGMw1",
     "name": "Barnebas Benedite",
     "username": "bbenediteb",
     "email": "bbenediteb@aol.com",
