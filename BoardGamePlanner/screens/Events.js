@@ -13,7 +13,6 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import MapView from 'react-native-maps';
 import { Marker } from "react-native-maps";
-import Geolocation from "react-native-geolocation-service";
 import * as Location from 'expo-location';
 import {EventDB} from "../database/events";
 import {BarDB} from "../database/bars";

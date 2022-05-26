@@ -64,13 +64,21 @@ export default function App() {
 
 		<NavigationContainer>
 		
-		<Tab.Navigator screenOptions={{ headerShown: false }}
-		tabBarOptions={{
-			labelStyle:{fontSize:14},
-			activeTintColor: '#1EA596',
-			inactiveTintColor: '#5A6867',
-		}}
-		>
+		<Tab.Navigator screenOptions={{ 
+			headerShown: false,
+			tabBarActiveTintColor: "#1EA596",
+			tabBarInactiveTintColor: "#5A6867",
+			tabBarLabelStyle: {
+				fontSize: 14
+				},
+			tabBarStyle: [
+				{
+					display: "flex"
+				},
+				null
+				]
+			}}
+    	>
 		
 			<Tab.Screen name={t('common:eventTabLabel')} component={EventsNavigator}   options={{
 						tabBarIcon: ({size, color, focused}) => (<FontAwesome  focused={focused} name={"map"} color={color} size={20}/>)

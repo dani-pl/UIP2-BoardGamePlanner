@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, PermissionsAndroid, Alert, Platform} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, {PROVIDER_GOOGLE, Marker, Polyline} from 'react-native-maps';
-import {mapStyle} from '../../constants/mapStyle';
+import {mapStyle} from '../../Constants/mapStyle';
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
