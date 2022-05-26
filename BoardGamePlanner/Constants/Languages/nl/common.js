@@ -6,7 +6,7 @@ export default {
         {text:'Tools klaarmaken...'}
     ],
     // navigation - tab bar
-    eventTabLabel: "Evenementen",
+    eventTabLabel: "Kaart",
     profileTabLabel: "Profiel",
     toolsTabLabel: "Tools",
     // profile

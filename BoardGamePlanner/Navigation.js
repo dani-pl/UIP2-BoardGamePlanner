@@ -48,9 +48,12 @@ const ProfileNavigator = () => {
 			component ={Profile}
 			options={{
 				title: t('common:profileLabel'),
+        
 				headerStyle: {
-				backgroundColor: '#1EA596',
+				  backgroundColor: '#1EA596',
+          
 				},
+        // headerBackTitleVisible:false,
 				headerTintColor: '#fff',
 				headerTitleStyle: {
 				fontSize: 20,
@@ -68,6 +71,7 @@ const ProfileNavigator = () => {
 					headerTintColor: '#fff',
 					headerTitleStyle: {
 						fontSize: 20,
+            
 					},
 				}}
 			/>

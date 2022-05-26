@@ -33,7 +33,7 @@ export default function Login() {
         useEffect(() => {
 const unsubscribe = auth.onAuthStateChanged(user => {
   if(user) {
-    navigation.navigate('Profile')
+    navigation.navigate('Profile_')
   }
 })
 return unsubscribe
