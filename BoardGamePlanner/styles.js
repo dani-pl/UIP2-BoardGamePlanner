@@ -203,7 +203,8 @@ export const globalStyles = StyleSheet.create({
       alignItems: "center",
       borderRadius: 16,
       backgroundColor: '#ffffff',
-      shadowColor: "#F4F5F5",
+      // shadowColor: "#F4F5F5",
+      shadowColor: neutral40,
       shadowOffset: { width: 10, height: 10 },
       shadowOpacity: 1,
       shadowRadius: 10,
@@ -311,5 +312,27 @@ export const globalStyles = StyleSheet.create({
       shadowOpacity: 1,
       shadowRadius: 10,
       elevation: 8,
+  },
+  image: {
+    width:240,
+    height:240,
+    backfaceVisibility:'hidden'
+  },
+  text:{
+      paddingTop:40,
+      fontSize:24,
+      fontWeight:'600',
+      paddingBottom:40,
+  },
+  flipCard:{
+    width:240,
+    height:240,
+    alignItems: "center",
+    justifyContent: "center",
+    backfaceVisibility:'hidden'
+  },
+  flipCardBack:{
+    position: "absolute",
+    top:0
   }
 });
