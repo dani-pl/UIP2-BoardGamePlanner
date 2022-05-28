@@ -95,7 +95,7 @@ export default function EventsResults({route}) {
 				{/* GAMES */}
 				
 				<Text style={globalStyles.h3}>
-					Games
+					провъзгласява
 				</Text>
 				<View>
 						
