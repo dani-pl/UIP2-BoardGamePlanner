@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, navigation } from '@react-navigation/stack';
 import Settings from './screens/Settings'
 import Profile from './screens/Profile'
 import Login from './screens/Login'
@@ -19,6 +19,7 @@ import MapSearchBar from './components/MapSearchBar';
 
 const Stack = createStackNavigator();
 import { useTranslation } from 'react-i18next';
+import { NavigationContainer } from '@react-navigation/native';
 
 const ProfileNavigator = () => {
 	// get the translation instance
@@ -191,7 +192,7 @@ const EventsNavigator = () => {
 			headerStyle: { backgroundColor: '#1EA596' },
 
           header: () =>(
-            <MapSearchBar />
+            <MapSearchBar/>
           )
         }}
     />
