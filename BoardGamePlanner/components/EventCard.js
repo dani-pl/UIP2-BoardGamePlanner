@@ -4,7 +4,8 @@ import {
 	Image, 
 	Text, 
 	View, 
-	ImageBackground, 
+	ImageBackground,
+	Pressable, 
 	Dimensions, 
 	StyleSheet} from "react-native"
 import { FontAwesome, Feather, Ionicons} from '@expo/vector-icons';
@@ -18,7 +19,7 @@ const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
 
-export default function CardEvent() {
+export default function CardEvent({navigation}) {
 
 	/**
 	 * Cut text when it is too big and add ellipses
@@ -32,70 +33,85 @@ export default function CardEvent() {
 
 
 	return (
-		<View style={eventCardStyles.CardEvent}>
-			<View style={eventCardStyles.CardEventLeftCon}>
-					<View style={eventCardStyles.CardEventGroup}>
-						<Text style={globalStyles.allCaps}>1st May- Sat -2:00 PM</Text>
-						<View style={eventCardStyles.LeftDetails}>  
-							<View style={eventCardStyles.EventOwnerLocationIcon}>
-								<FontAwesome 
-									name={"user"} 
-									size={22} 
-									color={neutral60} 
-									style={{marginBottom:5}}
-								/>
-								<Ionicons 
-									name={"ios-home-outline"} 
-									size={18} 
-									color={neutral50}
-								/>
-							</View>
-							<View style={eventCardStyles.EventOwnerLocation}>
-								<Text style={[
-									globalStyles.btnTextNeutral,{
-									padding:0,
-									marginTop:5, 
-									marginBottom:5, 
-									marginLeft:5,
-									
-								}]}
-								numberOfLines={1}
-								ellipsizeMode={"tail"} 
-								>{_truncateText("Something happening here")}</Text>
-								<Text style={[
-									globalStyles.subtitle3,{
-									padding:0, 
-									marginTop:5, 
-									marginBottom:5, 
-									marginLeft:5}]}
-								>Balkan 7-9, Sofia</Text>
+		<Pressable onPress={()=> navigation.navigate("EventsResults", {eventId: 1234}) }>
+			<View style={eventCardStyles.CardEvent}>
+				<View style={eventCardStyles.CardEventLeftCon}>
+						<View style={eventCardStyles.CardEventGroup}>
+							<Text style={globalStyles.allCaps}>1st May- Sat -2:00 PM</Text>
+							<View style={eventCardStyles.LeftDetails}>  
+								<View style={eventCardStyles.EventOwnerLocationIcon}>
+									<FontAwesome 
+										name={"user"} 
+										size={22} 
+										color={neutral60} 
+										style={{marginBottom:5}}
+									/>
+									<Ionicons 
+										name={"ios-home-outline"} 
+										size={18} 
+										color={neutral50}
+									/>
+								</View>
+								<View style={eventCardStyles.EventOwnerLocation}>
+									<Text style={[
+										globalStyles.btnTextNeutral,{
+										padding:0,
+										marginTop:5, 
+										marginBottom:5, 
+										marginLeft:5,
+										
+									}]}
+									numberOfLines={1}
+									ellipsizeMode={"tail"} 
+									>{_truncateText("Something happening here")}</Text>
+									<Text style={[
+										globalStyles.subtitle3,{
+										padding:0, 
+										marginTop:5, 
+										marginBottom:5, 
+										marginLeft:5}]}
+									>Balkan 7-9, Sofia</Text>
+								</View>
 							</View>
 						</View>
+				</View>
+				<View style={eventCardStyles.DetailsContainer}>
+					<View style={eventCardStyles.Pill}>
+						<Text style={[globalStyles.allCaps,{margin:0}]}>HOST</Text>
+					</View>
+					<View style={eventCardStyles.gamesPrevCon}>
+							<Image 
+								source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
+								resizeMode="cover"
+								style={eventCardStyles.LastGameImgBubble}
+							/>
+
+							<Image 
+								source={{uri:"https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__original/img/zlx0Qqcgt0TLu62F5sKUmYTDNvc=/0x0/filters:format(png)/pic6034093.png"}}
+								resizeMode="cover"
+								style={eventCardStyles.MiddleGameImgBubble}
+							/>
+							<Image 
+								source={{uri:"https://cf.geekdo-images.com/VceWk5QVkgIp6rWDl5qHKQ__thumb/img/_4ZkvkgZey9R2OJOw_TqF426Qew=/fit-in/200x150/filters:strip_icc()/pic2611318.jpg"}}
+								resizeMode="cover"
+								style={eventCardStyles.FirstGameImgBubble}
+							/>
 					</View>
 			</View>
-			<View style={eventCardStyles.DetailsContainer}>
-				<View style={eventCardStyles.Pill}>
-					<Text style={[globalStyles.allCaps,{margin:0}]}>HOST</Text>
-				</View>
-				<View style={eventCardStyles.gamesPrevCon}>
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
-							resizeMode="cover"
-							style={eventCardStyles.LastGameImgBubble}
-						/>
-
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__original/img/zlx0Qqcgt0TLu62F5sKUmYTDNvc=/0x0/filters:format(png)/pic6034093.png"}}
-							resizeMode="cover"
-							style={eventCardStyles.MiddleGameImgBubble}
-						/>
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/VceWk5QVkgIp6rWDl5qHKQ__thumb/img/_4ZkvkgZey9R2OJOw_TqF426Qew=/fit-in/200x150/filters:strip_icc()/pic2611318.jpg"}}
-							resizeMode="cover"
-							style={eventCardStyles.FirstGameImgBubble}
-						/>
-				</View>
-		</View>
-		</View>
+			</View>
+		</Pressable>
 	)
 }
+
+export const EventDetails = () => {
+	return (
+
+		<View>
+			<Text>
+				New Transition
+			</Text>
+		</View>
+
+	)
+}
+

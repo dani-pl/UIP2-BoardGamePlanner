@@ -1,4 +1,4 @@
-export let GAMES = [
+export var GAMES = [
     {
       "gameId": 317985,
       "name": "Beyond the Sun",

@@ -2,9 +2,9 @@ export const EventDB = [
     {
         "eventId": 1234,
         "title": "Come and have fun",
-        "startDate": 'Wed Apr 13 2022 12:41:34 GMT+0000 (UTC)',
+        "startDate": 'Wed Apr 13 2022 12:40 - 16:00',
         "repeatSchedule": "once",
-        "duration": 180,
+        "duration": 200,
         "games": [317985,156129],
         "privacy": false,
         "hostId": 7,
@@ -12,7 +12,7 @@ export const EventDB = [
         "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
         "location": {
-            "general": "Nobel Prize Museum, Gamla Stan, Stockholm",
+            "general": "Nobel Prize Museum, Stockholm",
             "latitude": 59.325396581361616,
             "longitude": 18.07060992328456
           },

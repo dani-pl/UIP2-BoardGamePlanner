@@ -83,7 +83,7 @@ export default class Events extends React.Component {
   onPressMarker(e,index){
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
-    this.state.currentCard =  <CardEvent></CardEvent>
+    this.state.currentCard =  <CardEvent navigation={this.props.navigation}></CardEvent>
   }
 
   _eventsMarkers = () => {

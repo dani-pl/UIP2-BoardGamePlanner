@@ -12,14 +12,15 @@ import FirsPlayerView from './components/Tools/FirsPlayerView'
 import DiceRoll from './components/Tools/DiceRoll'
 import RollDice from './screens/RollDice';
 import Credits from './screens/Credits';
-import SearchBox from './components/searchBox';
 import MapSearchBar from './components/MapSearchBar';
+import { EventDetails } from './components/EventCard';
 
 
 
 const Stack = createStackNavigator();
 import { useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
+
 
 const ProfileNavigator = () => {
 	// get the translation instance

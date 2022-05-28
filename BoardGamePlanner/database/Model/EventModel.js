@@ -60,12 +60,12 @@ export default class EventModel {
      */
 
     getEventById = (eventId) => {
-    var event;
-    EVENTS.forEach(e => {
-        if(e.eventId == eventId){
-            event = e;
-        }
-    });
+        var event;
+        EVENTS.forEach(e => {
+            if(e.eventId == eventId){
+                event = e;
+            }
+        });
     return event;
     }
 
