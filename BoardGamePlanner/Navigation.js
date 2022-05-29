@@ -181,22 +181,25 @@ const ToolsNavigator = () => {
 export {ToolsNavigator}
 
 
-const EventsNavigator = () => {
+ const EventsNavigator = () => {
 	return (
 		<Stack.Navigator
     screenOptions={{title:""}}>
     <Stack.Screen
     name ="Events"
     component ={Events}
-    options={{
+    options ={{
+		headerShown:false
+	}}
+	/*options={{
 			headerStyle: { backgroundColor: '#1EA596' },
 
-          header: () =>(
-            <MapSearchBar/>
+          header: ({navigation}) =>(
+            <MapSearchBar navigation={navigation} />
           )
-        }}
+        }}*/
     />
-       <Stack.Screen
+        <Stack.Screen
     name ="EventsResults"
     component ={EventsResults}
     />
