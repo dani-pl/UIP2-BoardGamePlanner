@@ -18,7 +18,7 @@ const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
 
-export default function CardEvent() {
+export default function CardEvent(props) {
 
 	/**
 	 * Cut text when it is too big and add ellipses
@@ -35,7 +35,7 @@ export default function CardEvent() {
 		<View style={eventCardStyles.CardEvent}>
 			<View style={eventCardStyles.CardEventLeftCon}>
 					<View style={eventCardStyles.CardEventGroup}>
-						<Text style={globalStyles.allCaps}>1st May- Sat -2:00 PM</Text>
+						<Text style={globalStyles.allCaps}>{props.date}</Text>
 						<View style={eventCardStyles.LeftDetails}>  
 							<View style={eventCardStyles.EventOwnerLocationIcon}>
 								<FontAwesome 
@@ -61,21 +61,21 @@ export default function CardEvent() {
 								}]}
 								numberOfLines={1}
 								ellipsizeMode={"tail"} 
-								>{_truncateText("Something happening here")}</Text>
+								>{props.numberAttendees.toString().concat(" open")}</Text>
 								<Text style={[
 									globalStyles.subtitle3,{
 									padding:0, 
 									marginTop:5, 
 									marginBottom:5, 
 									marginLeft:5}]}
-								>Balkan 7-9, Sofia</Text>
+								>{props.generalLocation}</Text>
 							</View>
 						</View>
 					</View>
 			</View>
 			<View style={eventCardStyles.DetailsContainer}>
 				<View style={eventCardStyles.Pill}>
-					<Text style={[globalStyles.allCaps,{margin:0}]}>HOST</Text>
+					<Text style={[globalStyles.allCaps,{margin:0, display:props.isHost}]}>HOST</Text>
 				</View>
 				<View style={eventCardStyles.gamesPrevCon}>
 						<Image 

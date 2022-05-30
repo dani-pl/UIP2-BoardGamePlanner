@@ -90,7 +90,13 @@ export default class Events extends React.Component {
   onPressMarker(e,index){
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
-    this.state.currentCard =  <CardEvent></CardEvent>
+    let something = EventDB[index].date;
+    this.state.currentCard =  <CardEvent date={EventDB[index].startDate}
+                                            generalLocation={EventDB[index].location.general}
+                                            numberAttendees={EventDB[index].attendees.length}
+                                            isHost={EventDB[index].hostId==7 ? "flex":"none"}>
+
+                                  </CardEvent>
   }
 
   _eventsMarkers = () => {
