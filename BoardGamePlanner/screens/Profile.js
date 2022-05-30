@@ -4,9 +4,10 @@ import { StatusBar } from 'expo-status-bar';
 import { 
   StyleSheet,
   Button,
-  Alert,
+  Alert,TextInput,
   SafeAreaView,
   Pressable,
+  Modal,TouchableHighlight,
   Text, View} from 'react-native';
 import {globalStyles} from "../styles";
 import { FontAwesome } from '@expo/vector-icons';
@@ -16,7 +17,7 @@ import {auth} from '../firebase'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../firebase';
 import {MyLibrary} from '../components/MyLibrary';
-
+import { FontAwesome5 } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
 export default function Profile() {
@@ -38,6 +39,7 @@ const [gameLibrary,setLibrary]=useState([])
 const [users,setUsers] =useState([])
 const [currentUser,setCurrentUser] =useState('')
 const playersRef = firebase.firestore().collection('players');
+const [modalOpen, setModalOpen] = useState(false);
 
 
 useEffect(async ()=>{
@@ -111,17 +113,41 @@ description = {currentUser.description}
    <Pressable style={globalStyles.btnIconSecondary} onPress={()=>navigation.navigate("Settings", {msg: "I came from Profile"})}>
         <FontAwesome name={'cog'} color='#2F3C3B'/>
         </Pressable>
-        <Pressable style={globalStyles.btnPrimary} onPress={handleSignOut}>
-          <Text style={globalStyles.btnTextWhite}>Sign Out</Text>
+        <Pressable style={globalStyles.btnSecondary} onPress={handleSignOut}>
+          <Text style={globalStyles.btnTextNeutral}>Sign Out</Text>
         </Pressable>
           </View>
         </View>
   
   
         <Text style={globalStyles.h4}>{t('common:libraryLabel')}</Text>
-  
-<MyLibrary index={currentUser.gameLibrary}></MyLibrary>
+        
 
+<MyLibrary style={globalStyles.behind} index={currentUser.gameLibrary}></MyLibrary>
+<View style={globalStyles.centered}>
+<TouchableHighlight style={globalStyles.btnPrimary}  onPress={()=>setModalOpen(true)}>
+          <Text style={globalStyles.btnTextWhite}>Add Games</Text>
+        </TouchableHighlight>
+</View>
+
+<Modal visible={modalOpen} animationType='slide' style={globalStyles.modal}>
+  <View style={globalStyles.container}>
+    <FontAwesome5 name="times" size={24} style={globalStyles.modalIcon} onPress={()=> setModalOpen(false)}></FontAwesome5>
+    <Text style={globalStyles.h5}>Search for a game</Text>
+				
+				<TextInput
+          style={globalStyles.input}
+          placeholder="Search game"
+					// onChangeText='Location'
+					// value='Sofia, Bulgaria'
+				/>
+
+        <TouchableHighlight style={globalStyles.btnPrimary}  >
+          <Text style={globalStyles.btnTextWhite}>Add Game</Text>
+        </TouchableHighlight>
+
+  </View>
+</Modal>
 {/* <GameLibrary></GameLibrary> */}
       </View>
     )

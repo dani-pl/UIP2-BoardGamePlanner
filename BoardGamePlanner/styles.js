@@ -52,6 +52,7 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'center',
     marginTop:40,
     alignItems: 'center',
+  
     }
 ,
     h1: {
@@ -148,6 +149,23 @@ export const globalStyles = StyleSheet.create({
         paddingBottom:2,
         margin:8,
     },
+    btnFloating: {
+      position:'absolute',
+      // bottom:0,
+      backgroundColor: primary,
+      borderRadius: 10,
+      paddingRight:12,
+      paddingLeft:12,
+      paddingTop:2,
+      paddingBottom:2,
+      margin:8,
+     
+  },
+  behind:{
+    zIndex: 1, // works on ios
+    elevation: 1, // works on android
+  }
+  ,
     btnSecondary: {
       backgroundColor: neutral10,
       color: neutral60,
@@ -334,5 +352,16 @@ export const globalStyles = StyleSheet.create({
   flipCardBack:{
     position: "absolute",
     top:0
+  },
+  modal:{
+    height:300,
+    borderRadius:10,
+
+  },
+  modalIcon:{
+    alignSelf:'flex-end',
+    color:neutral50,
+    fontWeight:"400",
+
   }
 });
