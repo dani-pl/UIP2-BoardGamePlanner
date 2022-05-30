@@ -20,6 +20,13 @@ import Animated from 'react-native-reanimated';
 import { SearchBar } from 'react-native-elements';
 import { globalStyles, selected, unselected, primary } from '../styles';
 import MapSearchBar from '../components/MapSearchBar';
+import axios from 'axios'
+
+
+const GOOGLE_PACES_API_BASE_URL = 'https://maps.googleapis.com/maps/api/place'
+
+
+
 
 const markerEvent = require("../assets/event_img.png");
 const selectedEventMarker = require("../assets/eventSelected_img.png")
@@ -83,7 +90,14 @@ export default class Events extends React.Component {
   onPressMarker(e,index){
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
-    this.state.currentCard =  <CardEvent navigation={this.props.navigation}></CardEvent>
+    let something = EventDB[index].date;
+    this.state.currentCard =  <CardEvent date={EventDB[index].startDate}
+                                            generalLocation={EventDB[index].location.general}
+                                            numberAttendees={EventDB[index].attendees.length}
+                                            isHost={EventDB[index].hostId==7 ? "flex":"none"}
+                                            navigation={this.props.navigation}>
+                                            
+                                  </CardEvent>
   }
 
   _eventsMarkers = () => {
@@ -120,14 +134,22 @@ export default class Events extends React.Component {
     return result
   }
 
-  searchSubmit = (stringWithLocationUserWrites) =>{
-    let logicThatGetsLatitudeAndLongitudeFromLocationString = () =>{}
+  _searchSubmit = (userString) =>{
 		this.setState({
       location: {
-
+            latitude: 42.681940,
+            longitude: 23.298590,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
       }
     })
 	}
+
+  componentDidUpdate(prevProps){
+    if (this.props.searchedLocation !== prevProps.searchedLocation) {
+      this._searchSubmit(this.props.searchedLocation)
+    }
+  } 
 
   render(){
     const { width, height } = Dimensions.get("window");
@@ -139,11 +161,50 @@ export default class Events extends React.Component {
             style={globalStyles.map} 
             initialRegion={this.state.location} 
             region={this.state.location}
-			showsUserLocation={true}
+			      showsUserLocation={true}
+            provider={MapView.PROVIDER_GOOGLE}
         >
 			{this._eventsMarkers()}
 			{this._barsMarkers()}
         </MapView>
+        <SafeAreaView 
+				style={{
+					display:"flex", 
+					flexWrap: "nowrap",
+					backgroundColor: 'transparent', 
+					justifyContent:"center", 
+					alignItems:"center", 
+					width:"100%",
+          position:"absolute",
+          top:40,
+					}}>
+          <SearchBar
+              onSubmitEditing={()=>{this._searchSubmit(this.state.search)}}
+              value={this.state.search}
+              onChangeText = {(txt)=> this.setState({search:txt})}
+              placeholder='something else'
+              inputContainerStyle={{backgroundColor:unselected,borderRadius:12,}} 
+              style={{
+                alignSelf:"center", 
+                flexBasis: 150, 
+                borderColor:"transparent", 
+                shadowColor:"transparent",}} 
+              searchIcon={{
+                color:"white",
+                size: 24}}
+              inputStyle={{
+                backgroundColor:unselected, 
+                color:selected,  
+                textAlign:'left',
+                fontFamily: "Montserrat-Regular",}} 
+              containerStyle={{
+                backgroundColor:"transparent",
+                borderBottomColor:"transparent", 
+                borderTopColor:"transparent",
+                width:"95%",
+              }}>
+          </SearchBar>
+          </SafeAreaView>
         {this.state.currentCard}
       </View>
     )

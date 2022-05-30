@@ -346,12 +346,9 @@ export const eventCardStyles = StyleSheet.create({
   },
   LeftDetails: { 
     flexDirection: "row",
-    justifyContent:"space-between",
-    alignItems: 'stretch',
   },
   EventOwnerLocation: {
     flexDirection: "column",
-	justifyContent: "space-evenly",
 	alignItems:"flex-start",
   },
   EventOwnerLocationIcon: {
