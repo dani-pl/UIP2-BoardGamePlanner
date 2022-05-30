@@ -29,15 +29,14 @@ export default function EventsResults({route}) {
 	 * get the event object from the model
 	 * @param {int} eventId 
 	 */
-	const _getEvent = (eventId) => {
+	const _getEvent =  (eventId) => {
         EventDB.forEach(e => {
             if(e.eventId == eventId){
                 setEvent(e)
-				e.games.forEach((game)=>{
-					console.log('here')
-					setGames(prevGames => [...prevGames,getGameById(game)])
-				})
-				
+				// e.games.forEach((game)=>{
+				// 	console.log('here')
+				// 	setGames(prevGames => [...prevGames,getGameById(game)])
+				// })
             }
         });
 		console.log(games)
@@ -45,7 +44,7 @@ export default function EventsResults({route}) {
 
 	const getGames = () => {
 		var tempGames=[]
-		event.games.map((game, i) => tempGames.push(getGameById(game)))
+		event.games.forEach((game, i) => tempGames.push(getGameById(game)))
 		console.log(tempGames)
 	}
 
@@ -94,8 +93,8 @@ export default function EventsResults({route}) {
 				</View>
 				{/* GAMES */}
 				
-				<Text style={globalStyles.h3}>
-					провъзгласява
+				<Text>
+					{JSON.stringify(event)}
 				</Text>
 				<View>
 						
