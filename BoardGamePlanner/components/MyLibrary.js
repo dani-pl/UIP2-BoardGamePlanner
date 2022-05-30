@@ -119,8 +119,8 @@ useEffect(async ()=>{
             })
         })
     setGames(games1)
- 
-    // console.log(typeof(games))
+    console.log(gameLibrary)
+     console.log(typeof(games))
     // console.log(currentUser.gameLibrary);
     // console.log(typeof(currentUser.gameLibrary));
     getGames()

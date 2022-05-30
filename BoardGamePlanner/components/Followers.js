@@ -13,11 +13,11 @@ export class Followers extends React.Component {
 	return (
 		<View style={globalStyles.flexRow }>
 				<View style={globalStyles.flexColumn }>
-					{/* <Text style={globalStyles.h6 } >{this.props.followers ? this.props.followers.length:0 }</Text> */}
+					<Text style={globalStyles.h6 } >{this.props.followers ? this.props.followers.length:0 }</Text>
 					<Text style={globalStyles.subtitle2 } >Followers</Text>
 				</View>
 				<View style={globalStyles.flexColumn }>
-					{/* <Text style={globalStyles.h6 } >{this.props.following ? this.props.following.length:0 }</Text> */}
+					<Text style={globalStyles.h6 } >{this.props.following ? this.props.following.length:0 }</Text>
 					<Text style={globalStyles.subtitle2 } >Following</Text>
 				</View>
 			</View>

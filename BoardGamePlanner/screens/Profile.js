@@ -34,7 +34,7 @@ const handleSignOut = () => {
          .catch(error => alert(error.message))
 }
 
-const [playerLibrary,setLibrary]=useState([])
+const [gameLibrary,setLibrary]=useState([])
 const [users,setUsers] =useState([])
 const [currentUser,setCurrentUser] =useState('')
 const playersRef = firebase.firestore().collection('players');
@@ -65,9 +65,9 @@ useEffect(async ()=>{
             })
         })
     setUsers(users)
-    console.log(currentUser.gameLibrary)
+   
     global.gameLibrary = currentUser.gameLibrary;
-  
+ 
   }
 )
 },[])

@@ -13,6 +13,7 @@
     "@expo/ngrok": "^4.1.0",
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@react-native-async-storage/async-storage": "~1.15.0",
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/stack": "^6.2.1",
