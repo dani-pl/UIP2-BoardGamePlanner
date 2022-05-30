@@ -18,6 +18,7 @@ import Splash from './screens/Splash';
 // language
 import Localize from './Constants/Localize'
 import { useTranslation } from 'react-i18next';
+import { LogBox } from 'react-native';
 
 
 const Tab = createBottomTabNavigator()
@@ -26,6 +27,7 @@ const Stack = createStackNavigator()
 
 export default function App() {
 
+	// LogBox.ignoreAllLogs()
   	// get the translation instance
 	const { t } = useTranslation();
     // var games = getBGGLibrary('trisroyal');

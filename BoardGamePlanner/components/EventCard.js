@@ -33,8 +33,11 @@ export default function CardEvent(props) {
 
 
 	return (
-		<View style={eventCardStyles.CardEvent}>
-			<View style={eventCardStyles.CardEventLeftCon}>
+		<Pressable 
+			style={[globalStyles.justifyAndAlignCenter,{width:'98%'}]} 
+			onPress={() => props.navigation.navigate('EventsResults', {event:props.event})}>
+			<View style={eventCardStyles.CardEvent} >
+				<View style={eventCardStyles.CardEventLeftCon}>
 					<View style={eventCardStyles.CardEventGroup}>
 						<Text style={globalStyles.allCaps}>{props.date}</Text>
 						<View style={eventCardStyles.LeftDetails}>  
@@ -44,60 +47,64 @@ export default function CardEvent(props) {
 									size={22} 
 									color={neutral60} 
 									style={{marginBottom:5}}
-								/>
+									/>
 								<Ionicons 
 									name={"ios-home-outline"} 
 									size={18} 
 									color={neutral50}
-								/>
+									/>
 							</View>
 							<View style={eventCardStyles.EventOwnerLocation}>
 								<Text style={[
 									globalStyles.btnTextNeutral,{
-									padding:0,
-									marginTop:5, 
-									marginBottom:5, 
-									marginLeft:5,
-									
-								}]}
-								numberOfLines={1}
-								ellipsizeMode={"tail"} 
-								>{props.numberAttendees.toString().concat(" open")}</Text>
+										padding:0,
+										marginTop:5, 
+										marginBottom:5, 
+										marginLeft:5,
+										
+									}]}
+									numberOfLines={1}
+									ellipsizeMode={"tail"} 
+									>
+										{(props.event.playerLimit-props.event.attendees.length) != 0 ?  (props.event.playerLimit-props.event.attendees.length) + " open" : "Full"}
+										
+										</Text>
 								<Text style={[
 									globalStyles.subtitle3,{
-									padding:0, 
-									marginTop:5, 
-									marginBottom:5, 
-									marginLeft:5}]}
-								>{props.generalLocation}</Text>
+										padding:0, 
+										marginTop:5, 
+										marginBottom:5, 
+										marginLeft:5}]}
+										>{props.generalLocation}</Text>
 							</View>
 						</View>
+					</View>
 				</View>
-					<View style={eventCardStyles.DetailsContainer}>
-						<View style={eventCardStyles.Pill}>
-							<Text style={[globalStyles.allCaps,{margin:0, display:props.isHost}]}>HOST</Text>
-						</View>
-						<View style={eventCardStyles.gamesPrevCon}>
-								<Image 
-									source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
-									resizeMode="cover"
-									style={eventCardStyles.LastGameImgBubble}
-								/>
+				<View style={eventCardStyles.DetailsContainer}>
+					<View style={eventCardStyles.Pill}>
+						<Text style={[globalStyles.allCaps,{margin:0, display:props.isHost}]}>HOST</Text>
+					</View>
+					<View style={eventCardStyles.gamesPrevCon}>
+						<Image 
+							source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
+							resizeMode="cover"
+							style={eventCardStyles.LastGameImgBubble}
+							/>
 
-								<Image 
-									source={{uri:"https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__original/img/zlx0Qqcgt0TLu62F5sKUmYTDNvc=/0x0/filters:format(png)/pic6034093.png"}}
-									resizeMode="cover"
-									style={eventCardStyles.MiddleGameImgBubble}
-								/>
-								<Image 
-									source={{uri:"https://cf.geekdo-images.com/VceWk5QVkgIp6rWDl5qHKQ__thumb/img/_4ZkvkgZey9R2OJOw_TqF426Qew=/fit-in/200x150/filters:strip_icc()/pic2611318.jpg"}}
-									resizeMode="cover"
-									style={eventCardStyles.FirstGameImgBubble}
-								/>
-						</View>
+						<Image 
+							source={{uri:"https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__original/img/zlx0Qqcgt0TLu62F5sKUmYTDNvc=/0x0/filters:format(png)/pic6034093.png"}}
+							resizeMode="cover"
+							style={eventCardStyles.MiddleGameImgBubble}
+							/>
+						<Image 
+							source={{uri:"https://cf.geekdo-images.com/VceWk5QVkgIp6rWDl5qHKQ__thumb/img/_4ZkvkgZey9R2OJOw_TqF426Qew=/fit-in/200x150/filters:strip_icc()/pic2611318.jpg"}}
+							resizeMode="cover"
+							style={eventCardStyles.FirstGameImgBubble}
+							/>
+					</View>
 				</View>
 			</View>
-		</View>
+		</Pressable>
 	)
 }
 

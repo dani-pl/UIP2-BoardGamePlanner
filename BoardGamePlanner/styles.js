@@ -29,15 +29,16 @@ export var neutral40 = '#869392';
 export var neutral30 = '#C7CCCC';
 export var neutral20 = '#E7E9E9';
 export var neutral10 = '#F4F5F5';
-export const selected=neutral10;
+export const selected = neutral10;
 
 export const backgroundColor = '#FCFDFC';
 export const firstPlayerColors = ['#25B4A4','#ffb100','#F194B4','#DC3030','#6359E8']
 
 const { width, height } = Dimensions.get("window");
-    const CARD_HEIGHT = height / 4;
-    const CARD_WIDTH = CARD_HEIGHT - 50;
+const CARD_HEIGHT = height / 4;
+const CARD_WIDTH = CARD_HEIGHT - 50;
 
+// our global styles
 export const globalStyles = StyleSheet.create({
     container: {
        flex: 1,
@@ -124,6 +125,13 @@ export const globalStyles = StyleSheet.create({
         textTransform:"uppercase",
         fontFamily: "Montserrat-Regular",
         color: secondary
+      },
+      bodyText: {
+        fontSize: 14,
+        lineHeight:20,
+        margin: 4,
+        fontFamily: "Montserrat-Regular",
+        color: neutral70
       },
     btnTextWhite: {
         fontSize: 16,
@@ -281,7 +289,6 @@ export const globalStyles = StyleSheet.create({
     textDecorationLine:"underline"
   },
   mapContainer: {
-
     paddingTop:0,
     paddingRight:0, 
     paddingLeft:0,
@@ -311,10 +318,28 @@ export const globalStyles = StyleSheet.create({
       shadowOpacity: 1,
       shadowRadius: 10,
       elevation: 8,
+  },
+  floatingBtnContainer: {
+      position: 'absolute',                                          
+      bottom: 20,                                                    
+      width:'100%',
+      display:'flex',
+      alignItems:'center',
+      alignSelf:'center'
+  },
+  floatingBtn: {
+      paddingVertical:6, 
+      margin: 0,
+      width:'100%',
+      shadowColor: neutral40,
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.6,
+      shadowRadius: 5,
+      elevation: 2,
   }
 });
 
-
+// custom styles for event cards control
 export const eventCardStyles = StyleSheet.create({
   CardEvent: {
     display: "flex",
@@ -349,18 +374,18 @@ export const eventCardStyles = StyleSheet.create({
   },
   EventOwnerLocation: {
     flexDirection: "column",
-	alignItems:"flex-start",
+	  alignItems:"flex-start",
   },
   EventOwnerLocationIcon: {
-	flexDirection: "column",
-	justifyContent: "space-evenly",
-	alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
   DetailsContainer: {
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "flex-end",
-	alignSelf:"stretch",
+	  alignSelf:"stretch",
   },
   Pill: {
     paddingLeft: 10,
@@ -414,3 +439,19 @@ export const eventCardStyles = StyleSheet.create({
     borderRadius: 20,
   },
 })
+
+// custom styles for segment control 
+export const segmentStyles = StyleSheet.create({
+  SegmentControlWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom:20
+  },
+  textWrapper: {
+    flex: 1,
+    paddingHorizontal: 5
+  },
+})
+

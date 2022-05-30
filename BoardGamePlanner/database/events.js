@@ -9,14 +9,14 @@ export const EventDB = [
         "privacy": false,
         "hostId": 7,
         "coHostId": 7,
-        "attendees": ["bbenediteb","cgladbacha", "cgladbacha", "cgladbacha"],
+        "attendees": ["bbenediteb","cgladbacha"],
         "InvitedPeople": ["fberks8","abuckie9"],
         "location": {
             "general": "Nobel Prize Museum",
             "latitude": 59.325396581361616,
             "longitude": 18.07060992328456
           },
-        "playerLimit": 1,
+        "playerLimit": 4,
         "joined": false,
         "comments": [{
             "1" : [{

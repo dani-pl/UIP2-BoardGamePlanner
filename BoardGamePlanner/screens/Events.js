@@ -6,7 +6,7 @@ import {
   Alert,
   SafeAreaView,
   Pressable,
-  Text, View, Dimensions,ScrollView} from 'react-native';
+  Text, View, Dimensions,ScrollView, Modal} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -18,7 +18,7 @@ import { BarDB } from "../database/bars";
 import CardEvent from "../components/EventCard"
 import Animated from 'react-native-reanimated';
 import { SearchBar } from 'react-native-elements';
-import { globalStyles, selected, unselected, primary } from '../styles';
+import { globalStyles, selected, unselected, primary, eventCardStyles } from '../styles';
 import MapSearchBar from '../components/MapSearchBar';
 import axios from 'axios'
 
@@ -47,7 +47,7 @@ export default class Events extends React.Component {
       longitudeDelta: 0.01,
     }}
     this.state= {currentCard: <View></View>}
-    this.state={search:"Search Location"}
+    this.state= {search:"Search Location"}
   }
 
   componentDidMount(){
@@ -91,13 +91,15 @@ export default class Events extends React.Component {
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
     let something = EventDB[index].date;
-    this.state.currentCard =  <CardEvent date={EventDB[index].startDate}
-                                            generalLocation={EventDB[index].location.general}
-                                            numberAttendees={EventDB[index].attendees.length}
-                                            isHost={EventDB[index].hostId==7 ? "flex":"none"}
-                                            navigation={this.props.navigation}>
-                                            
-                                  </CardEvent>
+    this.state.currentCard = <CardEvent 
+                                 date={EventDB[index].startDate}
+                                 generalLocation={EventDB[index].location.general}
+                                 numberAttendees={EventDB[index].attendees.length}
+                                 numberOfSpots={EventDB[index].playerLimit}
+                                 isHost={EventDB[index].hostId==7 ? "flex":"none"}
+                                 navigation={this.props.navigation}
+                                 event={EventDB[index]}>
+                              </CardEvent>
   }
 
   _eventsMarkers = () => {
@@ -134,7 +136,7 @@ export default class Events extends React.Component {
     return result
   }
 
-  _searchSubmit = (userString) =>{
+  _searchSubmit = (userString) => {
 		this.setState({
       location: {
             latitude: 42.681940,
@@ -162,22 +164,21 @@ export default class Events extends React.Component {
             initialRegion={this.state.location} 
             region={this.state.location}
 			      showsUserLocation={true}
-            provider={MapView.PROVIDER_GOOGLE}
         >
 			{this._eventsMarkers()}
 			{this._barsMarkers()}
         </MapView>
         <SafeAreaView 
-				style={{
-					display:"flex", 
-					flexWrap: "nowrap",
-					backgroundColor: 'transparent', 
-					justifyContent:"center", 
-					alignItems:"center", 
-					width:"100%",
-          position:"absolute",
-          top:40,
-					}}>
+          style={{
+            display:"flex", 
+            flexWrap: "nowrap",
+            backgroundColor: 'transparent', 
+            justifyContent:"center", 
+            alignItems:"center", 
+            width:"100%",
+            position:"absolute",
+            top:40,
+            }}>
           <SearchBar
               onSubmitEditing={()=>{this._searchSubmit(this.state.search)}}
               value={this.state.search}
