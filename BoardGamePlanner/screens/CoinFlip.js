@@ -63,14 +63,14 @@ export default class CoinFlip extends Component {
         'selected': image,
         'selectedText': "Tails",
       })
-      this.flipCard()
+      this.flipCoin()
     }
   }
 
 //this is the function that is animating the coin, 
 //if the coin has already flipped 360 degrees, we flip it back to 0 and if it is at 0 we flip if 360 degrees.
 
-  flipCard() {
+  flipCoin() {
     if (this.value > 90) {
       Animated.spring(this.animatedValue,
         {
