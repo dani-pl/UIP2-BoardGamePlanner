@@ -75,6 +75,7 @@ useEffect(async ()=>{
 },[])
 
 useEffect(() => {
+  console.log(auth)
 for (var i = 0, len = users.length; i < len; i++) {
 if(auth.currentUser.uid == users[i].id){
   setCurrentUser(users[i])
