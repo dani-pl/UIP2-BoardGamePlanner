@@ -13,7 +13,6 @@ export default class CoinFlip extends Component {
 
     this.value=0;
     this.animatedValue = new Animated.Value(180);
-  
     this.animatedValue.addListener(({value})=>{
       this.value = value;
     })
@@ -21,7 +20,6 @@ export default class CoinFlip extends Component {
     this.state= {
       pressCount: 0,
       clicked: false,
-      fadeAnim: new Animated.Value(0),
       selected: require('../assets/head.png'),
       selectedText: 'Toss the coin',
       side:[
@@ -34,47 +32,48 @@ export default class CoinFlip extends Component {
 
 handleClick = () => {
    
-      this.setState({
-        'pressCount':this.state.pressCount + 1,
-        'clicked': true, 
-        'selected': this.state.side[Math.floor(Math.random() * 
-    this.state.side.length)],
-      })
+  const image = this.state.side[Math.floor(Math.random() * 
+    this.state.side.length)]
 
-      console.log(this.state.selected);
-
-
-if(this.state.selected == 40){
-  this.state.selectedText = 'Heads'
-}else{
-  this.state.selectedText ='Tails'
+if(image == this.state.side[0]){
+  this.setState({
+    'pressCount':this.state.pressCount + 1,
+    'clicked': true, 
+    'selected': image,
+    'selectedText': "Heads",
+  })
+  this.flipCard()
 }
-
-this.setState({
-  'selectedText': this.state.selectedText,
-})
-
+else{
+  this.setState({
+    'pressCount':this.state.pressCount + 1,
+    'clicked': true, 
+    'selected': image,
+    'selectedText': "Tails",
+  })
+  this.flipCard()
+}
     }
 
-flipCard(){
+    flipCard(){
       if(this.value>90){
         Animated.spring(this.animatedValue,
           {
             toValue:0,
-           friction:5,
+           friction:4,
            tension:10,
-           easing: Easing.linear,
+           easing: Easing.easing,
             useNativeDriver:true
-          }).start(() => this.handleClick());
+          }).start();
       } else{
         Animated.spring(this.animatedValue,
           {
             toValue:360,
-            friction:5,
+            friction:4,
             tension:10,
-            easing: Easing.linear,
+            easing: Easing.easing,
             useNativeDriver:true
-          }).start(() => this.handleClick());
+          }).start();
         }; 
 }
 
@@ -117,7 +116,7 @@ flipCard(){
 
 </>
 <Text style={globalStyles.text}>{this.state.selectedText}</Text>
-      <TouchableHighlight onPress={() => this.flipCard()}>
+      <TouchableHighlight onPress={() => this.handleClick()}>
         
       <View style={globalStyles.btnPrimary}>
           <Text style={globalStyles.btnTextWhite}>Toss</Text>
