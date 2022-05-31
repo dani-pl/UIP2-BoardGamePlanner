@@ -19,15 +19,12 @@ export const EventDB = [
         "playerLimit": 4,
         "joined": false,
         "comments": [{
-            "1" : [{
-                'playerId':"61671",
+                'playerId':"bbenediteb",
                 "text":"See you tomorrow guys!"
-            }],
-            "2" : [{
-                'playerId':"7",
+            },{
+                'playerId':"cgladbacha",
                 "text":"See u!"
             }]
-        }]
     },
     {
         "eventId": 1343 ,
@@ -49,15 +46,12 @@ export const EventDB = [
         "playerLimit": 2,
         "joined": true,
         "comments": [{
-            "1" : [{
-                'playerId':"61671",
+                'playerId':"bbenediteb",
                 "text":"Is your home far away from the nearest metro station?"
-            }],
-            "2" : [{
-                'playerId':"2",
+            },{
+                'playerId':"cgladbacha",
                 "text":"around 2 mins by walking"
             }]
-        }]
     },
     {
         "eventId": 3,
@@ -78,16 +72,13 @@ export const EventDB = [
         },
         "playerLimit": 3,
         "joined": false,
-        "comments": [{
-            "1" : [{
-                'playerId':"61671",
+        "comments":[{
+                'playerId':"bbenediteb",
                 "text":"Is it very difficult to learn how to play?"
-            }],
-            "2" : [{
-                'playerId':"3",
+            ,
+                'playerId':"cgladbacha",
                 "text":"I would recommend you to watch some tutorials before coming"
             }]
-        }]
     },
     {
         "eventId": 4,
@@ -108,16 +99,13 @@ export const EventDB = [
         },
         "playerLimit": 4,
         "joined": true,
-        "comments": [{
-            "1" : [{
-                'playerId':"61671",
+        "comments":  [{
+                'playerId':"bbenediteb",
                 "text":"Can I join even if I am new to the game"
-            }],
-            "2" : [{
-                'playerId':"4",
+        },{
+                'playerId':"abuckie9",
                 "text":"Check the tutorial first"
             }]
-        }]
     },
     {
         "eventId": 5,
@@ -129,7 +117,7 @@ export const EventDB = [
         "privacy": false,
         "hostId": 5,
         "coHostId": 5,
-        "attendees": ["bbenediteb","cgladbacha", "cgladbacha"],
+        "attendees": ["bbenediteb","cgladbacha", "fberks8"],
         "InvitedPeople": ["fberks8","abuckie9"],
         "location": {
             "general": "Solna",
@@ -139,14 +127,11 @@ export const EventDB = [
         "playerLimit": 5,
         "joined": true,
         "comments": [{
-            "1" : [{
-                'playerId':"61671",
+                'playerId':"bbenediteb",
                 "text":"Do you have the extension?"
-            }],
-            "2" : [{
-                'playerId':"7",
+            },{
+                'playerId':"fberks8",
                 "text":"No I do not have it"
             }]
-        }]
     }
 ]

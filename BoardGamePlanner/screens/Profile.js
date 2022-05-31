@@ -15,7 +15,7 @@ import {ProfileComponent} from '../components/ProfileComponent';
 import {auth} from '../firebase'
 import { useNavigation } from '@react-navigation/native';
 import { firebase } from '../firebase';
-import {MyLibrary} from '../components/MyLibrary';
+import { MyLibrary} from '../components/MyLibrary';
 
 import { useTranslation } from 'react-i18next';
 

@@ -100,7 +100,11 @@ class Events extends React.Component {
                                  numberOfSpots={EventDB[index].playerLimit}
                                  isHost={EventDB[index].hostId==7 ? "flex":"none"}
                                  navigation={this.props.navigation}
-                                 event={EventDB[index]}>
+                                 event={EventDB[index]}
+                                 eventGame1={EventDB[index].games[0]}
+                                 eventGame2={EventDB[index].games.length > 1 && EventDB[index].games[1]}
+                                 eventGame3={EventDB[index].games.length > 2 && EventDB[index].games[2]}
+                                 >
                               </CardEvent>
   }
 

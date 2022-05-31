@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useTransition } from "react"
 import { 
 	Stylesheet, 
 	Image, 
@@ -15,12 +15,19 @@ import {
 	neutral50,
 	neutral60 } from "../styles";
 
+import { getGameById } from "../database/Model/GameModel";
+
 const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
 
+import { useTranslation } from "react-i18next";
+
 export default function CardEvent(props) {
 
+	// initiate translation instance
+    const { t } = useTranslation();
+	
 	/**
 	 * Cut text when it is too big and add ellipses
 	 * @param {string} text 
@@ -30,7 +37,6 @@ export default function CardEvent(props) {
 		const maxLimit = 21;
 		return (text).length > maxLimit ? (((text).substring(0,maxLimit-3)) + '...') : text
 	}
-
 
 	return (
 		<Pressable 
@@ -66,7 +72,7 @@ export default function CardEvent(props) {
 									numberOfLines={1}
 									ellipsizeMode={"tail"} 
 									>
-										{(props.event.playerLimit-props.event.attendees.length) != 0 ?  (props.event.playerLimit-props.event.attendees.length) + " open" : "Full"}
+										{(props.event.playerLimit-props.event.attendees.length) != 0 ?  `${(props.event.playerLimit-props.event.attendees.length)} ${t("common:spotsLbl")}` : t("common:spotsFull")}
 										
 										</Text>
 								<Text style={[
@@ -85,22 +91,27 @@ export default function CardEvent(props) {
 						<Text style={[globalStyles.allCaps,{margin:0, display:props.isHost}]}>HOST</Text>
 					</View>
 					<View style={eventCardStyles.gamesPrevCon}>
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
-							resizeMode="cover"
-							style={eventCardStyles.LastGameImgBubble}
-							/>
-
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/NPWdxDD5uLOBLBDdVgdLvA__original/img/zlx0Qqcgt0TLu62F5sKUmYTDNvc=/0x0/filters:format(png)/pic6034093.png"}}
-							resizeMode="cover"
-							style={eventCardStyles.MiddleGameImgBubble}
-							/>
-						<Image 
-							source={{uri:"https://cf.geekdo-images.com/VceWk5QVkgIp6rWDl5qHKQ__thumb/img/_4ZkvkgZey9R2OJOw_TqF426Qew=/fit-in/200x150/filters:strip_icc()/pic2611318.jpg"}}
-							resizeMode="cover"
-							style={eventCardStyles.FirstGameImgBubble}
-							/>
+						{
+							props.eventGame1 ? <Image 
+								source={{uri:getGameById(props.eventGame1).thumbnail}}
+								resizeMode="cover"
+								style={eventCardStyles.LastGameImgBubble}
+							/> : undefined
+						}
+						{
+							props.eventGame2 ? <Image 
+								source={{uri:getGameById(props.eventGame2).thumbnail}}
+								resizeMode="cover"
+								style={eventCardStyles.MiddleGameImgBubble}
+							/> : undefined
+						}
+						{
+							props.eventGame3 ? <Image 
+								source={{uri:getGameById(props.eventGame3).thumbnail}}
+								resizeMode="cover"
+								style={eventCardStyles.FirstGameImgBubble}
+							/>  : undefined
+						}
 					</View>
 				</View>
 			</View>

@@ -9,7 +9,9 @@ import {
   Image,
   Text, 
   View,
-  ScrollView} from 'react-native';
+  ScrollView, 
+  Dimensions,
+  Animated, TouchableHighlight} from 'react-native';
 import {globalStyles, eventCardStyles, neutral60, neutral40,purple10, purple50} from "../styles";
 import { FontAwesome, Feather, Ionicons} from '@expo/vector-icons';
 import { EventDetails } from '../components/EventCard';
@@ -19,19 +21,38 @@ import { GAMES } from '../database/games';
 import { stopLocationUpdatesAsync } from 'expo-location';
 import { getGameById } from '../database/Model/GameModel';
 import SegmentControl from '../components/SegmentControl';
-import JoinModal from '../components/JoinModal';
 import { shadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 import DetailedMap from '../components/DetailedMap'
 
+import { useTranslation } from 'react-i18next';
+
+let deviceHeight = Dimensions.get('window').height
+var deviceWidth = Dimensions.get('window').width
+
 export default function EventsResults({route}) {
+
+	// initiate translation instance
+    const { t } = useTranslation();
 
 	// we initiate with random event as fallback while loading data
 	const [event, setEvent] = useState(EventDB[1])
 	const [tabIndex, setTabIndex] = useState(0);
-	const [joined, setJoined] = useState(true); 
+	const [joined, setJoined] = useState(false); 
 	const [modalVisible, setModalVisible] = useState(false);
-	const tabs = joined ? ['Spelers', 'Chat', 'Locatie'] : ['Spelers', 'Chat']
+	// set the tabs based on if the player has joined the event
+	const tabs = joined ? [
+		t('common:segmentControlPlayers'), 
+		t('common:segmentControlChat'), 
+		t('common:segmentControlLocation')
+		] : [
+			t('common:segmentControlPlayers'), 
+			t('common:segmentControlChat')
+		]
 
+	/**
+	 * update the tabs
+	 * @param {number} index 
+	 */
 	const handleTabsChange = index => {
 		setTabIndex(index);
 	  };
@@ -39,15 +60,11 @@ export default function EventsResults({route}) {
 	useEffect(()=>{
 		// on component mount update the event with the data passed by the event card
 		setEvent(route.params.event)
-		// console.log(event.joined)
-		// if(event.joined){
-		// 	setJoined(true)
-		// }else setJoined(false)
+		// on unmount set joined back to false
 		return () => {
 			setJoined(false)
 		}
 	},[])
-
 
 	/**
 	 * Get the games in the event
@@ -85,12 +102,8 @@ export default function EventsResults({route}) {
 	const getAttendees = () => {
 		
 		var attendees = event.attendees.map((attendee, i)=>{
-			var att;
-			PLAYERS.forEach((player)=>{
-				if(player.username == attendee ){
-					att = player
-				}
-			})
+			// get the attendee 
+			var att = getPlayerByUsername(attendee);
 
 			return(
 				<View 
@@ -145,11 +158,61 @@ export default function EventsResults({route}) {
 		return openSpots
 	}
 
+
+	/**
+	 * toggle join request modal
+	 */
 	const toggleModal = () => {
 		setModalVisible(true)
 		setJoined(true)
-		setTabIndex(2)
 	}
+
+	/**
+	 * Retrieve the player object by username
+	 * @param {string} username
+	 * @returns 
+	 */
+	const getPlayerByUsername = (username) => {
+		var att;
+		PLAYERS.forEach((player)=>{
+			if(player.username == username){
+				att = player
+			}
+		})
+		return att;
+	}
+
+	/**
+	* Get the chat messages in the event
+	 * @returns {JSX} chat messages views
+	 */
+	const getMessages = () => {
+		var messages = event.comments.map((message, i)=>{
+			console.log(message)
+			// get the player object
+			var player = getPlayerByUsername(message.playerId) || {name:"placeholder",image:"https://robohash.org/earumoccaecatimodi.png"}
+			return (
+				<View key={i} style={{flexDirection:"row", alignItems:'center'}}>
+					<Image
+						source={{uri: player.image}}
+						style={{
+							width: 30,
+							height: 30,
+							margin: 10,
+							backgroundColor:purple10,
+							borderRadius: 15}}
+						resizeMode="cover"
+					/>
+					<View style={{margin:10, width:"90%"}}>
+						<Text style={[globalStyles.h6,{lineHeight:0}]}>{player.name}</Text>
+						<Text style={[globalStyles.bodyText, {marginVertical:0}]}>{message.text}</Text>
+					</View>
+				</View>
+			)
+		})
+		return messages;
+	}
+
 
 	return (
 		<View style={[globalStyles.container, {flex:1}]}>
@@ -181,7 +244,7 @@ export default function EventsResults({route}) {
 						}]}
 						numberOfLines={1}
 						ellipsizeMode={"tail"} 
-						>{(event.playerLimit-event.attendees.length) != 0 ?  (event.playerLimit-event.attendees.length) + " open" : "Full"}</Text>
+						>{(event.playerLimit-event.attendees.length) != 0 ?  `${(event.playerLimit-event.attendees.length)} ${t("common:spotsLbl")}` : t("common:spotsFull")}</Text>
 						<Text style={[globalStyles.subtitle2, {
 							padding:0, 
 							marginVertical: 5,
@@ -192,7 +255,7 @@ export default function EventsResults({route}) {
 					</View>
 				</View>
 				<View style={[globalStyles.flexRow, {justifyContent:'flex-start', marginTop:10}]}>
-					<Text style={globalStyles.bodyText}>Organised by: </Text>
+					<Text style={globalStyles.bodyText}>{t('common:host')}</Text>
 					<View style={[globalStyles.flexRow, {justifyContent:'flex-start', marginLeft:10}]}>
 						<Image 
 							source={{uri:PLAYERS[event.hostId].image}}
@@ -211,7 +274,7 @@ export default function EventsResults({route}) {
 
 				{/* GAMES */}
 				<View style={{marginVertical:10}}>
-					<Text style={globalStyles.h4} >Games</Text>
+					<Text style={globalStyles.h4} >{t("common:gamesLbl")}</Text>
 					<ScrollView 
 						horizontal={true}
 						showsHorizontalScrollIndicator={false}
@@ -235,13 +298,14 @@ export default function EventsResults({route}) {
 				</View>
 				
 				{/* CHAT OVERVIEW */}
-				<Text style={{display:tabIndex == 1 ? "flex" : "none" }}>
-					{JSON.stringify(event)}
-				</Text>
+				<View style={{display:tabIndex == 1 ? "flex" : "none" }}>
+					{/* {JSON.stringify(event)} */}
+					{ getMessages() }
+				</View>
 
 				{/* LOCATION OVERVIEW */}
 				<View style={{display:tabIndex == 2 ? "flex" : "none" }}>
-					<DetailedMap />
+					<DetailedMap location={event.location} type={'event'} name={event.title}/>
 				</View>
 			</ScrollView>
 			
@@ -258,7 +322,7 @@ export default function EventsResults({route}) {
 							]}
 							onPress={toggleModal}
 							>
-							<Text style={globalStyles.btnTextWhite}>Take Spot</Text>
+							<Text style={globalStyles.btnTextWhite}>{t('common:takeSpotBtn')}</Text>
 						</Pressable>
 					</View> 
 							</>
@@ -303,7 +367,10 @@ export default function EventsResults({route}) {
 									margin:0,
 									borderTopLeftRadius:0, 
 									borderTopRightRadius:0}]}
-								onPress={() => setModalVisible(!modalVisible)}
+								onPress={() => {
+									setModalVisible(!modalVisible);
+									setTabIndex(2)
+								}}
 								>
 								<Text style={globalStyles.btnTextNeutral}>OK</Text>
 							</Pressable>

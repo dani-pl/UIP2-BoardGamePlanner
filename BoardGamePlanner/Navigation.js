@@ -183,6 +183,9 @@ export {ToolsNavigator}
 
 
  const EventsNavigator = () => {
+	 // get the translation instance
+	const { t } = useTranslation();
+
 	return (
 		<Stack.Navigator
     screenOptions={{title:""}}>
@@ -201,8 +204,15 @@ export {ToolsNavigator}
         }}*/
     />
         <Stack.Screen
-    name ="EventsResults"
-    component ={EventsResults}
+			name ="EventsResults"
+			component ={EventsResults}
+			options={{
+				headerStyle: {
+				backgroundColor: '#1EA596',
+				},
+				headerTintColor: '#fff',
+				headerBackTitle: t('common:backBtnMap')
+	  }}
     />
 	</Stack.Navigator>
     );
