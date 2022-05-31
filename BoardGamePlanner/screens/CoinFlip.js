@@ -56,7 +56,7 @@ export default class CoinFlip extends Component {
         'selected': image,
         'selectedText': "Heads",
       })
-      this.flipCard()
+      this.flipCoin()
     }
     else {
       this.setState({
