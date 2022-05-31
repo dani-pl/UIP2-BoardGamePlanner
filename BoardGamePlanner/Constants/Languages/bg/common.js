@@ -5,6 +5,10 @@ export default {
         'Fetching boardgames...', 
         'Fetching tools...'
     ],
+    // Events
+    searchBarPlaceholde: "Search Location",
+    searchErrorHead: "We cannot find this location",
+    searchErrorBody: "Please check if the location is spelled correctly or try adding the country code.",
     // navigation - tab bar
     eventTabLabel: "Events",
     profileTabLabel: "Profile",

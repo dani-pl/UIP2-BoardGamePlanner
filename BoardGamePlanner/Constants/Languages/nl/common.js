@@ -5,6 +5,10 @@ export default {
         {text:'Bordspellen verzamelen...'},
         {text:'Tools klaarmaken...'}
     ],
+    // Events
+    searchBarPlaceholde: "Zoek Locatie",
+    searchErrorHead: "We kunnen deze locatie niet vinden",
+    searchErrorBody: "Controleer of de locatie correct is gespeld of probeer de landcode toe te voegen.",
     // navigation - tab bar
     eventTabLabel: "Kaart",
     profileTabLabel: "Profiel",

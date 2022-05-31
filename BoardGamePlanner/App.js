@@ -50,9 +50,10 @@ export default function App() {
   
 
 	useEffect(() => {
-		splash && setTimeout(()=>{
-		setSplash(false);
-		},5200)
+		if(Splash){
+			setTimeout(()=>{
+				setSplash(false);
+		},5200)}
 	},[])
 	
 	
