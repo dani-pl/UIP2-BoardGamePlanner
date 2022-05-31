@@ -21,13 +21,14 @@ import { getGameById } from '../database/Model/GameModel';
 import SegmentControl from '../components/SegmentControl';
 import JoinModal from '../components/JoinModal';
 import { shadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+import DetailedMap from '../components/DetailedMap'
 
 export default function EventsResults({route}) {
 
 	// we initiate with random event as fallback while loading data
 	const [event, setEvent] = useState(EventDB[1])
 	const [tabIndex, setTabIndex] = useState(0);
-	const [joined, setJoined] = useState(false);
+	const [joined, setJoined] = useState(true); 
 	const [modalVisible, setModalVisible] = useState(false);
 	const tabs = joined ? ['Spelers', 'Chat', 'Locatie'] : ['Spelers', 'Chat']
 
@@ -239,9 +240,9 @@ export default function EventsResults({route}) {
 				</Text>
 
 				{/* LOCATION OVERVIEW */}
-				<Text style={{display:tabIndex == 2 ? "flex" : "none" }}>
-					you unlocked the location
-				</Text>
+				<View style={{display:tabIndex == 2 ? "flex" : "none" }}>
+					<DetailedMap />
+				</View>
 			</ScrollView>
 			
 			{/* SHOW OR HIDE THE JOIN BUTTON */}

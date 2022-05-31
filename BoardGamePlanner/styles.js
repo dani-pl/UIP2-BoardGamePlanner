@@ -447,7 +447,7 @@ export const segmentStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    marginBottom:20
+    marginBottom: 10
   },
   textWrapper: {
     flex: 1,
