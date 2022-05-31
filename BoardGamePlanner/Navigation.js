@@ -187,7 +187,7 @@ export {ToolsNavigator}
 		<Stack.Navigator
     screenOptions={{title:""}}>
     <Stack.Screen
-    name ="Events"
+    name ="Events_"
     component ={Events}
     options ={{
 		headerShown:false
