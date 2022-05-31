@@ -37,8 +37,8 @@ export default class CoinFlip extends Component {
     })
 
     this.interpolate = this.animatedValue.interpolate({
-      inputRange: [0, 180],
-      outputRange: ['0deg', '180deg']
+      inputRange: [0, 360],
+      outputRange: ['0deg', '360deg']
     })
 
   }
@@ -67,7 +67,9 @@ export default class CoinFlip extends Component {
     }
   }
 
-//this is the function that is animating the coin
+//this is the function that is animating the coin, 
+//if the coin has already flipped 360 degrees, we flip it back to 0 and if it is at 0 we flip if 360 degrees.
+
   flipCard() {
     if (this.value > 90) {
       Animated.spring(this.animatedValue,
@@ -104,8 +106,6 @@ export default class CoinFlip extends Component {
       <View style={globalStyles.centered}>
 
         <>
-
-          
           <Animated.Image style={[globalStyles.flipCard, globalStyles.flipCard, animatedStyle]}
             source={this.state.selected}></Animated.Image>
 
