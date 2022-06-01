@@ -15,7 +15,6 @@ class Splash extends Component {
             loop: false,
             resetAfterFinish: false,
             fps: 10,
-            // loadingText: [t('common:loadingText1'),t('common:loadingText2'),t('common:loadingText3')],
             animation: new Animated.Value(0),
             textIdx:-1
         }
@@ -65,9 +64,14 @@ class Splash extends Component {
      * This function defines the fade in animation used for the loading text on the splash screen
      */
     fadeIn = () => {
+        // here we define our animation for fading in the text
+        // we use the animated value that was set before 
         Animated.timing(this.state.animation, {
+            // we set the value to 1 meaning no transparency
             toValue: 1,
+            // it should take 0.3 seconds
             duration: 300,
+            // we use the native driver 
             useNativeDriver: true
         }).start();
     }
@@ -76,9 +80,14 @@ class Splash extends Component {
      * This function defines the fade out animation used for the loading text on the splash screen
      */
     fadeOut = () => {
+        // here we define our animation for fading out the text
+        // we use the animated value that was set before 
         Animated.timing(this.state.animation, {
+            // we set the value to o meaning full transparency
             toValue: 0,
+            // it should take 0.3 seconds
             duration: 300,
+            // use native driver
             useNativeDriver: true
         }).start();
     }
@@ -114,7 +123,7 @@ class Splash extends Component {
         // get the current textArray based on the user's locale
         // since we start with -1 we +1 for the first text 
         let changingText = t(`common:loadingText.${(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % 3}.text`)
-        // console.log(t(`common:loadingText.${(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % 3}.text`))
+        
         // let changingText = this.state.loadingText[(this.state.textIdx < 0 ? this.state.textIdx + 1 : this.state.textIdx) % this.state.loadingText.length]
         return (
             <SafeAreaView style={{backgroundColor: backgroundColor,flex:1}}>

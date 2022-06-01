@@ -5,6 +5,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { useTranslation } from 'react-i18next';
 
+/**
+ * Returns the first player start view to be used when nobody is playing
+ * @returns {JSX} component
+ */
 const FirstPlayerStartView = () => {
 
      // get the translation instance

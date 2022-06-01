@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, SafeAreaView, Button, Pressable} from 'react-native'
 import React, {useState, useEffect} from 'react'
-import { globalStyles } from '../styles'
+import { backgroundColor, globalStyles, purple10 } from '../styles'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { FontAwesome} from '@expo/vector-icons';
 import DropShadow from "react-native-drop-shadow";
@@ -17,7 +17,7 @@ export class ProfileComponent extends React.Component {
       <View  >
           <View style={globalStyles.flexRow }>
           <Image
-        style={globalStyles.avatar}
+        style={[globalStyles.avatar, {backgroundColor: purple10}]}
         source={{uri: this.props.image}}
       />
     {/* ? is for if this is undefined dont check for the email leave it undefined */}

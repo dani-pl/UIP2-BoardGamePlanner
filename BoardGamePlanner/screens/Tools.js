@@ -12,6 +12,9 @@ import {globalStyles} from "../styles";
 import ToolItem from '../components/ToolItem';
 import { useTranslation } from 'react-i18next';
 
+// interatcive walkthrough 
+import {useWalkthroughStep} from "react-native-interactive-walkthrough"
+import { WalkFinish, WalkTools} from '../components/Walkthrough';
 
 
 const Tools = ({navigation}) => {
@@ -19,6 +22,25 @@ const Tools = ({navigation}) => {
 	// get the translation instance
 	const { t } = useTranslation();
   	
+	const {stop} = useWalkthroughStep({
+		number: 4,
+		OverlayComponent: WalkTools,
+		fullScreen: true,
+		enableHardwareBack: true,
+		onPressBackdrop: () => stop(),
+		// onFinish: () => navigation.navigate("CoinFlip")
+	})	
+
+	const {onLayout} = useWalkthroughStep({
+		number: 5,
+		OverlayComponent: WalkFinish,
+		fullScreen: true,
+		enableHardwareBack: true,
+		onPressBackdrop: () => stop(),
+		onFinish: () => navigation.navigate("Events_")
+	})	
+	
+
 	return (
 		<View style={globalStyles.container}>
 

@@ -10,7 +10,7 @@ const LANGUAGES =  [
     { code : 'bg', label: 'Bulgarian'}
 ]
 
-const LanguageSelect = () => {
+const LanguageSelect = ({onLayout}) => {
     // get the translation instance
     const { t , i18n } = useTranslation();
     // get the current language code

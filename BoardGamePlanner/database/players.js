@@ -5,7 +5,7 @@ export let PLAYERS = [
     "username": "gferreiro0",
     "email": "gferreiro0@cbc.ca",
     "password": "MAIfS30i",
-    "image": "https://robohash.org/sintreiciendismagnam.png?size=50x50&set=set1",
+    "image": "https://robohash.org/sintreiciendismagnam.png",
     "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.",
     "bggUserName": "gferreiro0",
     "location": {
@@ -35,7 +35,7 @@ export let PLAYERS = [
     "username": "fohogertie1",
     "email": "fohogertie1@artisteer.com",
     "password": "azlqSOY",
-    "image": null,
+    "image": "https://robohash.org/felisha",
     "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
     "bggUserName": "fohogertie1",
     "location": {
@@ -61,7 +61,7 @@ export let PLAYERS = [
     "username": "dbeekman",
     "email": "dbeekman@abv.bg",
     "password": "123456",
-    "image": null,
+    "image": "https://robohash.org/beekman",
     "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "bggUserName": "dbeekman2",
    "location": {
@@ -91,7 +91,7 @@ export let PLAYERS = [
     "username": "wblain3",
     "email": "wblain3@qq.com",
     "password": "ILOart0",
-    "image": null,
+    "image": "https://robohash.org/blain",
     "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
     "bggUserName": null,
     "location": {
@@ -113,7 +113,7 @@ export let PLAYERS = [
     "username": "fmaccoveney4",
     "email": "fmaccoveney4@comsenz.com",
     "password": "eLh6iEifbcw0",
-    "image": "https://robohash.org/magnamvoluptatibuslaudantium.png?size=50x50&set=set1",
+    "image": "https://robohash.org/magnamvoluptatibuslaudantium.png",
     "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.\n\nNam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
     "bggUserName": null,
     "location": {
@@ -156,7 +156,7 @@ export let PLAYERS = [
     "username": "vglawsop5",
     "email": "vglawsop5@altervista.org",
     "password": "mnw6dBZNgZ",
-    "image": null,
+    "image": "https://robohash.org/vicki",
     "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
     "bggUserName": null,
     "location": {
@@ -178,7 +178,7 @@ export let PLAYERS = [
     "username": "oclutten6",
     "email": "oclutten6@free.fr",
     "password": "39cKv2",
-    "image": "https://robohash.org/earumoccaecatimodi.png?size=50x50&set=set1",
+    "image": "https://robohash.org/earumoccaecatimodi.png",
     "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
     "bggUserName": "oclutten6",
     "location": {
@@ -217,7 +217,7 @@ export let PLAYERS = [
     "username": "ngorvette7",
     "email": "ngorvette7@cbsnews.com",
     "password": "FEDuI6japl7b",
-    "image": "https://robohash.org/omnispariaturvitae.png?size=50x50&set=set1",
+    "image": "https://robohash.org/omnispariaturvitae.png",
     "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
     "bggUserName": null,
     "location": {
@@ -247,7 +247,7 @@ export let PLAYERS = [
     "username": "fberks8",
     "email": "fberks8@mediafire.com",
     "password": "X6h2YIDVpf",
-    "image": null,
+    "image": "https://robohash.org/fionna",
     "description": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
     "bggUserName": "fberks8",
     "location": {
@@ -277,7 +277,7 @@ export let PLAYERS = [
     "username": "abuckie9",
     "email": "abuckie9@cmu.edu",
     "password": "K164oL0",
-    "image": null,
+    "image": "https://robohash.org/buckie",
     "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.",
     "bggUserName": "abuckie9",
     "location": {
@@ -299,7 +299,7 @@ export let PLAYERS = [
     "username": "cgladbacha",
     "email": "cgladbacha@istockphoto.com",
     "password": "zd50oX07",
-    "image": "https://robohash.org/fugamollitiaaspernatur.png?size=50x50&set=set1",
+    "image": "https://robohash.org/fugamollitiaaspernatur.png",
     "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.",
     "bggUserName": "cgladbacha",
     "location": {
@@ -313,7 +313,7 @@ export let PLAYERS = [
     "followers" : [37],
     "events" : { 
         "hosting" : [{
-            "eventId": 0910,
+            "eventId": 910,
             "current" : true,
             "coHost" : true
         }],
@@ -329,7 +329,7 @@ export let PLAYERS = [
     "username": "bbenediteb",
     "email": "bbenediteb@aol.com",
     "password": "o8rVbs9z",
-    "image": "https://robohash.org/eautfacere.png?size=50x50&set=set1",
+    "image": "https://robohash.org/eautfacere.png",
     "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
     "bggUserName": null,
     "location": {
@@ -339,16 +339,16 @@ export let PLAYERS = [
           },
     "language": "en",
     "gameLibrary" : [328871,295374],
-    "following" : [0651,29029],
-    "followers" : [0651,29029],
+    "following" : [651,29029],
+    "followers" : [651,29029],
     "events" : { 
         "hosting" : [{
-            "eventId": 0923,
+            "eventId": 923,
             "current" : true,
             "coHost" : true
         }],
         "joining" : [{
-            "eventId" : 0102,
+            "eventId" : 102,
             "invited" : true,
             "pending" : true
         }]

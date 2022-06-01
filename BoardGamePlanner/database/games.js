@@ -1,4 +1,4 @@
-export let GAMES = [
+export const GAMES = [
     {
       "gameId": 317985,
       "name": "Beyond the Sun",

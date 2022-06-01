@@ -14,6 +14,7 @@ const LANGUAGES = {
 
 // initiate the language switch
 i18n.use(initReactI18next).init({
+    compatibilityJSON: 'v3', 
     resources: LANGUAGES,
     react: {
         useSuspense: false

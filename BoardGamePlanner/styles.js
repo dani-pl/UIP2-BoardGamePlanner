@@ -29,15 +29,16 @@ export var neutral40 = '#869392';
 export var neutral30 = '#C7CCCC';
 export var neutral20 = '#E7E9E9';
 export var neutral10 = '#F4F5F5';
-export const selected=neutral10;
+export const selected = neutral10;
 
 export const backgroundColor = '#FCFDFC';
 export const firstPlayerColors = ['#25B4A4','#ffb100','#F194B4','#DC3030','#6359E8']
 
 const { width, height } = Dimensions.get("window");
-    const CARD_HEIGHT = height / 4;
-    const CARD_WIDTH = CARD_HEIGHT - 50;
+const CARD_HEIGHT = height / 4;
+const CARD_WIDTH = CARD_HEIGHT - 50;
 
+// our global styles
 export const globalStyles = StyleSheet.create({
     container: {
        flex: 1,
@@ -125,6 +126,13 @@ export const globalStyles = StyleSheet.create({
         textTransform:"uppercase",
         fontFamily: "Montserrat-Regular",
         color: secondary
+      },
+      bodyText: {
+        fontSize: 14,
+        lineHeight:20,
+        margin: 4,
+        fontFamily: "Montserrat-Regular",
+        color: neutral70
       },
     btnTextWhite: {
         fontSize: 16,
@@ -221,12 +229,12 @@ export const globalStyles = StyleSheet.create({
       alignItems: "center",
       borderRadius: 16,
       backgroundColor: '#ffffff',
-      // shadowColor: "#F4F5F5",
-      shadowColor: neutral40,
+      shadowColor: "#F4F5F5",
       shadowOffset: { width: 10, height: 10 },
       shadowOpacity: 1,
       shadowRadius: 10,
       elevation: 8,
+      
       paddingTop: 8,
       paddingBottom: 8,
       paddingRight: 16,
@@ -300,7 +308,6 @@ export const globalStyles = StyleSheet.create({
     textDecorationLine:"underline"
   },
   mapContainer: {
-
     paddingTop:0,
     paddingRight:0, 
     paddingLeft:0,
@@ -331,6 +338,24 @@ export const globalStyles = StyleSheet.create({
       shadowRadius: 10,
       elevation: 8,
   },
+  floatingBtnContainer: {
+      position: 'absolute',                                          
+      bottom: 20,                                                    
+      width:'100%',
+      display:'flex',
+      alignItems:'center',
+      alignSelf:'center'
+  },
+  floatingBtn: {
+      paddingVertical:6, 
+      margin: 0,
+      width:'100%',
+      shadowColor: neutral40,
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.6,
+      shadowRadius: 5,
+      elevation: 2
+    },
   image: {
     width:240,
     height:240,
@@ -365,3 +390,120 @@ export const globalStyles = StyleSheet.create({
 
   }
 });
+
+// custom styles for event cards control
+export const eventCardStyles = StyleSheet.create({
+  CardEvent: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 16,
+    paddingRight: 16,
+    borderRadius: 16,
+    backgroundColor: backgroundColor,
+    shadowColor: neutral40,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 10,
+    elevation: 2,
+    marginBottom:30,
+    width: '90%',
+    position:"relative", 
+  },
+  CardEventLeftCon: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+  },
+  CardEventGroup: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  LeftDetails: { 
+    flexDirection: "row",
+  },
+  EventOwnerLocation: {
+    flexDirection: "column",
+	  alignItems:"flex-start",
+  },
+  EventOwnerLocationIcon: {
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  DetailsContainer: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "flex-end",
+	  alignSelf:"stretch",
+  },
+  Pill: {
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 9,
+    borderRadius: 4,
+    backgroundColor: purple10,
+  },
+  gamesPrevCon: {
+    position: "relative",
+    width: 92.31,
+    height: 38,
+  },
+  LastGameImgBubble: {
+    position: "absolute",
+    top: "0%",
+    bottom: "0%",
+    left: "58.5%",
+    right: "0.22%",
+    backgroundColor: neutral20,
+    borderWidth: 1,
+    borderColor: "white",
+    width: 38.1,
+    height: 38,
+    borderRadius: 20,
+  },
+  MiddleGameImgBubble: {
+    position: "absolute",
+    top: "0%",
+    bottom: "0%",
+    left: "29.25%",
+    right: "29.47%",
+    backgroundColor: "rgb(231,233,233)",
+    borderWidth: 1,
+    borderColor: "rgb(255,255,255)",
+    width: 38.1,
+    height: 38,
+    borderRadius: 20,
+  },
+  FirstGameImgBubble: {
+    position: "absolute",
+    top: "0%",
+    bottom: "0%",
+    left: "0%",
+    right: "58.72%",
+    backgroundColor: "rgb(231,233,233)",
+    borderWidth: 1,
+    borderColor: "rgb(255,255,255)",
+    width: 38.1,
+    height: 38,
+    borderRadius: 20,
+  },
+})
+
+// custom styles for segment control 
+export const segmentStyles = StyleSheet.create({
+  SegmentControlWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    marginBottom: 10
+  },
+  textWrapper: {
+    flex: 1,
+    paddingHorizontal: 5
+  },
+})
+
