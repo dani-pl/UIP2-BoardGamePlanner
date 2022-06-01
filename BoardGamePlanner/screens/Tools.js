@@ -26,7 +26,7 @@ const Tools = ({navigation}) => {
 			<ToolItem icon={"users"} tool={t('tools:firstPlayer')} ></ToolItem>
 		</TouchableOpacity>
 
-		<TouchableOpacity  onPress={()=>navigation.navigate("CoinFlip", {msg: "I came from Tools"})}>
+		<TouchableOpacity  onPress={()=>navigation.navigate("CoinFlip")}>
 			<ToolItem icon={"coins"} tool={t('tools:coinFlip')}></ToolItem>
 		</TouchableOpacity >
 

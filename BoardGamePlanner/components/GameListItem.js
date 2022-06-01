@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import DropShadow from "react-native-drop-shadow";
 
 
-export class MyLibrary extends React.Component {
+export class GameListItem extends React.Component {
 
     render(){
       console.log(this.props);
@@ -13,7 +13,7 @@ export class MyLibrary extends React.Component {
         <View style={globalStyles.mainCardView}>
         <View style={globalStyles.subCardView}>
             <Image 
-                source={{uri:"https://cf.geekdo-images.com/1COY3oeK9aN2_XNimKaNww__original/img/ZzyzlO15ggCfkLg9ckeM4PWNePI=/0x0/filters:format(jpeg)/pic3033330.jpg"}}
+                source={{uri: this.props.image}}
                 style={{
                     width: 50,
                     height: 50,
@@ -25,7 +25,7 @@ export class MyLibrary extends React.Component {
                 style={[globalStyles.h6, globalStyles.textStyle]} 
                 numberOfLines={2}
                 ellipsizeMode="tail"
-            >Deception: Murder in Hong Kong</Text>
+            >{this.props.name}</Text>
         </View>
         <Pressable style={globalStyles.btnIconSecondary} onPress={()=>console.log("pressed remove")}>
             <FontAwesome name="remove" />

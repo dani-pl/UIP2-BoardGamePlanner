@@ -17,11 +17,13 @@ const firebaseConfig = {
 let app;
 if(firebase.apps.length ===0){
   app=firebase.initializeApp(firebaseConfig);
+  firebase.firestore().settings({ experimentalForceLongPolling: true }); //add this..
+
 }else{
   app = firebase.app()
 }
 
 const db = firebase.database()
 const auth = firebase.auth()
-
+console.log(auth)
 export { db, auth, firebase } 
