@@ -39,7 +39,7 @@ const FirsPlayerView = ({navigation}) => {
     // Animated.Value makes changes to the screen without rerendering the component
     // we only get the getter, so when we rerender the component we always get the value of the first render of the component
     const pulseAnim = new Animated.Value(1);
-    
+
     // SOUND EFFECT VARIABLES
     const [touchSound, setTouchSound] = useState();
     const [releaseSound, setReleaseSound] = useState();
@@ -329,14 +329,12 @@ const FirsPlayerView = ({navigation}) => {
     );
 
     return (
-        // <View style={{flex:1}}>
             <View style={[{
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: background
             }
-            // ,pan.getLayout()
             ]} {...panResponder.panHandlers}>
                 
                 { players.length < 1 ? 
@@ -344,7 +342,7 @@ const FirsPlayerView = ({navigation}) => {
                 : 
                 players.map((player) => {
                     var isWinner = winner !== null && (winner.identifier == player.identifier)
-                    // console.log(isWinner)
+                    
                     return (
                         (winner == null || isWinner) &&
                         <Animated.View

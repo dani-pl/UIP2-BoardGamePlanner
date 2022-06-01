@@ -98,7 +98,7 @@ class Events extends React.Component {
                                  generalLocation={EventDB[index].location.general}
                                  numberAttendees={EventDB[index].attendees.length}
                                  numberOfSpots={EventDB[index].playerLimit}
-                                 isHost={EventDB[index].hostId==7 ? "flex":"none"}
+                                 isHost={EventDB[index].hostId==78349527483 ? "flex":"none"}
                                  navigation={this.props.navigation}
                                  event={EventDB[index]}
                                  eventGame1={EventDB[index].games[0]}

@@ -31,6 +31,10 @@ const RollDice = ({route}) => {
     // initiate translation instance
     const { t } = useTranslation();
     
+
+     // =============== USEEFFECTS =============  
+
+
     /**
      * useEffect when rolling the dice 
      * dependent on rolling state 
@@ -79,6 +83,9 @@ const RollDice = ({route}) => {
         : undefined
     },[diceRollSound])
     
+
+     // =============== FUNCTIONS =============  
+
     /**
      * increase the number of dices
      */
@@ -118,7 +125,6 @@ const RollDice = ({route}) => {
      * Roll the dice by generating random number based on the number of faces of the dice
      */
     const roll = () => {
-        console.log('rollling')
         // set rolling to true
         // this initiates the useEffect that is dependent on the rolling variable
         setRolling(true)
@@ -133,7 +139,6 @@ const RollDice = ({route}) => {
             const rolled = Math.floor(Math.random(sides) * sides + 1)
             setRolledSide(rolledSide => [...rolledSide, rolled])
         }
-        console.log(rolledSide)
     }
 
     return (  

@@ -91,7 +91,7 @@ import { globalStyles, segmentStyles, green50, neutral60, green60, backgroundCol
   
 
 
-//   Define the properties of the SegmentControl Component
+  //   Define the properties of the SegmentControl Component
   SegmentControl.propTypes = {
     tabs: PropTypes.arrayOf(PropTypes.string).isRequired,
     onChange: PropTypes.func.isRequired,
@@ -103,7 +103,7 @@ import { globalStyles, segmentStyles, green50, neutral60, green60, backgroundCol
     paddingVertical: PropTypes.number
   }
   
-//   here we define the default properties of the SegmentControl Component
+  //   here we define the default properties of the SegmentControl Component
   SegmentControl.defaultProps = {
     tabs: [],
     onChange: () => { },
@@ -112,7 +112,6 @@ import { globalStyles, segmentStyles, green50, neutral60, green60, backgroundCol
     activeSegmentBackgroundColor: backgroundColor, // we don't need other color
     textColor: neutral60, // we take our defined text color
     activeTextColor: green60, // we take our own primary color
-    // paddingVertical: 12
   }
   
   export default SegmentControl;
