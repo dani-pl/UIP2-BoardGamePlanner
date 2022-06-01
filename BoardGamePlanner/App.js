@@ -20,6 +20,13 @@ import Localize from './Constants/Localize'
 import { useTranslation } from 'react-i18next';
 
 
+import {enableExperimentalLayoutAnimation, WalkthroughProvider} from "react-native-interactive-walkthrough"
+
+enableExperimentalLayoutAnimation();
+
+
+
+
 const Tab = createBottomTabNavigator()
 const Stack = createStackNavigator()
 
@@ -62,38 +69,40 @@ export default function App() {
 	return (
 		splash ? <Splash /> :
 
-		<NavigationContainer>
-		
-		<Tab.Navigator screenOptions={{ 
-			headerShown: false,
-			tabBarActiveTintColor: "#1EA596",
-			tabBarInactiveTintColor: "#5A6867",
-			tabBarLabelStyle: {
-				fontSize: 14
-				},
-			tabBarStyle: [
-				{
-					display: "flex"
-				},
-				null
-				]
-			}}
-    	>
-		
-			<Tab.Screen name={t('common:eventTabLabel')} component={EventsNavigator}   options={{
-						tabBarIcon: ({size, color, focused}) => (<FontAwesome  focused={focused} name={"map"} color={color} size={20}/>)
-					}}
-				/>
-			<Tab.Screen name={t('common:profileTabLabel')} component={ProfileNavigator}  options={{
-				tabBarIcon: ({size, color, focused}) => (<FontAwesome focused={focused} name={"user"} color={color} size={20} />)
-			}}
-				/>
-			<Tab.Screen name={t('common:toolsTabLabel')} component={ToolsNavigator}  options={{
-			tabBarIcon: ({size, color, focused}) => (<FontAwesome5 focused={focused} name={"dice-four"} color={color} size={20} />)
-		}}
-				/>
+		<WalkthroughProvider>
+			<NavigationContainer>
 			
-		</Tab.Navigator>
-		</NavigationContainer>
+			<Tab.Navigator screenOptions={{ 
+				headerShown: false,
+				tabBarActiveTintColor: "#1EA596",
+				tabBarInactiveTintColor: "#5A6867",
+				tabBarLabelStyle: {
+					fontSize: 14
+					},
+				tabBarStyle: [
+					{
+						display: "flex"
+					},
+					null
+					]
+				}}
+			>
+			
+				<Tab.Screen name={t('common:eventTabLabel')} component={EventsNavigator}   options={{
+							tabBarIcon: ({size, color, focused}) => (<FontAwesome  focused={focused} name={"map"} color={color} size={20}/>)
+						}}
+					/>
+				<Tab.Screen name={t('common:profileTabLabel')} component={ProfileNavigator}  options={{
+					tabBarIcon: ({size, color, focused}) => (<FontAwesome focused={focused} name={"user"} color={color} size={20} />)
+				}}
+					/>
+				<Tab.Screen name={t('common:toolsTabLabel')} component={ToolsNavigator}  options={{
+				tabBarIcon: ({size, color, focused}) => (<FontAwesome5 focused={focused} name={"dice-four"} color={color} size={20} />)
+			}}
+					/>
+				
+			</Tab.Navigator>
+			</NavigationContainer>
+		</WalkthroughProvider>
 	);
 }

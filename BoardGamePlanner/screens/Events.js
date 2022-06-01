@@ -22,6 +22,8 @@ import { globalStyles, selected, unselected, primary } from '../styles';
 import MapSearchBar from '../components/MapSearchBar';
 import axios from 'axios'
 
+import {useWalkthroughStep} from "react-native-interactive-walkthrough"
+
 
 const GOOGLE_PACES_API_BASE_URL = 'https://maps.googleapis.com/maps/api/place'
 
@@ -48,11 +50,15 @@ export default class Events extends React.Component {
     }}
     this.state= {currentCard: <View></View>}
     this.state={search:"Search Location"}
+
+    
   }
 
   componentDidMount(){
     this._getLocation();
   }
+
+
 
   displaySearchedLocation = async() =>{
     this.setState({
