@@ -1,13 +1,16 @@
 
-import { StyleSheet, Text, View, Image, TouchableHighlight, Easing } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, Easing } from 'react-native';
 import { useState } from 'react'
 import React, { Component } from 'react';
 import { globalStyles } from "../styles"
 import { Animated } from 'react-native';
 import Images from '../assets/Images';
 
+import { useTranslation, withTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
-export default class CoinFlip extends Component {
+
+class CoinFlip extends Component {
 
   constructor(props) {
     super(props);
@@ -16,7 +19,7 @@ export default class CoinFlip extends Component {
       pressCount: 0,
       clicked: false,
       selected: require('../assets/head.png'),
-      selectedText: 'Toss the coin',
+      selectedText: t('tools:tossStartLbl'),
       side: [
         require('../assets/head.png'),
         require('../assets/tails.png'),
@@ -54,14 +57,14 @@ export default class CoinFlip extends Component {
     if (image == this.state.side[0]) {
       this.setState({
         'selected': image,
-        'selectedText': "Heads",
+        'selectedText': t('tools:heads'),
       })
       this.flipCoin()
     }
     else {
       this.setState({
         'selected': image,
-        'selectedText': "Tails",
+        'selectedText': t('tools:tails'),
       })
       this.flipCoin()
     }
@@ -94,6 +97,8 @@ export default class CoinFlip extends Component {
 
   render() {
 
+    const { t } = this.props
+
     const animatedStyle = {
       transform: [
         { rotateX:  this.interpolate }
@@ -109,14 +114,16 @@ export default class CoinFlip extends Component {
 
         </>
         <Text style={globalStyles.text}>{this.state.selectedText}</Text>
-        <TouchableHighlight onPress={() => this.decideSide()}>
+        <Pressable onPress={() => this.decideSide()}>
 
           <View style={globalStyles.btnPrimary}>
-            <Text style={globalStyles.btnTextWhite}>Toss</Text>
+            <Text style={globalStyles.btnTextWhite}>{t("tools:toss")}</Text>
           </View>
-        </TouchableHighlight>
+        </Pressable>
       </View>
     );
   }
 
 }
+
+export default withTranslation('tools')(CoinFlip)

@@ -5,6 +5,10 @@ export default {
     FPinstruction: 'All players place and hold 1 finger on the screen',
     // coin flip
     coinFlip: 'Coin Flip',
+    toss: 'Toss',
+    tossStartLbl: "Toss the coin",
+    heads: "Heads",
+    tails: "Tails",
     // Dice roll
     diceRoll: 'Dice Roll',
     dice: "Dice",

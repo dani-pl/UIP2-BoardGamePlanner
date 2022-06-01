@@ -102,7 +102,7 @@ export default function Profile({navigation}) {
 				
 				<View style={globalStyles.flexRowEnd}>
 					<Pressable style={globalStyles.btnSecondary} onPress={handleSignOut}>
-						<Text style={globalStyles.btnTextNeutral}>Sign Out</Text>
+						<Text style={globalStyles.btnTextNeutral}>{t('common:signOut')}</Text>
 					</Pressable>
 					<Pressable style={globalStyles.btnSecondary}>
 						<Text style={globalStyles.btnTextNeutral}>{t('common:editBtn')}</Text>
@@ -125,15 +125,13 @@ export default function Profile({navigation}) {
 					<SafeAreaView style={[globalStyles.container, {alignItems:'center'}]}>
 						<View style={{width:'90%', marginVertical:20}}>
 							<FontAwesome5 name="times" size={24} style={globalStyles.modalIcon} onPress={()=> setModalOpen(false)}></FontAwesome5>
-							<Text style={globalStyles.h5}>Search for a game</Text>
+							<Text style={globalStyles.h5}>{t('common:searchGameLable')}</Text>
 							<TextInput
-							style={globalStyles.input}
-							placeholder="Search game"
-							// onChangeText='Location'
-							// value='Sofia, Bulgaria'
+								style={globalStyles.input}
+								placeholder={`${t('common:searchBarGame')}`}
 							/>
 							<TouchableHighlight style={globalStyles.btnPrimary}  >
-							<Text style={globalStyles.btnTextWhite}>Add Game</Text>
+							<Text style={globalStyles.btnTextWhite}>{t('common:addGameBtn')}</Text>
 							</TouchableHighlight>
 						</View>
 					</SafeAreaView>
@@ -148,7 +146,7 @@ export default function Profile({navigation}) {
 					style={[globalStyles.floatingBtn, globalStyles.btnPrimary, {width:"90%"}]}  
 					onPress={()=>setModalOpen(true)}
 				>
-					<Text style={globalStyles.btnTextWhite}>Add Games</Text>
+					<Text style={globalStyles.btnTextWhite}>{t('common:addGamesLabel')}</Text>
 				</TouchableHighlight>
 			</View>
 		</>

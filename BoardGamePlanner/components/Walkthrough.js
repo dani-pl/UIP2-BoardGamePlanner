@@ -1,17 +1,17 @@
 import { View, Text, SafeAreaView, StyleSheet, Pressable , Dimensions} from 'react-native'
-import React from 'react'
+import React, { useTransition } from 'react'
 import { backgroundColor, globalStyles, green50, neutral60, purple10 } from '../styles'
 import { Feather , FontAwesome5} from '@expo/vector-icons'; 
+import { useTranslation } from 'react-i18next';
 
 const { width, height } = Dimensions.get("window");
-import { useNavigation } from '@react-navigation/native';
 
-// import {WalkthroughCallout} from "react-native-interactive-walkthrough"
+
 
 export const WalkthroughStart = ({next, stop}) => {
-    // get navigation instance
-    // const navigation = useNavigation()
     
+    const {t} = useTranslation()
+
     return (
         <SafeAreaView 
         style={[
@@ -20,22 +20,19 @@ export const WalkthroughStart = ({next, stop}) => {
             >
             <View style={walkStyles.fullScreenContents}>
                 <Text style={[globalStyles.h2,{color:"white"}]}>
-                     Welcome to BoardGamePlanner!
+                    {t('common:wtStartHead')}
                 </Text>
                 <Text style={[globalStyles.h4,{color:"white"}]}>
-                    Let's take a quick tour
+                    {t('common:wtStartBody')}
                 </Text>
                 <Pressable
                     onPress={next}
-                    // onPressIn={() => navigation.navigate("Profile_")}
                     style={[globalStyles.btnPrimary, {marginVertical:20}]}
                 >
-                    <Text style={globalStyles.btnTextWhite}>Start</Text>
+                    <Text style={globalStyles.btnTextWhite}>{t('common:wtStartStartBtn')}</Text>
                 </Pressable>
-                <Pressable
-                    onPress={stop}
-                >
-                    <Text style={globalStyles.btnTextWhite}>Skip</Text>
+                <Pressable onPress={stop} >
+                    <Text style={globalStyles.btnTextWhite}>{t('common:wtStartSkipBtn')}</Text>
                 </Pressable>
             </View>
         </SafeAreaView>
@@ -44,13 +41,17 @@ export const WalkthroughStart = ({next, stop}) => {
 
 
 export const WalkProfile1 = ({next, previous, step: {mask}}) => {
+   
+    const {t} = useTranslation()
+    
     return (
         <SafeAreaView 
         style={[
             walkStyles.WalkProfileCon,
-            globalStyles.justifyAndAlignCenter]}
+            globalStyles.justifyAndAlignCenter,
+            ,{width:'95%'}]}
             >
-            <View styles={walkStyles.walkProfile1}>
+            <View styles={[walkStyles.walkProfile1]}>
                 <View style={walkStyles.buttonsContainer}>
                     <Pressable 
                         style={walkStyles.btnNext}
@@ -65,9 +66,9 @@ export const WalkProfile1 = ({next, previous, step: {mask}}) => {
                         <FontAwesome5 name="chevron-left" size={24} color={neutral60}/>
                     </Pressable>
                 </View>
-                <Text style={[globalStyles.h2, {color:backgroundColor}]}>Add Games</Text>
+                <Text style={[globalStyles.h2, {color:backgroundColor}]}>{t('common:wtProfileAdd')}</Text>
                 <Text style={[globalStyles.h5, {color:backgroundColor}]}> 
-                    Use to add games to your library
+                    {t('common:wtProfileBody')}
                 </Text>
                 <Feather 
                     name="arrow-down" 
@@ -80,6 +81,9 @@ export const WalkProfile1 = ({next, previous, step: {mask}}) => {
 )}
 
 export const WalkLanguage = ({next, previous, step: {mask}}) => {
+    
+    const {t} = useTranslation()
+
     return (
         <SafeAreaView 
         style={[
@@ -93,7 +97,7 @@ export const WalkLanguage = ({next, previous, step: {mask}}) => {
                     color={backgroundColor} 
                     style={{alignSelf:"center", marginTop: 20 }}
                 />
-                <Text style={[globalStyles.h2, {color:backgroundColor}]}>Change Language</Text>
+                <Text style={[globalStyles.h2, {color:backgroundColor}]}>{t('common:wtLanguage')}</Text>
                 <View style={walkStyles.buttonsContainer}>
                     <Pressable 
                         style={walkStyles.btnNext}
@@ -114,14 +118,23 @@ export const WalkLanguage = ({next, previous, step: {mask}}) => {
 
 
 export const WalkTools = ({next, previous, step: {mask}}) => {
+
+    const {t} = useTranslation()
+
     return (
         <SafeAreaView 
         style={[
-            walkStyles.WalkLanguageCon,
+            walkStyles.walkTools,
             globalStyles.justifyAndAlignCenter, {width:"90%"}]}
             >
             <View styles={[walkStyles.walkProfile1]}>
-                <Text style={[globalStyles.h5, {color:backgroundColor}]}>Try out one of the handy board game tools!</Text>
+                <Feather 
+                    name="arrow-up" 
+                    size={40} 
+                    color={backgroundColor} 
+                    style={{alignSelf:"center", marginTop: 20 }}
+                />
+                <Text style={[globalStyles.h5, {color:backgroundColor}]}>{t('common:wtTools')}</Text>
                 <View style={walkStyles.buttonsContainer}>
                     <Pressable 
                         style={walkStyles.btnNext}
@@ -141,6 +154,9 @@ export const WalkTools = ({next, previous, step: {mask}}) => {
     )
 }
 export const WalkFinish = ({next, previous, stop, step: {mask}}) => {
+    
+    const {t} = useTranslation()
+
     return (
         <SafeAreaView 
         style={[
@@ -148,20 +164,12 @@ export const WalkFinish = ({next, previous, stop, step: {mask}}) => {
             globalStyles.justifyAndAlignCenter, {width:"90%"}]}
             >
             <View styles={[walkStyles.walkProfile1]}>
-                    {/* <View style={walkStyles.buttonsContainer}>
-                        <Pressable 
-                            style={walkStyles.btnNext}
-                            onPress={previous}
-                        >
-                            <FontAwesome5 name="chevron-left" size={24} color={neutral60}/>
-                        </Pressable>
-                    </View> */}
-                <Text style={[globalStyles.h2, {color:backgroundColor}]}>You are all set!</Text>
+                <Text style={[globalStyles.h2, {color:backgroundColor}]}>{t('common:wtFinishHead')}</Text>
                 <Pressable 
                     onPress={stop}
                     style={[globalStyles.btnPrimary,{marginTop:30}]}
                     >
-                    <Text style={globalStyles.btnTextWhite}>Start looking for events</Text>
+                    <Text style={globalStyles.btnTextWhite}>{t('common:wtFinishBtn')}</Text>
                 </Pressable>
             </View>
         </SafeAreaView>
@@ -174,7 +182,7 @@ const walkStyles = StyleSheet.create({
     fullScreenContainer:{
         position:"absolute",
         alignSelf: "center", 
-        bottom: height / 2.4,
+        bottom: height / 3,
         width: "100%"
     },
     buttonsContainer: {
@@ -190,8 +198,6 @@ const walkStyles = StyleSheet.create({
     },
     walkProfile1: {
         backgroundColor: green50,
-        // marginVertical: 20,
-        // marginHorizontal: 30
     },
     
     WalkProfileCon: {
@@ -205,7 +211,14 @@ const walkStyles = StyleSheet.create({
         alignSelf: "center", 
         bottom: height / 2,
         width: "100%"
+    },
+    walkTools:{
+        position:"absolute",
+        alignSelf: "center", 
+        bottom: height / 4.5,
+        width: "100%"
     }
+
 
 
 })

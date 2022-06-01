@@ -58,14 +58,15 @@ const Settings = ({navigation}) => {
 					// onChangeText='Location'
 					value='Sofia, Bulgaria'
 				/>
-
+				<View style={globalStyles.spacing} />  
+				<Text style={globalStyles.h5}>{t('common:help')}</Text>
 				<Pressable  
 					style={[globalStyles.btnSecondary, {width:'100%', alignSelf:'center'}]}
 					onPress={() => start()}
 				>
 					
 					<Text style={globalStyles.btnTextNeutral}>
-					<FontAwesome5 name="walking" size={20} color={neutral60} />	Walkthrough
+						<FontAwesome5 name="walking" size={20} color={neutral60} /> 	{t('common:walkthrough')}
 					</Text>
 				</Pressable>
 			</View>

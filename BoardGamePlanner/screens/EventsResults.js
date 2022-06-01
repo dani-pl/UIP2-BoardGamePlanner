@@ -356,8 +356,8 @@ export default function EventsResults({route}) {
 								},globalStyles.justifyAndAlignCenter]}>
 									<FontAwesome name="paper-plane" size={24} color={purple50} />
 								</View>
-								<Text style={[globalStyles.h3,{textAlign:'center'}]}>Request Sent</Text>
-								<Text style={[globalStyles.bodyText, {textAlign:'center'}]}>Your request has been sent to <Text style={globalStyles.h6}>@{PLAYERS[event.hostId].username}</Text></Text>
+								<Text style={[globalStyles.h3,{textAlign:'center'}]}>{t('common:takeSpotConfirmHead')}</Text>
+								<Text style={[globalStyles.bodyText, {textAlign:'center'}]}>{t('common:takeSpotConfirmBody')}<Text style={globalStyles.h6}>@{PLAYERS[event.hostId].username}</Text></Text>
 							</View>
 							
 							<Pressable

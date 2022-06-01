@@ -5,6 +5,10 @@ export default {
     FPinstruction: 'Alle spelers plaats één vinger op het scherm',
     // coin flip
     coinFlip: 'Kop of Munt',
+    toss: 'Gooi',
+    tossStartLbl: "Gooi de munt",
+    heads: "Kop",
+    tails: "Munt",
     // Dice roll
     diceRoll: 'Dobbelstenen',
     dice: "Dobbelstenen",

@@ -19,6 +19,8 @@ export default {
     host: "Organised by: ",
     directionsBtn:"Get Directions",
     backBtnMap: "Events",
+    takeSpotConfirmHead: "Request Sent",
+    takeSpotConfirmBody: "Your request has been sent to ",
     // navigation - tab bar
     eventTabLabel: "Events",
     profileTabLabel: "Profile",
@@ -28,6 +30,11 @@ export default {
     libraryLabel: 'Library',
     followers: 'Followers',
     following: 'Following',
+    addGamesLabel: 'Add Games',
+    searchGameLable: "Search for a game",
+    searchBarGame: "Search game",
+    addGameBtn: 'Add Game',
+    signOut: "Sign Out",
     // Setttings
     langSelectLabel : 'Language',
     locationSelectLabel: 'Location',
@@ -36,5 +43,18 @@ export default {
     creditsLabel: "Credits",
     creditsBtnLabel: "View Credits",
     soundLabel: "Sound Effects",
-    animationLable: "Animations"
+    animationLable: "Animations",
+    help: 'Help',
+    // Walkthrough
+    walkthrough: 'Walkthrough',
+    wtStartHead: 'Welcome to BoardGamePlanner!',
+    wtStartBody: "Let's take a quick tour",
+    wtStartStartBtn: 'Start',
+    wtStartSkipBtn: 'Skip',
+    wtProfileAdd: 'Add Games',
+    wtProfileBody: 'You can add games to your game library here',
+    wtLanguage: 'Change Language',
+    wtTools: 'Try out one of the handy board game tools',
+    wtFinishHead: "You are all set!",
+    wtFinishBtn: "Start Looking For Events",
 }

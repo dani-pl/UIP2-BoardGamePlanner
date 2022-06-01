@@ -6,26 +6,21 @@ import { FontAwesome} from '@expo/vector-icons';
 import DropShadow from "react-native-drop-shadow";
 import { useTranslation } from 'react-i18next';
 
-export class Followers extends React.Component {
+export const Followers = (props) => {
+	
+	const {t} = useTranslation()
 
-	render(){
-	// console.log(this.props);
 	return (
 		<View style={globalStyles.flexRow }>
 				<View style={globalStyles.flexColumn }>
-					<Text style={globalStyles.h6 } >{this.props.followers ? this.props.followers.length:0 }</Text>
-					<Text style={globalStyles.subtitle2 } >Followers</Text>
+					<Text style={globalStyles.h6 } >{props.followers ? props.followers.length:0 }</Text>
+					<Text style={globalStyles.subtitle2 } >{t('common:followers')}</Text>
 				</View>
 				<View style={globalStyles.flexColumn }>
-					<Text style={globalStyles.h6 } >{this.props.following ? this.props.following.length:0 }</Text>
-					<Text style={globalStyles.subtitle2 } >Following</Text>
+					<Text style={globalStyles.h6 } >{props.following ? props.following.length:0 }</Text>
+					<Text style={globalStyles.subtitle2 } >{t('common:following')}</Text>
 				</View>
 			</View>
-  );
-
-
+  ) 
 }
 
-
- 
-}

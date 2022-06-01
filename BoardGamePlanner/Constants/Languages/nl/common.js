@@ -19,6 +19,8 @@ export default {
     host: "Georganiseerd door: ",
     directionsBtn:"Zie Routebeschrijving",
     backBtnMap: "Kaart",
+    takeSpotConfirmHead: "Verzonden",
+    takeSpotConfirmBody: "Je verzoek is verzonden naar ",
     // navigation - tab bar
     eventTabLabel: "Kaart",
     profileTabLabel: "Profiel",
@@ -28,6 +30,11 @@ export default {
     libraryLabel: 'Verzameling',
     followers: 'Volgers',
     following: 'Volgend',
+    addGamesLabel: 'Spellen Toevoegen',
+    searchGameLable: "Zoek een spel",
+    searchBarGame: "Zoek spel",
+    addGameBtn: 'Voeg Spel Toe',
+    signOut: "Log Uit",
     // Setttings
     langSelectLabel : 'Taal',
     locationSelectLabel: 'Locatie',
@@ -36,5 +43,18 @@ export default {
     creditsLabel: "Credits",
     creditsBtnLabel: "Bekijk Credits",
     soundLabel: "Geluidseffecten",
-    animationLable: "Animaties"
+    animationLable: "Animaties",
+    help: 'Help',
+    // Walkthrough
+    walkthrough: 'Instructies',
+    wtStartHead: 'Welkom bij BoardGamePlanner!',
+    wtStartBody: "Laten we even een korte rondleiding doen",
+    wtStartStartBtn: 'Start',
+    wtStartSkipBtn: 'Overslaan',
+    wtProfileAdd: 'Spellen Toevoegen',
+    wtProfileBody: 'Hier kan je spellen aan je verzameling toevoegen',
+    wtLanguage: 'Kies een andere taal',
+    wtTools: 'Probeer een van de handige hulpmiddelen voor bordspellen',
+    wtFinishHead: "Je bent er klaar voor!",
+    wtFinishBtn: "Zoek Evenementen",
 }
