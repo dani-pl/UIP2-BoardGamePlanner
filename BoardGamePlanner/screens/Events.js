@@ -18,14 +18,16 @@ import getEnvVars, {ENV} from '../environment';
 
 const GOOGLE_PACES_API_BASE_URL = 'https://maps.googleapis.com/maps/api/place'
 
-
 const markerEvent = require("../assets/event_img.png");
 const selectedEventMarker = require("../assets/eventSelected_img.png")
+
+// interatcive walkthrough 
+import {useWalkthroughStep} from "react-native-interactive-walkthrough"
+import { WalkEvent } from '../components/Walkthrough';
 
 const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
-
 
 
 class Events extends React.Component {
@@ -33,7 +35,6 @@ class Events extends React.Component {
   
   searchLocation;
   
-
   constructor(props){
     super(props);
 

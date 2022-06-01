@@ -70,7 +70,7 @@ export default function App() {
 	return (
 		splash ? <Splash /> :
 		<WalkthroughProvider
-			useIsFocused={true}
+			
 		>
 
 			<NavigationContainer>

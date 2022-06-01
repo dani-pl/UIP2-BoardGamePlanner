@@ -1,5 +1,5 @@
 //this is a nested screen
-import React from 'react'
+import React, {useEffect} from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { 
   StyleSheet,
@@ -9,16 +9,38 @@ import {
   SafeAreaView,
   Pressable,
   Text, View} from 'react-native';
-import {globalStyles} from "../styles";
-import { FontAwesome } from '@expo/vector-icons';
+import {globalStyles, neutral60} from "../styles";
+import { FontAwesome5 } from '@expo/vector-icons';
 import LanguageSelect from '../components/LanguageSelect';
 
 import { useTranslation } from 'react-i18next';
+
+// interatcive walkthrough 
+import {useWalkthroughStep} from "react-native-interactive-walkthrough"
+import { WalkthroughStart, WalkLanguage} from '../components/Walkthrough';
 
 const Settings = ({navigation}) => {
 	// get the translation instance
     const { t } = useTranslation();
 
+	const {start, stop} = useWalkthroughStep({
+		number: 1,
+		OverlayComponent: WalkthroughStart,
+		fullScreen: true,
+		enableHardwareBack: true,
+		onPressBackdrop: () => stop(),
+		onFinish: () => navigation.navigate("Profile_")
+	})		
+
+	const {onLayout} = useWalkthroughStep({
+		number: 3,
+		OverlayComponent: WalkLanguage,
+		fullScreen: true,
+		enableHardwareBack: true,
+		onPressBackdrop: () => stop(),
+		onFinish: () => navigation.navigate("Tools")
+	});
+	
     return (  
 		<View style={[
 			globalStyles.container,{
@@ -27,7 +49,7 @@ const Settings = ({navigation}) => {
        		
 			{/* adding language select component to the view */}
 			<View>
-				<LanguageSelect />
+				<LanguageSelect onLayout={onLayout} />
 		
 				<Text style={globalStyles.h5}>{t('common:locationSelectLabel')}</Text>
 				
@@ -36,6 +58,16 @@ const Settings = ({navigation}) => {
 					// onChangeText='Location'
 					value='Sofia, Bulgaria'
 				/>
+
+				<Pressable  
+					style={[globalStyles.btnSecondary, {width:'100%', alignSelf:'center'}]}
+					onPress={() => start()}
+				>
+					
+					<Text style={globalStyles.btnTextNeutral}>
+					<FontAwesome5 name="walking" size={20} color={neutral60} />	Walkthrough
+					</Text>
+				</Pressable>
 			</View>
 
 			<Pressable  

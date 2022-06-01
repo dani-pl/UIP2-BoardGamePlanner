@@ -22,18 +22,26 @@ import { useTranslation } from 'react-i18next';
 import { PLAYERS } from '../database/players';
 import { GAMES } from '../database/games';
 
+
+
 // interatcive walkthrough 
 import {useWalkthroughStep} from "react-native-interactive-walkthrough"
-import { WalkthroughStart } from '../components/Walkthrough';
+import { WalkProfile1 } from '../components/Walkthrough';
 
 
-export default function Profile() {
+export default function Profile({navigation}) {
 
 	// get the translation instance
 	const { t } = useTranslation()
 
-	// get navigation instance
-	const navigation =useNavigation()
+	const {onLayout, start, stop} = useWalkthroughStep({
+		number: 2,
+		OverlayComponent: WalkProfile1,
+		fullScreen: true,
+		enableHardwareBack: true,
+		onPressBackdrop: () => stop(),
+		onFinish: () => navigation.navigate("Settings")
+	});
 
 	// Write Login in header when singing out
 	const handleSignOut = () => {
@@ -77,62 +85,72 @@ export default function Profile() {
 	const playersRef = firebase.firestore().collection('players');
 	const [modalOpen, setModalOpen] = useState(false);
 			
-	// const {isWalkthroughOn, isReady, start} = useWalkthroughStep({
-	// 	number: 1,
-	// 	OverlayComponent: WalkthroughStart,
-	// 	fullScreen: true
-	// })		
+	
 	
 	
 	return (
-	<ScrollView style={globalStyles.container}>
-		<View>
-		<ProfileComponent 
-			username ={currentUser.username}
-			followers= {currentUser.followers}  
-			following= {currentUser.following} 
-			description = {currentUser.description}
-			image = {currentUser.image}>
-		</ProfileComponent>
-		
-		<View style={globalStyles.flexRowEnd}>
-			<Pressable style={globalStyles.btnSecondary}>
-			<Text style={globalStyles.btnTextNeutral}>{t('common:editBtn')}</Text>
-			</Pressable>
-			<Pressable style={globalStyles.btnIconSecondary} onPress={()=>navigation.navigate("Settings", {msg: "I came from Profile"})}>
-			<FontAwesome name={'cog'} color='#2F3C3B'/>
-			</Pressable>
-			<Pressable style={globalStyles.btnSecondary} onPress={handleSignOut}>
-			<Text style={globalStyles.btnTextNeutral}>Sign Out</Text>
-			</Pressable>
-		</View>
-		</View>
-	
-	
-		<Text style={globalStyles.h4}>{t('common:libraryLabel')}</Text>
-		<MyLibrary style={globalStyles.behind} gameLibraryOftheUser={currentUser.gameLibrary}/>
-		<View style={[globalStyles.centered, {marginBottom:50}]}>
-		<TouchableHighlight style={globalStyles.btnPrimary}  onPress={()=>setModalOpen(true)}>
-			<Text style={globalStyles.btnTextWhite}>Add Games</Text>
-		</TouchableHighlight>
-		</View>
+		<>
+			<ScrollView style={globalStyles.container}>
+				<View>
+				<ProfileComponent 
+					username ={currentUser.username}
+					followers= {currentUser.followers}  
+					following= {currentUser.following} 
+					description = {currentUser.description}
+					image = {currentUser.image}>
+				</ProfileComponent>
+				
+				<View style={globalStyles.flexRowEnd}>
+					<Pressable style={globalStyles.btnSecondary} onPress={handleSignOut}>
+						<Text style={globalStyles.btnTextNeutral}>Sign Out</Text>
+					</Pressable>
+					<Pressable style={globalStyles.btnSecondary}>
+						<Text style={globalStyles.btnTextNeutral}>{t('common:editBtn')}</Text>
+					</Pressable>
+					<Pressable 
+						style={globalStyles.btnIconSecondary} 
+						onPress={()=>navigation.navigate("Settings", {msg: "I came from Profile"})}	
+					>
+						<FontAwesome name={'cog'} color='#2F3C3B'/>
+					</Pressable>
+				</View>
+				</View>
+			
+			
+				<Text style={globalStyles.h4}>{t('common:libraryLabel')}</Text>
+				<MyLibrary style={globalStyles.behind} gameLibraryOftheUser={currentUser.gameLibrary}/>
+				
 
-		<Modal visible={modalOpen} animationType='slide' style={globalStyles.modal}>
-		<View style={globalStyles.container}>
-			<FontAwesome5 name="times" size={24} style={globalStyles.modalIcon} onPress={()=> setModalOpen(false)}></FontAwesome5>
-			<Text style={globalStyles.h5}>Search for a game</Text>
-			<TextInput
-			style={globalStyles.input}
-			placeholder="Search game"
-			// onChangeText='Location'
-			// value='Sofia, Bulgaria'
-			/>
-			<TouchableHighlight style={globalStyles.btnPrimary}  >
-			<Text style={globalStyles.btnTextWhite}>Add Game</Text>
-			</TouchableHighlight>
-		</View>
-		</Modal>
-		{/* <GameLibrary></GameLibrary> */}
-	</ScrollView>
+				<Modal visible={modalOpen} animationType='slide' style={globalStyles.modal}>
+					<SafeAreaView style={[globalStyles.container, {alignItems:'center'}]}>
+						<View style={{width:'90%', marginVertical:20}}>
+							<FontAwesome5 name="times" size={24} style={globalStyles.modalIcon} onPress={()=> setModalOpen(false)}></FontAwesome5>
+							<Text style={globalStyles.h5}>Search for a game</Text>
+							<TextInput
+							style={globalStyles.input}
+							placeholder="Search game"
+							// onChangeText='Location'
+							// value='Sofia, Bulgaria'
+							/>
+							<TouchableHighlight style={globalStyles.btnPrimary}  >
+							<Text style={globalStyles.btnTextWhite}>Add Game</Text>
+							</TouchableHighlight>
+						</View>
+					</SafeAreaView>
+				</Modal>
+				{/* <GameLibrary></GameLibrary> */}
+			</ScrollView>
+			<View 
+				style={[globalStyles.floatingBtnContainer]}
+				// onLayout={onLayout}
+			 >
+				<TouchableHighlight 
+					style={[globalStyles.floatingBtn, globalStyles.btnPrimary, {width:"90%"}]}  
+					onPress={()=>setModalOpen(true)}
+				>
+					<Text style={globalStyles.btnTextWhite}>Add Games</Text>
+				</TouchableHighlight>
+			</View>
+		</>
 )
 };
