@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { GAMES } from '../games';
 
 /**
  * This function gets all the information of a game by id

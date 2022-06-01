@@ -61,7 +61,7 @@ export let PLAYERS = [
     "username": "dbeekman",
     "email": "dbeekman@abv.bg",
     "password": "123456",
-    "image": null,
+    "image": "https://robohash.org/sintreiciendismagnam.png",
     "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
     "bggUserName": "dbeekman2",
    "location": {
@@ -313,7 +313,7 @@ export let PLAYERS = [
     "followers" : [37],
     "events" : { 
         "hosting" : [{
-            "eventId": 0910,
+            "eventId": 910,
             "current" : true,
             "coHost" : true
         }],
@@ -339,16 +339,16 @@ export let PLAYERS = [
           },
     "language": "en",
     "gameLibrary" : [328871,295374],
-    "following" : [0651,29029],
-    "followers" : [0651,29029],
+    "following" : [651,29029],
+    "followers" : [651,29029],
     "events" : { 
         "hosting" : [{
-            "eventId": 0923,
+            "eventId": 923,
             "current" : true,
             "coHost" : true
         }],
         "joining" : [{
-            "eventId" : 0102,
+            "eventId" : 102,
             "invited" : true,
             "pending" : true
         }]
