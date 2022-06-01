@@ -76,9 +76,8 @@ export default class CoinFlip extends Component {
         {
           toValue: 0,
           friction: 4,
-          tension: 6,
-          delay: 100,
-          easing: Easing.bounce,
+          tension: 40,
+          easing: Easing.out(Easing.exp),
           useNativeDriver: true
         }).start();
     } else {
@@ -86,9 +85,8 @@ export default class CoinFlip extends Component {
         {
           toValue: 360,
           friction: 4,
-          tension: 6,
-          delay: 100,
-          easing: Easing.bounce,
+          tension:40,
+          easing: Easing.out(Easing.exp),
           useNativeDriver: true
         }).start();
     };
