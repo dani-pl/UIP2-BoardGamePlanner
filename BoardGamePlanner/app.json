@@ -19,7 +19,7 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes" : [
+        "UIBackgroundModes": [
           "location",
           "fetch"
         ]
