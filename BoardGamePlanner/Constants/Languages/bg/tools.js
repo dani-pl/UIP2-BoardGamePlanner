@@ -1,21 +1,21 @@
 export default {
     // First Player
-    firstPlayer: 'First Player',
-    playerMax: '(2 to 5 Players)',
-    FPinstruction: 'THIS IN BG: All players place and hold 1 finger on the screen',
+    firstPlayer: 'Кой е първи?',
+    playerMax: '(От 2 до 5 играчи)',
+    FPinstruction: 'Всички игграчи слагат по един пръст на екрана',
     // coin flip
-    coinFlip: 'Coin Flip in BG',
+    coinFlip: 'Хвърли монета',
     toss: 'Toss BG',
     tossStartLbl: "Toss the coin BG",
     heads: "Heads BG",
     tails: "Tails BG",
     // Dice roll
-    diceRoll: 'Dice Roll BG',
-    dice: "DiceBG",
-    rollDice: 'Roll Dice',
-    chooseDice: 'Choose your Dice BG',
-    rollBtnLabel: "RollBG",
-    addDiceLabel: "AddBG",
-    removeDiceLabel: "RemoveBG",
-    backBtn: "Choose Dice or choose if its too big"
+    diceRoll: 'Хвърли зар',
+    dice: "Зар",
+    rollDice: 'Хвърли зар',
+    chooseDice: 'Избери си зар',
+    rollBtnLabel: "Хвърли",
+    addDiceLabel: "Добави",
+    removeDiceLabel: "Премахни",
+    backBtn: "Избери зар"
 }
