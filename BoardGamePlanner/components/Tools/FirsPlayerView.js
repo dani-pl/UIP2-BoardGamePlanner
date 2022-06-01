@@ -9,158 +9,215 @@ import FirstPlayerStartView from './FPstart';
 const gameDuration = 3000;
 let timerInterval;
 
-
+/**
+ * This functions creates a reference of previous content of the player variable
+ * @param {Array} update 
+ * @returns 
+ */
 const usePrevPlayers = (update) => {
+    // we create a reference 
     const players = useRef();
     useEffect(()=>{
+        // we update the current reference with the passed update
         players.current = update;
     })
     // return the previous players or if empty pass on the update
     return players.current || update
 }
 
+
 const FirsPlayerView = ({navigation}) => {
     
+    // =================== VARIABLES ===================
+    const [background, setBackground] = useState(backgroundColor);
     const [players, setPlayers] = useState([]);
     const [winner, setWinner] = useState(null);
     const [timer, setTimer] = useState(0);
     const prevPlayers = usePrevPlayers(players);
+    
+    // ANIMATION VARIABLES
+    // Animated.Value makes changes to the screen without rerendering the component
+    // we only get the getter, so when we rerender the component we always get the value of the first render of the component
     const pulseAnim = new Animated.Value(1);
-    const winnerScale = new Animated.Value(1);
-    const [background, setBackground] = useState(backgroundColor);
-    // Sound effects
+    
+    // SOUND EFFECT VARIABLES
     const [touchSound, setTouchSound] = useState();
     const [releaseSound, setReleaseSound] = useState();
     const [winnerSound, setWinnerSound] = useState();
 
 
+    // =================== SOUND EFFECTS ===================
+
+    /**
+     * play sound when a user touches the screen
+     */
     async function playTouchSound () {
         console.log('loading sound');
+         // load the sound file
         const { sound } = await Audio.Sound.createAsync(
             require('../../assets/Audio/Blop-Mark_DiAngelo-79054334.mp3')
         );
+        // update the variable with the sound file
         setTouchSound(sound)
-
+        // play the sound
         console.log("playing BLOB");
         await sound.playAsync();
     }
 
+    /**
+     * play sound when user releases finger from screen
+     */
     async function playReleaseSound () {
         console.log('loading sound');
+         // load the sound file
         const { sound } = await Audio.Sound.createAsync(
             require('../../assets/Audio/60013__qubodup__whoosh.mp3')
         );
-        // const { sound } = await Audio.Sound.createAsync(
-        //     require('../../assets/Audio/393813__deleted-user-6479820__swish-single-2.mp3')
-        // );
-
+        // update the variable with the sound file
         setReleaseSound(sound)
-
+        // play the sound
         console.log("playing WOOSH");
         await sound.playAsync();
     }
 
+
+    /**
+     * play sound when winner has been chosen
+     */
     async function playWinnerSound () {
         console.log('loading sound');
+         // load the sound file
         const { sound } = await Audio.Sound.createAsync(
             require('../../assets/Audio/322897__rhodesmas__connected-01.mp3')
         );
+         // update the variable with the sound file
         setWinnerSound(sound)
-
+        // play the sound
         console.log("playing WINNER");
         await sound.playAsync();
     }
 
+    // =================== USEEFFECTS ===================
+
+    /**
+     * Triggers on touch sound
+     */
     useEffect(()=>{
+        // if touchsound exists unload the sound after playing
         return touchSound ? () => 
             {
+                // unload/stop the sound
                 console.log('unloading sound')
                 touchSound.unloadAsync();
             }
         : undefined
     },[touchSound])
 
+    /**
+     * triggers on release sound
+     */
     useEffect(()=>{
+        // if releasesound exists unload the sound after playing
         return releaseSound ? () => 
             {
+                // unload/stop the sound
                 console.log('unloading sound')
                 releaseSound.unloadAsync();
             }
         : undefined
     },[releaseSound])
 
+    /**
+     * triggers on release sound
+     */
     useEffect(()=>{
+        // if winnersound exists unload the sound after playing
         return winnerSound ? () => 
             {
+                // unload/stop the sound
                 console.log('unloading sound')
                 winnerSound.unloadAsync();
             }
         : undefined
     },[winnerSound])
 
-
+    /**
+     * Triggers on players and timer
+     */
     useEffect(()=>{
-        Animated.loop(
-            Animated.sequence([
-                Animated.timing(pulseAnim, {
-                    toValue: 1.1,
-                    duration: 500,
-                    easing: Easing.linear,
-                    useNativeDriver: true
-                }),
-                Animated.timing(pulseAnim, {
-                    toValue: 1.2,
-                    duration: 500,
-                    easing: Easing.linear,
-                    useNativeDriver: true
-                }),
-                Animated.timing(pulseAnim, {
-                    toValue: 1.1,
-                    duration: 500,
-                    easing: Easing.linear,
-                    useNativeDriver: true
-                }),
-                Animated.timing(pulseAnim, {
-                    toValue: 1.2,
-                    duration: 500,
-                    easing: Easing.linear,
-                    useNativeDriver: true
-                }),
-            ])
-        ).start()
+        // here we define our animation for the winning player
+        // we want too create a pulse animation so we use the animated value that was set before 
+        Animated.timing(pulseAnim, {
+            // we want to scale the object to 1.2
+            toValue: 1.2,
+            // it should take 0.8 seconds
+            duration: 800,
+            // we use a bouncy easing
+            easing: Easing.bounce,
+            // we use the native driver
+            useNativeDriver: true
+        }).start()
+
+        // Animated.loop(
+            // Animated.sequence([
+                // Animated.timing(pulseAnim, {
+                //     toValue: 1.1,
+                //     duration: 1000,
+                //     easing: Easing.bounce,
+                //     useNativeDriver: true
+                // }),
+                // Animated.timing(pulseAnim, {
+                //     toValue: 1.1,
+                //     duration: 500,
+                //     easing: Easing.bounce,
+                //     useNativeDriver: true
+                // }),
+                // Animated.timing(pulseAnim, {
+                //     toValue: 1.2,
+                //     duration: 500,
+                //     easing: Easing.bounce,
+                //     useNativeDriver: true
+                // }),
+            // ])
+        // ).start()
     },[players, timer])
 
+    /**
+     * Triggers on players
+     * Here we define when to start and when to stop the game
+     */
     useEffect(() => {
+        // when there are more than 1 player and the amount does not equal the previous nm of players we start the game
         if(players.length > 1 && (prevPlayers.length !== players.length)){
             start();
-            // navigation.setOptions({headerShown: false})
         }else if(players.length < 2){
-            // navigation.setOptions({headerShown: true})
-            stop()
-          
+            // when there are no or only 1 player left we stop the game
+            stop()          
         }
     }, [players])
     
+    /**
+     * Triggers on timer
+     */
     useEffect(()=>{
+        // when the time is over (i.e. timer is same as gameduration)
         if(timer === gameDuration){
+            // we vibrate the phone for a second
             Vibration.vibrate(1,1000);
+            // stop the timerInterval
             clearInterval(timerInterval);
+            // we decide on the winner by randomly choosing from the number of players
             var tempWinner = players[Math.floor(Math.random()*players.length)];
+            // we set the winner
             setWinner(tempWinner);
+            // we change the views backround to the color of the winner
             setBackground(firstPlayerColors[tempWinner.identifier-1]);
+            // we play the winner sound
             playWinnerSound()
-            Animated.timing(winnerScale, {
-                toValue: 2.5,
-                duration: 500,
-                easing: Easing.linear,
-                useNativeDriver:true
-            })
-
-            // console.log("WINNNNERERERE!!!! ",tempWinner)
-            // alert("WINNNNERERERE!!!! " + tempWinner.identifier)
         }
     },[timer])
 
+    // =================== FUNCTIONS ===================
 
     /**
      * start the game
@@ -195,12 +252,6 @@ const FirsPlayerView = ({navigation}) => {
         setBackground(backgroundColor)
     }
 
-    // you need a value, which should transform into another value
-    // Animated.Value makes changes to the screen without rerendering the component
-    // we only get the getter, so when we rerender the component we always get the value of the first render of the component
-    const opacity = useState(new Animated.Value(0))[0];
-
-    const pan = useState(new Animated.ValueXY())[0]
 
     /**
      * callback function that is run when changes in gesture is detected. 
@@ -219,8 +270,8 @@ const FirsPlayerView = ({navigation}) => {
     
 
 
-    // allows you to create a responder for every single touch
-    // you have to handle the touch so you need to say yes or no and do something with it
+    // allows us to create a responder for every single touch
+    // we have to handle the touch so we need to say yes or no and do something with it
     const panResponder = useMemo(() =>
         PanResponder.create({
             /* the user has just pressed the screen, do we handle it? yes 
@@ -253,15 +304,13 @@ const FirsPlayerView = ({navigation}) => {
                 pulseAnim.setOffset(pulseAnim._value)
             },
             /* fires whichever function is passed every single time a move is detected on the screen.
-                ignore the event and just get the gesture
             */
             onPanResponderMove: (event,gesture) => {
                 // get and update the players on the screen
                 getPlayers(event,gesture)
             },  
             /* fires which ever function at the end of the gesture */
-            onPanResponderEnd: (event,gesture) => 
-                {   
+            onPanResponderEnd: (event,gesture) => {   
                     // play release sound
                     playReleaseSound()
                     // get and update the players on the screen
