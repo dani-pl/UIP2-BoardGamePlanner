@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import { globalStyles } from "../styles"
 import { Animated } from 'react-native';
 import Images from '../assets/Images';
+import { Audio } from 'expo-av';
+import { setAudioModeAsync } from 'expo-av/build/Audio';
 
 import { useTranslation, withTranslation } from 'react-i18next';
 import { t } from 'i18next';
@@ -26,6 +28,28 @@ class CoinFlip extends Component {
       ]
     }
   };
+
+
+  async componentDidMount(){
+    Audio.setAudioModeAsync({
+      allowRecordingIOS: false,
+      interruptionModeIOS:Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+      playsInSilentModeIOS:true,
+      interruptionModeAndroid:Audio.INTERRUPTION_MODE_IOS_DUCK_OTHERS,
+      shouldDuckAndroid:true,
+      staysActiveInBackground:true,
+      playThroughEarpieceAndroid:true
+    });
+
+  }
+
+  async playSound()
+  {  this.sound = new Audio.Sound();
+    await this.sound.loadAsync(require('../assets/Audio/coinflip.mp3'),{shouldPlay:true})
+    await this.sound.playAsync()
+  }
+
+
 
 
 
@@ -60,6 +84,7 @@ class CoinFlip extends Component {
         'selectedText': t('tools:heads'),
       })
       this.flipCoin()
+      this.playSound()
     }
     else {
       this.setState({
@@ -67,6 +92,7 @@ class CoinFlip extends Component {
         'selectedText': t('tools:tails'),
       })
       this.flipCoin()
+      this.playSound()
     }
   }
 
