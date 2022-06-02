@@ -9,6 +9,7 @@ import Images from '../assets/Images';
 import { useTranslation, withTranslation } from 'react-i18next';
 import { t } from 'i18next';
 
+import { Audio } from 'expo-av';
 
 class CoinFlip extends Component {
 

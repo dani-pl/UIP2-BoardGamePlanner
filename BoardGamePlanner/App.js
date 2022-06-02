@@ -32,7 +32,7 @@ const Stack = createStackNavigator()
 
 export default function App() {
 
-	// LogBox.ignoreAllLogs()
+	LogBox.ignoreAllLogs()
   	// get the translation instance
 	const { t } = useTranslation();
     // var games = getBGGLibrary('trisroyal');
