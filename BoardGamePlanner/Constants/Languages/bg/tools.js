@@ -5,10 +5,10 @@ export default {
     FPinstruction: 'Всички игграчи слагат по един пръст на екрана',
     // coin flip
     coinFlip: 'Хвърли монета',
-    toss: 'Toss BG',
-    tossStartLbl: "Toss the coin BG",
-    heads: "Heads BG",
-    tails: "Tails BG",
+    toss: 'хвърлям',
+    tossStartLbl: "хвърлете монетата",
+    heads: "Heads",
+    tails: "Tails",
     // Dice roll
     diceRoll: 'Хвърли зар',
     dice: "Зар",
