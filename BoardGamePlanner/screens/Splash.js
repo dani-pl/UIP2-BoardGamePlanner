@@ -141,7 +141,8 @@ class Splash extends Component {
                             roll4to3: Array.from({length: 111}, (v, i) => i + 18), // to roll from 4 to 3 we take all the images starting from the 18th index
                         }}
                     />
-                    <Animated.Text style={[globalStyles.subtitle1,{ opacity:this.state.animation, marginTop:20}]}>
+                    <Animated.Text 
+                        style={[globalStyles.subtitle1,{ opacity:this.state.animation, marginTop:20}]}>
                         {changingText}
                     </Animated.Text>
                 </View>

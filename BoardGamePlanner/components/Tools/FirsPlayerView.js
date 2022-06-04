@@ -335,7 +335,7 @@ const FirsPlayerView = ({navigation}) => {
                 justifyContent: 'center',
                 backgroundColor: background
             }
-            ]} {...panResponder.panHandlers}>
+            ]} {...panResponder.panHandlers}> 
                 
                 { players.length < 1 ? 
                     <FirstPlayerStartView/>

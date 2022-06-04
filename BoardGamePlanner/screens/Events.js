@@ -38,21 +38,37 @@ class Events extends React.Component {
   constructor(props){
     super(props);
 
+    // initial location displayed in map before user's location is extracted
     this.state =  {location: {
       latitude: 42.698334,
       longitude: 23.319941,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     }}
+
+    // variable to store the event card that is being showed to the user
+    // it starts as an empty view
     this.state= {currentCard: <View></View>}
+    
+    // variable that stores the content of the SearchBar
+    // it starts as an empty string
     this.state= {search: ""}
+
+    // boolean that will dictate if it is neccessary to show an error
     this.state= {showError: false}
   }
 
+  /** 
+  * Once the component is rendered, we get the current location of the user
+  * and we change the location of the map to that location
+  */
   componentDidMount(){
     this._getLocation();
   }
 
+  /** 
+   * auxiliar function used for testing purposes that changes location in the map
+  */
   displaySearchedLocation = async() =>{
     this.setState({
       location: {
@@ -90,10 +106,14 @@ class Events extends React.Component {
     });    
   }
 
+  /**
+   * When a map marker is clicked the state variable "currentCard"
+   * changes its value to a CardEvent component whose properties
+   * bring the data of the specific Event selected
+   */
   onPressMarker(e,index){
     this.setState({selectedMarkerEventIndex: index});
     this.setState({location: e.Location})
-    let something = EventDB[index].date;
     this.state.currentCard = <CardEvent 
                                  date={EventDB[index].startDate}
                                  generalLocation={EventDB[index].location.general}
@@ -109,6 +129,10 @@ class Events extends React.Component {
                               </CardEvent>
   }
 
+  /**
+   * Reads event Database and create a marker in the MapView for each of the
+   * events in the Database
+   */
   _eventsMarkers = () => {
     let result= EventDB.map((element,i)=>{
       return <Marker 
@@ -127,7 +151,10 @@ class Events extends React.Component {
     return result
   }
 
-
+  /**
+   * Reads bar Database and create a marker in the MapView for each of the
+   * bar in the Database
+   */
   _barsMarkers = () => {
     let result= BarDB.map((element, i)=>{
       return <Marker 
@@ -195,6 +222,10 @@ class Events extends React.Component {
     }
   }
 
+  /**
+   * When the searched Location by the user changes, the searchSubmit
+   * function is called
+   */
   componentDidUpdate(prevProps){
     if (this.props.searchedLocation !== prevProps.searchedLocation) {
       this._searchSubmit(this.props.searchedLocation)
@@ -202,6 +233,8 @@ class Events extends React.Component {
   }  
 
   render(){
+
+    // Get current window dimensions for responsiveness purposes
     const { width, height } = Dimensions.get("window");
     const CARD_HEIGHT = height / 4;
     const CARD_WIDTH = CARD_HEIGHT - 50;
