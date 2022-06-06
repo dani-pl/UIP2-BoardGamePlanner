@@ -35,13 +35,10 @@ export default function App() {
 	LogBox.ignoreAllLogs()
   	// get the translation instance
 	const { t } = useTranslation();
-    // var games = getBGGLibrary('trisroyal');
-    // console.log(games[0])
-    // games.forEach(game => {
-    //   console.log(game)
-    // });
 
-  	let [splash, setSplash] = useState(true);
+	  let [splash, setSplash] = useState(true);
+	  
+	  //loading the fonts used on the front end
   	let [fontsLoaded] = useFonts({
           'Montserrat-Semibold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
           'Montserrat-Italic': require('./assets/fonts/Montserrat-Italic.ttf'),
@@ -72,9 +69,8 @@ export default function App() {
 		<WalkthroughProvider
 			
 		>
-
 			<NavigationContainer>
-			
+			{/* we need the tab navigator to show the tabs in the main navigation */}
 			<Tab.Navigator screenOptions={{ 
 				headerShown: false,
 				tabBarActiveTintColor: "#1EA596",

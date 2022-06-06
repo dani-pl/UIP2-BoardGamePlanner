@@ -25,11 +25,13 @@ export default function Login() {
         const [password, setPassword] = useState('')
 
 
-     
-      
-
         //adding a listener that checks if a user is logged in
         const navigation =useNavigation()
+
+
+
+        //if the user is logged in when he/she navigates to the Profile tab he/she the Login screen is skipped
+        // from the Profile Stack navigator and the user directly goes to the Profile page
         useEffect(() => {
 const unsubscribe = auth.onAuthStateChanged(user => {
   if(user) {
@@ -39,6 +41,8 @@ const unsubscribe = auth.onAuthStateChanged(user => {
 return unsubscribe
         },[])
 
+
+  //this function handles sign up, it creates a user with the email and password types in the input fields
         const handleSignUp = () => {
             auth
                 .createUserWithEmailAndPassword(email,password)
@@ -49,7 +53,7 @@ return unsubscribe
              .catch(error => alert('Registered with',error.message))
     }
 
-
+//this function handles login after checking email and password
     const handleLogIn = () =>{
       auth
       .signInWithEmailAndPassword(email,password)

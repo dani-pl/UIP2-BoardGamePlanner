@@ -31,6 +31,9 @@ class CoinFlip extends Component {
 
 
   async componentDidMount(){
+
+    //to customize the audio experience on iOS and Android.
+
     Audio.setAudioModeAsync({
       allowRecordingIOS: false,
       interruptionModeIOS:Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
@@ -43,6 +46,8 @@ class CoinFlip extends Component {
 
   }
 
+
+  //here we load the audio file and we play the audio when this function is triggered
   async playSound()
   {  this.sound = new Audio.Sound();
     await this.sound.loadAsync(require('../assets/Audio/coinflip.mp3'),{shouldPlay:true})
@@ -63,6 +68,9 @@ class CoinFlip extends Component {
       this.value = value;
     })
 
+
+    //we run the animatedValue through an interporalation. 
+    //An interpolation maps input ranges(in our case numbers from 0 to 360) to output ranges (degrees)
     this.interpolate = this.animatedValue.interpolate({
       inputRange: [0, 360],
       outputRange: ['0deg', '360deg']
@@ -70,7 +78,7 @@ class CoinFlip extends Component {
 
   }
 
-
+//this function is used to determine which side wins
   decideSide = () => {
 
 // pick between the two Images(heads or tails image) and save its value to the image variable
@@ -125,6 +133,7 @@ class CoinFlip extends Component {
 
     const { t } = this.props
 
+    //this variable holds the transformation value
     const animatedStyle = {
       transform: [
         { rotateX:  this.interpolate }

@@ -2,7 +2,7 @@ import * as firebase from 'firebase'
 
 
 
-// Your web app's Firebase configuration
+//Our web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDpGMYHTvDDxiDXInDHIV-6qKKCW345xIM",
   authDomain: "boardgameplanner-24a91.firebaseapp.com",
@@ -22,7 +22,7 @@ if(firebase.apps.length ===0){
 }else{
   app = firebase.app()
 }
-
+//
 const db = firebase.database()
 const auth = firebase.auth()
 console.log(auth)

@@ -22,10 +22,14 @@ import { useTranslation } from 'react-i18next';
 import { NavigationContainer } from '@react-navigation/native';
 
 
+
+	//returns the stack navigator
+	//here we define the stack of screens that are under each tab of the main navigation - Profile, Events and Tools.
+	//the order of the screens matters, the first one is opened first
+
 const ProfileNavigator = () => {
 	// get the translation instance
 	const { t } = useTranslation();
-
     return (
 		<Stack.Navigator >
     <Stack.Screen
