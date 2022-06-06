@@ -32,7 +32,9 @@ const Stack = createStackNavigator()
 
 export default function App() {
 
-	LogBox.ignoreAllLogs()
+	// ignore any yellow warnings => used during demo
+	// LogBox.ignoreAllLogs()
+
   	// get the translation instance
 	const { t } = useTranslation();
 
@@ -52,7 +54,9 @@ export default function App() {
   
 
 	useEffect(() => {
+		// if the splash screen is exists
 		if(Splash){
+			// set a timeout of 5.2 seconds after which the splash should be set to false again
 			setTimeout(()=>{
 				setSplash(false);
 		},5200)}
@@ -65,6 +69,7 @@ export default function App() {
 
 
 	return (
+		// if splash is true show it otherwise show main contain of the app
 		splash ? <Splash /> :
 		<WalkthroughProvider
 			

@@ -1,3 +1,12 @@
+/**
+ * In this file we have defined several components that show up during the walkthrough
+ * Parameters used:
+ * - next => the next walkthrough page is started
+ * - stop => walkthrough is stopped
+ * - previous => go back to the previous walkthrough page
+ */
+
+
 import { View, Text, SafeAreaView, StyleSheet, Pressable , Dimensions} from 'react-native'
 import React, { useTransition } from 'react'
 import { backgroundColor, globalStyles, green50, neutral60, purple10 } from '../styles'
@@ -153,6 +162,7 @@ export const WalkTools = ({next, previous, step: {mask}}) => {
         </SafeAreaView>
     )
 }
+
 export const WalkFinish = ({next, previous, stop, step: {mask}}) => {
     
     const {t} = useTranslation()
@@ -177,7 +187,7 @@ export const WalkFinish = ({next, previous, stop, step: {mask}}) => {
 }
 
 
-
+// custom styles for the walkthrough
 const walkStyles = StyleSheet.create({
     fullScreenContainer:{
         position:"absolute",

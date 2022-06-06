@@ -7,7 +7,7 @@ import DropShadow from "react-native-drop-shadow";
 import { useTranslation } from 'react-i18next';
 
 export const Followers = (props) => {
-	
+	// create translation instance
 	const {t} = useTranslation()
 
 	return (

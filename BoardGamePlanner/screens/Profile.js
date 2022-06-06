@@ -34,6 +34,7 @@ export default function Profile({navigation}) {
 	// get the translation instance
 	const { t } = useTranslation()
 
+	// walkthrough step
 	const {onLayout, start, stop} = useWalkthroughStep({
 		number: 2,
 		OverlayComponent: WalkProfile1,

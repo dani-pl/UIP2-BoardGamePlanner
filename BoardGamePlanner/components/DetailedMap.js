@@ -25,6 +25,7 @@ class DetailedMap extends Component {
 
 
     componentDidMount(){
+        // set the location right after the component mounts
         this._setLocation()
     }
 

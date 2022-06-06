@@ -23,6 +23,7 @@ const Settings = ({navigation}) => {
 	// get the translation instance
     const { t } = useTranslation();
 
+	// walkthrough step
 	const {start, stop} = useWalkthroughStep({
 		number: 1,
 		OverlayComponent: WalkthroughStart,
@@ -32,6 +33,7 @@ const Settings = ({navigation}) => {
 		onFinish: () => navigation.navigate("Profile_")
 	})		
 
+	// walkthrough step
 	const {onLayout} = useWalkthroughStep({
 		number: 3,
 		OverlayComponent: WalkLanguage,

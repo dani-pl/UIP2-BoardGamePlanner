@@ -31,4 +31,3 @@ i18n.use(initReactI18next).init({
     defaultNS: 'common'
 })
 
-// console.log(Localization.locale.split('-')[0])

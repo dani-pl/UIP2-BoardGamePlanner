@@ -26,6 +26,9 @@ const usePrevPlayers = (update) => {
 }
 
 
+/**
+ * First Player Chooser Component
+ */
 const FirsPlayerView = ({navigation}) => {
     
     // =================== VARIABLES ===================
@@ -157,29 +160,6 @@ const FirsPlayerView = ({navigation}) => {
             // we use the native driver
             useNativeDriver: true
         }).start()
-
-        // Animated.loop(
-            // Animated.sequence([
-                // Animated.timing(pulseAnim, {
-                //     toValue: 1.1,
-                //     duration: 1000,
-                //     easing: Easing.bounce,
-                //     useNativeDriver: true
-                // }),
-                // Animated.timing(pulseAnim, {
-                //     toValue: 1.1,
-                //     duration: 500,
-                //     easing: Easing.bounce,
-                //     useNativeDriver: true
-                // }),
-                // Animated.timing(pulseAnim, {
-                //     toValue: 1.2,
-                //     duration: 500,
-                //     easing: Easing.bounce,
-                //     useNativeDriver: true
-                // }),
-            // ])
-        // ).start()
     },[players, timer])
 
     /**

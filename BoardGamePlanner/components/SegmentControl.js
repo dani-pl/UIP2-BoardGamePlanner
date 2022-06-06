@@ -11,7 +11,7 @@ import { globalStyles, segmentStyles, green50, neutral60, green60, backgroundCol
 
 
   
-  // So that it stretches in landscape mode.
+  // So that it stretches in landscape mode if available
   const width = Dimensions.get('screen').width - 32;
   
   const SegmentControl = (props) => {

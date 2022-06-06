@@ -28,15 +28,12 @@ class Splash extends Component {
         // start the rolling dice animation
         this.roll('roll4to3')
 
-        // after 5.1 sec stop the rolling dice animation
-        // setTimeout(()=>{
-        //     this.stop()
-        // },5100)
     }
 
     componentWillUnmount() {
         // make sure to clear and reset the interval when moving to the Event screen
         clearInterval(this.timeout);
+        // stop the sprite
         this.stop()
     }
 

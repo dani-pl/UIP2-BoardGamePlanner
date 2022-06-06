@@ -29,6 +29,7 @@ const DiceRoll = ({navigation}) => {
                 alignItems: 'flex-start',
                 flexDirection: 'row'}} 
             >
+                {/* on navigate we pass the dice component and the nubmber of sides */}
                 <Pressable onPress={()=>navigation.navigate("RollDice", {dice: Dice6,sides:6})}>
                     <Dice6 number={6} color={neutral30}/>
                 </Pressable>

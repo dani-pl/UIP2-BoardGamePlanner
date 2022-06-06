@@ -19,6 +19,10 @@ export default class MyLibrary extends React.Component {
     }
 
 
+    /**
+     * Get the game library of the current user
+     * @returns {JSX}
+     */
     _loadGames() {
         var gameLibrary = this.props.gameLibraryOftheUser.map((game, idx) => {
             var game = getGameById(game);
@@ -36,14 +40,6 @@ export default class MyLibrary extends React.Component {
     render(){
         return (
             <View>
-                {/* {this.props.gameLibraryOftheUser.map((game, i) => (
-
-                    (<GameListItem 
-                        name={game.name} 
-                        image={game.image}
-                        key={i}
-                    ></GameListItem>)
-                ))} */}
                 { this._loadGames() }
             </View>
         )      

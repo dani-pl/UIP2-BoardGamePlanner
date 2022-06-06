@@ -6,7 +6,10 @@ import { FontAwesome} from '@expo/vector-icons';
 import DropShadow from "react-native-drop-shadow";
 
 
-
+/**
+ * returns the tool card for the tool on the tools page
+ * @returns {JSX}
+ */
 const ToolItem = ({tool, icon}) =>  {
   return (
         <View style={globalStyles.mainCardView } >

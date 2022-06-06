@@ -22,6 +22,7 @@ const Tools = ({navigation}) => {
 	// get the translation instance
 	const { t } = useTranslation();
   	
+	// walkthrough step
 	const {stop} = useWalkthroughStep({
 		number: 4,
 		OverlayComponent: WalkTools,
@@ -31,6 +32,7 @@ const Tools = ({navigation}) => {
 		// onFinish: () => navigation.navigate("CoinFlip")
 	})	
 
+	// walkthrough step
 	const {onLayout} = useWalkthroughStep({
 		number: 5,
 		OverlayComponent: WalkFinish,

@@ -10,27 +10,25 @@ import { firebase } from '../firebase';
 
 
 
+/**
+ * returns the top of the profile page
+ */
 export class ProfileComponent extends React.Component {
   render(){
-    // console.log(this.props);
     return (
-      <View  >
-          <View style={globalStyles.flexRow }>
+      <View >
+        <View style={globalStyles.flexRow }>
           <Image
-        style={[globalStyles.avatar, {backgroundColor: purple10}]}
-        source={{uri: this.props.image}}
-      />
-    {/* ? is for if this is undefined dont check for the email leave it undefined */}
-    <Text  style={globalStyles.h6} >@{this.props.username}</Text>
-      <Followers 
-          following={this.props.following}
-          followers={this.props.followers}
-            ></Followers>
-          </View>
-
-        
-          <Text  style={globalStyles.subtitle2} >{this.props.description}</Text>
-   
+            style={[globalStyles.avatar, {backgroundColor: purple10}]}
+            source={{uri: this.props.image}}
+          />
+          <Text  style={globalStyles.h6} >@{this.props.username}</Text>
+          <Followers 
+            following={this.props.following}
+            followers={this.props.followers}
+          />
+        </View>
+        <Text  style={globalStyles.subtitle2} >{this.props.description}</Text>
       </View>
 
 );
