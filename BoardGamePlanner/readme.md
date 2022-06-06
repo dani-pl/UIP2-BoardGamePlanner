@@ -2,7 +2,7 @@
 
 To start the project:
 
-1. npm install
+1. npm install / yarn install
 2. npm start / yarn start / expo start
 
 TODO:
